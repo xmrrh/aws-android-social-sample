@@ -19,6 +19,6 @@ weight: 3
 
 * 22 포트 혀용
 * 8888 포트 허용
-* 32768 ~ 60999 포트 허용
+* 32768-60999 포트 허용
 
 ![Example Service](/images/tic-tac-toe/ecs-sg.png)

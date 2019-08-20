@@ -24,3 +24,8 @@ docker: 18.06.1-ce
 ```
 sudo yum -y install jq
 ```
+
+#### c9 설치
+```
+sudo npm install -g c9 
+```

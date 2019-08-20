@@ -4,39 +4,43 @@ date: 2018-08-07T08:30:11-07:00
 weight: 3
 ---
 
-EC2 서비스로 넘어간다.
-타겟 그룹을 선택하고 **Create target group**을 선택하고 아래와 같이 입력한다.
+## 매치메이커 타겟 그룹 만들기 
 
-**Target group name**: matchmaker
+1. EC2 서비스로 넘어갑니다.
+1. 좌측 서이드 메뉴에서 **Target Groups**를 선택하고 **Create target group**을 선택하고 아래와 같이 입력합니다.
 
-**Target type**: IP
+* **Target group name**: matchmaker
 
-**VPC**: tic-tac-toe-vpc
+* **Target type**: IP
 
-**Health check settings**/**Path**: /api/health
+* **VPC**: tic-tac-toe-vpc
+
+* **Health check settings**/**Path**: /api/health
 ![Example Service](/images/tic-tac-toe/target_group-1.png)
 
-헬스체크 시간을 단축하기 위해 **Advanced health check settings**의 파라메터를 아래와 같이 수정한다.
+헬스체크 시간을 단축하기 위해 **Advanced health check settings**의 파라메터를 아래와 같이 수정합니다.
 
+* **Healthy threshold**: 3
 
-**Healthy threshold**: 3
-
-**Interval**: 10
+* **Interval**: 10
 
 ![Example Service](/images/tic-tac-toe/target_group-2.png)
 
 
-위와 같은 방법으로 2개의 타겟 그룹을 더 만든다.
-달라지는것은 **Target group name**와 **Health check settings**/**Path**다.
+위와 같은 방법으로 2개의 타겟 그룹을 더 만듭니다.
+달라지는것은 **Target group name**와 **Health check settings**/**Path** 입니다.
 
-**Target group name**: dashboard
+## 대시보드 타겟 그룹 만들기 
 
-**Health check settings**/**Path**: /
+* **Target group name**: dashboard
 
+* **Health check settings**/**Path**: /
 
-**Target group name**: tic-tc-toe-client
+## 클라이언트 타겟 그룹 만들기 
 
-**Health check settings**/**Path**: /
+* **Target group name**: tic-tc-toe-client
+
+* **Health check settings**/**Path**: /
 
 
 ![Example Service](/images/tic-tac-toe/target_group-3.png)

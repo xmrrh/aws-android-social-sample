@@ -1,34 +1,36 @@
 ---
-title: "매치 메이킹 작업 정의"
+title: "매치 메이커 작업 정의"
 date: 2018-08-07T08:30:11-07:00
 weight: 11
 ---
 
-1. 서비스에서 ECS로 이동
-1. 사이드 메뉴에서 **Task Definitions** 선택하고 **Create new Task Definition** 선택
-1. launch type을 **EC2**로 선택하고 **Next step** 선택
+1. 서비스에서 ECS로 이동합니다.
+1. 사이드 메뉴에서 **Task Definitions** 선택하고 **Create new Task Definition** 선택합니다.
+1. **launch type**을 **EC2**로 선택하고 **Next step** 선택합니다.
 1. 아래 내용을 입력합니다.
 
-**Task Definition Name**: matchmaker
+* **Task Definition Name**: matchmaker
 
-**Task Role**: tic-tac-toe-task-role
+* **Task Role**: tic-tac-toe-task-role
 
-**Network Mode**: Bridge
+* **Network Mode**: Bridge
 
-**Task execution role**: tic-tac-toe-task-role
+* **Task execution role**: tic-tac-toe-task-role
 
-**Task memory**: 256
+* **Task memory**: 256
 
-**Task CPU**: 512
+* **Task CPU**: 512
+
 ![Example Service](/images/tic-tac-toe/task-definition-matchmaker-1.png)
 
 **Add container**를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
 
-**Container name**: matchmaker
+* **Container name**: matchmaker
 
-**Image**: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/matchmaker:latest 의 형식입니다.
+* **Image**: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/matchmaker:latest 의 형식입니다.
 
-**Port mappings**항목에서 Host는 0, Container Port는 8888을 입력합니다.
+* **Port mappings**항목에서 Host는 0, Container Port는 8888을 입력합니다.
+
 ![Example Service](/images/tic-tac-toe/task-definition-matchmaker-2.png)
 
 **HELATHCHECK**/**Command**영역에 다음 내용을 넣습니다.
@@ -42,11 +44,11 @@ CMD-SHELL,curl -f http://localhost:8888/api/health || exit 1
 **ENVIRONMENT** 항목에서 컨테이너에게 넘길 환경변수를 설정합니다.
 필요한 환경변수는 3개 입니다.
 
-AWS_REGION: us-west-2
+  * AWS_REGION: us-west-2
 
-ECS_CLUSTER_NAME: tic-tac-toe-cluster
+  * ECS_CLUSTER_NAME: tic-tac-toe-cluster
 
-ECS_TASK_DEFINITION: tic-tac-toe-server
+  * ECS_TASK_DEFINITION: tic-tac-toe-server
 
 ![Example Service](/images/tic-tac-toe/task-definition-matchmaker-4.png)
 

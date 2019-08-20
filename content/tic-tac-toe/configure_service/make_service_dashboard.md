@@ -13,70 +13,70 @@ weight: 1
 1. 탭 메뉴에서 **Services**를 선택하고 **Create**를 선택합니다.
 1. 아래와 같이 입력합니다.
 
-**Launch type**: FARGATE
+* **Launch type**: FARGATE
 
-**Task Definition**: Family: dashboard, Revision: 1
+* **Task Definition**: Family: dashboard, Revision: 1
 
 
 {{% notice info %}}
-실수 없이 잘 따라오셨다면 dashboard 작업 정의는 1개의 리비전을 가지고 있습니다. 혹 개정을 하셨다면 가장 최신 리비전을 선택하시면 됩니다. 우리는 중간에 dashboard 컨테이너를 새로 묶어서 올린적이 있습니다. 컨테이너 리비전과 작업 정의 리비전은 다른것임을 염두하셔야 합니다. 
+실수 없이 잘 따라오셨다면 dashboard 작업 정의는 1개의 리비전을 가지고 있습니다. 중간에 개정을 하셨다면 가장 최신 리비전을 선택하시면 됩니다. 우리는 중간에 dashboard 컨테이너를 새로 묶어서 올린적이 있습니다. 컨테이너 리비전과 작업 정의 리비전은 다른것임을 염두하셔야 합니다. 
 {{% /notice %}}
 
-**Service name**: dashboard
+* **Service name**: dashboard
 
-**Number of tasks**: 2
+* **Number of tasks**: 2
 
 다른 옵션은 기본값을 사용합니다.
 
-**Next step** 을 선택합니다.
-
 ![Example Service](/images/tic-tac-toe/service-dashbard-1.png)
 
+**Next step**을 선택합니다.
 
 
 ## 네트워크 구성
 
 아래와 같이 입력합니다.
 
-**Cluster VPC**: tic-tac-toe-vpc
+* **Cluster VPC**: tic-tac-toe-vpc
 
-**Subnets**: 선택 가능한 2개의 서브넷 모두 선택
+* **Subnets**: 선택 가능한 2개의 서브넷 모두 선택
 
-**Security groups**
-1. **Edit** 선택
-1. **Select existing security group** 선택
-1. WebServer-SG 선택
+* **Security groups**
 
-**Auto-assign public IP** ENABLED
+  1. **Edit** 선택
+  1. **Select existing security group** 선택
+  1. WebServer-SG 선택
 
-**Load balancer type**: Application Load Balancer
+* **Auto-assign public IP** ENABLED
 
-**Service IAM role**: Create new role
+* **Load balancer type**: Application Load Balancer
 
-**Load balancer name**: dashboard-ALB
+* **Service IAM role**: Create new role
 
-**Container to load balance**/**Add to load balancer** 선택
+* **Load balancer name**: dashboard-ALB
 
-**Production listener port**: 80:HTTP 선택
+* **Container to load balance**/**Add to load balancer** 선택
 
-**Target group name**: dashboard
+* **Production listener port**: 80:HTTP 선택
 
-**Enable service discovery integration**: 선택 제거
+* **Target group name**: dashboard
 
-**Next step** 선택
+* **Enable service discovery integration**: 선택 제거
 
 ![Example Service](/images/tic-tac-toe/service-dashbard-2.png)
+
+**Next step**을 선택합니다.
 
 
 ![Example Service](/images/tic-tac-toe/service-dashbard-3.png)
 
 ## 오토 스케일링
 
-Do not adjust the service's desired count 선택
+Do not adjust the service's desired count 선택합니다.
 
 ## 리뷰
 
-**Create Service**를 선택하여 서비스 생성
+**Create Service**를 선택하여 서비스를 생성합니다.
 
 
 ## 서비스 생성 후
