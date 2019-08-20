@@ -1,5 +1,5 @@
 ---
-title: "워크샵에 IAM 역활 연결하기"
+title: "워크샵에 IAM 역할 연결하기"
 chapter: false
 weight: 26
 ---
