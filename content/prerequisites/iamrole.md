@@ -9,5 +9,7 @@ weight: 25
 1. **AWS service** 그리고 **EC2** 이 선택됐는지 확인하고, **Next: Permissions** 를 선택합니다.
 1. **AdministratorAccess** 가 선택됐는지 확인하고, **Next: Tags** 를 선택합니다.
 1. **Next: Review** 를 클릭합니다.
-1. 이름에 **tic-tac-toe-workshop-admin** 를 넣고 **Create Role** 를 선택합니다.
+1. 이름에 **tic-tac-toe-workshop-admin** 을 넣습니다.
+1. **Create Role** 를 선택하여 역할을 생성합니다.
+
 ![createrole](/images/createrole.png)

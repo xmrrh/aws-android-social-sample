@@ -8,17 +8,19 @@ weight: 4
 
 ## 대시보드 타겟 그룹 생성
 
-**Create target group**을 선택하고 아래와 같이 입력합니다.
+앞서 만든 매치메이커 타겟그룹과 과정은 동일합니다.
 
-**Target group name**: dashboard
+* **Create target group**을 선택하고 아래와 같이 입력합니다.
 
-**Target type**: ip
+* **Target group name**: dashboard
 
-**VPC**: tic-tac-toe-vpc
+* **Target type**: ip
 
-**Port**: 80
+* **VPC**: tic-tac-toe-vpc
 
-**Health check settings**/**Path**: /
+* **Port**: 80
+
+* **Health check settings**/**Path**: /
 
 나머지 정보는 기본으로 둡니다.
 
@@ -26,30 +28,38 @@ weight: 4
 
 헬스체크 시간을 단축하기 위해 **Advanced health check settings**의 파라메터를 아래와 같이 수정합니다.
 
-**Healthy threshold**: 2
+* **Healthy threshold**: 2
 
-**Interval**: 10
+* **Interval**: 10
 
 ![Example Service](/images/tic-tac-toe/target_group-2.png)
 
+**Create**를 선택하여 타겟그룹을 생성합니다.
+
+
 ## 클라이언트 타겟 그룹 생성
  
-**Create target group**을 선택하고 아래와 같이 입력합니다. 앞서 dashboard 타겟 그룹과 이름만 다릅니다.
+**Create target group**을 선택하고 아래와 같이 입력합니다. 위에서 만든 dashboard 타겟 그룹과 이름만 다릅니다.
 
-**Target group name**: tic-tac-toe-client
+* **Target group name**: tic-tac-toe-client
 
-**Target type**: ip
+* **Target type**: ip
 
-**VPC**: tic-tac-toe-vpc
+* **VPC**: tic-tac-toe-vpc
 
-**Port**: 80
+* **Port**: 80
 
-**Health check settings**/**Path**: /
+* **Health check settings**/**Path**: /
 
-**Target group name**: tic-tc-toe-client
+* **Target group name**: tic-tc-toe-client
 
-**Health check settings**/**Path**: /
+* **Health check settings**/**Path**: /
+
+**Create**를 선택하여 타겟그룹을 생성합니다.
 
 ## 결과 화면
 
+3개의 타겟그룹을 다 만들고 나면 다음과 같은 결과화면을 보게됩니다. Port와 Target type을 확인하시기 바랍니다.
+
 ![Example Service](/images/tic-tac-toe/target_group-3.png)
+

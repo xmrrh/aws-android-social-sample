@@ -27,7 +27,7 @@ weight: 3
 
 다른 옵션은 기본값을 사용합니다.
 
-**Next step** 을 선택합니다.
+**Next step**을 선택하여 다음 화면으로 넘어갑니다.
 
 
 ## 네트워크 구성
@@ -57,9 +57,9 @@ weight: 3
 
 **Target group name**: matchmaker
 
-**Enable service discovery integration**: 선택 제거
+**Enable service discovery integration**: 선택 해제
 
-**Next step** 선택
+**Next step**을 선택하여 다음 화면으로 넘어갑니다.
 
 ## 오토 스케일링
 

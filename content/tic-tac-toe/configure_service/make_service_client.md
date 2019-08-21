@@ -49,7 +49,7 @@ weight: 2
 
 **Target group name**: tic-tac-toe-client 선택
 
-**Enable service discovery integration**: 선택 제거
+**Enable service discovery integration**: 선택 해체
 
 **Next step** 선택
 

@@ -30,7 +30,7 @@ weight: 1
 
 ![Example Service](/images/tic-tac-toe/service-dashbard-1.png)
 
-**Next step**을 선택합니다.
+**Next step**을 선택하여 다음 화면으로 넘어갑니다.
 
 
 ## 네트워크 구성
@@ -61,11 +61,11 @@ weight: 1
 
 * **Target group name**: dashboard
 
-* **Enable service discovery integration**: 선택 제거
+* **Enable service discovery integration**: 선택 해제
 
 ![Example Service](/images/tic-tac-toe/service-dashbard-2.png)
 
-**Next step**을 선택합니다.
+**Next step**을 선택하여 다음 화면으로 넘어갑니다.
 
 
 ![Example Service](/images/tic-tac-toe/service-dashbard-3.png)
@@ -82,9 +82,14 @@ Do not adjust the service's desired count 선택합니다.
 ## 서비스 생성 후
 
 제대로 설정을 하고 서비스를 생성하면, 잠시 후 해당 서비스에서 2개의 FARGATE 작업이 실행됩니다.
-state가 PROVISIONING => PENDING => RUNNING 단계로 바뀌고나면 브러우저 주소창에 dashboard ALB의 주소를 입력하여 접속해봅니다.
+Last Status가 PROVISIONING => PENDING => RUNNING 단계로 바뀌때까지 기다립니다.
 
 ![Example Service](/images/tic-tac-toe/service-dashbard-4.png)
+
+
+바뀌고나면 브러우저 주소창에 dashboard ALB의 주소를 입력하여 접속해봅니다.
+
+![Example Service](/images/tic-tac-toe/service-dashbard-5.png)
 
 축하합니다! 성공적으로 첫번째 웹 서비스를 띄웠습니다.
 아직 매치메이커 서버가 없기때문에 페이지가 아무런 응답을 하지 않습니다.
