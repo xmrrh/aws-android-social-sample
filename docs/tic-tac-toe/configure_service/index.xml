@@ -18,9 +18,9 @@
       
       <guid>/tic-tac-toe/configure_service/make_service_dashboard/</guid>
       <description>대시보드 서비스는 daboard ALB와 FARGATE 작업을 연동한 웹서비스가 될 예정입니다.
-서비스 구성  ECS 서비스로 갑니다. 앞서 만든 tic-tac-toe-cluster를 선택합니다. 탭 메뉴에서 Services를 선택하고 Create를 선택합니다. 아래와 같이 입력합니다.  Launch type: FARGATE
-Task Definition: Family: dashboard, Revision: 1
-실수 없이 잘 따라오셨다면 dashboard 작업 정의는 1개의 리비전을 가지고 있습니다. 혹 개정을 하셨다면 가장 최신 리비전을 선택하시면 됩니다. 우리는 중간에 dashboard 컨테이너를 새로 묶어서 올린적이 있습니다. 컨테이너 리비전과 작업 정의 리비전은 다른것임을 염두하셔야 합니다.</description>
+서비스 구성  ECS 서비스로 갑니다. 앞서 만든 tic-tac-toe-cluster를 선택합니다. 탭 메뉴에서 Services를 선택하고 Create를 선택합니다. 아래와 같이 입력합니다.   Launch type: FARGATE
+ Task Definition: Family: dashboard, Revision: 1
+  실수 없이 잘 따라오셨다면 dashboard 작업 정의는 1개의 리비전을 가지고 있습니다. 중간에 개정을 하셨다면 가장 최신 리비전을 선택하시면 됩니다. 우리는 중간에 dashboard 컨테이너를 새로 묶어서 올린적이 있습니다.</description>
     </item>
     
     <item>

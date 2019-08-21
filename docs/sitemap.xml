@@ -28,7 +28,7 @@
   </url>
   
   <url>
-    <loc>/tic-tac-toe/configure_ecr/make_first_ecr/</loc>
+    <loc>/tic-tac-toe/configure_ecr/clone_source/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   
@@ -55,11 +55,6 @@
   
   <url>
     <loc>/tic-tac-toe/run_dedi_servers/run_game/</loc>
-    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tic-tac-toe/configure_ecr/make_others_ecr/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   
@@ -107,7 +102,7 @@
   </url>
   
   <url>
-    <loc>/tic-tac-toe/configure_ecr/make_containers_and_push/</loc>
+    <loc>/tic-tac-toe/configure_ecr/make_first_ecr/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   
@@ -130,17 +125,22 @@
   </url>
   
   <url>
+    <loc>/tic-tac-toe/configure_ecr/make_others_ecr/</loc>
+    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tic-tac-toe/configure_task_definition/make_task_defi_1/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tic-tac-toe/configure_ecr/container_detail/</loc>
+    <loc>/tic-tac-toe/configure_task_definition/make_task_defi_2/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/tic-tac-toe/configure_task_definition/make_task_defi_2/</loc>
+    <loc>/tic-tac-toe/configure_ecr/make_containers_and_push/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   
@@ -161,6 +161,11 @@
   
   <url>
     <loc>/tic-tac-toe/run_dedi_servers/end_workshop/</loc>
+    <lastmod>2018-08-07T08:30:11-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tic-tac-toe/configure_ecr/container_detail/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
   

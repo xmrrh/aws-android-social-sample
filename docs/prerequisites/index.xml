@@ -16,7 +16,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/prerequisites/account/</guid>
-      <description> 여러분의 계정은 새로운 IAM 역활(role)을 만들거나 다른 퍼미션(permission)을 만들 수 있는 권한이 있어야 합니다.
+      <description> 여러분의 계정은 새로운 IAM 역할(role)을 만들거나 다른 퍼미션(permission)을 만들 수 있는 권한이 있어야 합니다.
   관리자 권한이 있는 AWS 계정이 없다면: 여기를 눌러 새로 만드세요
  Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: Create a new IAM user to use for the workshop
  사용자 내용을 적습니다:  Attach the AdministratorAccess IAM Policy:  Click to create the new user:  Take note of the login URL and save:   </description>
@@ -39,12 +39,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/prerequisites/installtools/</guid>
-      <description> 앞으로 여러분이 Cloud9에서 실행해야 하는 명령어는 검은 박스에 있을것입니다. (검은 박스가 모두 명령어는 아닙니다!) 이것을 복사해서 Cloud9에 붙여넣을때 영억 선택 후 복사도 되지만 오른쪽 상단 &amp;ldquo;클립보드로 복사&amp;rdquo; 아이콘을 사용하면 더욱 쉽습니다.
+      <description>앞으로 여러분이 Cloud9에서 실행해야 하는 명령어는 검은 박스에 있을것입니다. (검은 박스가 모두 명령어는 아닙니다!) 이것을 복사해서 Cloud9에 붙여넣을때 영억 선택 후 복사도 되지만 오른쪽 상단 &amp;ldquo;클립보드로 복사&amp;rdquo; 아이콘을 사용하면 더욱 쉽습니다.
  필요한 툴 종류 실습에 사용한 툴과 버전은 다음과 같습니다. Cloud9은 Node.js, Typescript, docker가 이미 설치되어있으니 생략하지만 랩탑에서 실습할때는 아래 툴을 설치해 주시기 바랍니다.
 Node.JS: 10.16.2
 Typescript: 3.5.3
 docker: 18.06.1-ce
-JQ 설치 sudo yum -y install jq  </description>
+JQ 설치 아래 명령어를 Cloud9의 터미널에 입력합니다.
+sudo yum -y install jq  c9 설치 아래 명령어를 Cloud9의 터미널에 입력합니다.</description>
     </item>
     
     <item>
@@ -53,11 +54,11 @@ JQ 설치 sudo yum -y install jq  </description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/prerequisites/iamrole/</guid>
-      <description> 다음 링크를 따라가서 역할을 만듭니다. 관리자 권한을 포함하는 IAM 역할 생성 페이지 AWS service 그리고 EC2 이 선택됐는지 확인하고, Next: Permissions 를 선택합니다. AdministratorAccess 가 선택됐는지 확인하고, Next: Tags 를 선택합니다. Next: Review 를 클릭합니다. 이름에 tic-tac-toe-workshop-admin 를 넣고 Create Role 를 선택합니다.   </description>
+      <description> 다음 링크를 따라가서 역할을 만듭니다. 관리자 권한을 포함하는 IAM 역할 생성 페이지 AWS service 그리고 EC2 이 선택됐는지 확인하고, Next: Permissions 를 선택합니다. AdministratorAccess 가 선택됐는지 확인하고, Next: Tags 를 선택합니다. Next: Review 를 클릭합니다. 이름에 tic-tac-toe-workshop-admin 을 넣습니다. Create Role 를 선택하여 역할을 생성합니다.  </description>
     </item>
     
     <item>
-      <title>워크샵에 IAM 역활 연결하기</title>
+      <title>워크샵에 IAM 역할 연결하기</title>
       <link>/prerequisites/ec2instance/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

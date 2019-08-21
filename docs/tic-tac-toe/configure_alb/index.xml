@@ -28,15 +28,16 @@ ECS 클러스터 생성시 자동으로 만든 VPC를 확인합니다. 앞서 �
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
       <guid>/tic-tac-toe/configure_alb/make_matchmaker_target_group/</guid>
-      <description>EC2 서비스로 넘어갑니다. 좌측 사이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.  Target group name: matchmaker
-Target type: instance
-VPC: tic-tac-toe-vpc
-Port: 8888
-Health check settings/Path: /api/health
-나머지 정보는 기본으로 둡니다.
+      <description>EC2 서비스로 넘어갑니다. 좌측 사이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker
+ Target type: instance
+ VPC: tic-tac-toe-vpc
+ Port: 8888
+ Health check settings/Path: /api/health
+  나머지 정보는 기본으로 둡니다.
 헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.
-Healthy threshold: 2
-Interval: 10</description>
+ Healthy threshold: 2
+ Interval: 10
+  Create를 선택하여 타겟그룹을 생성합니다.</description>
     </item>
     
     <item>
@@ -46,18 +47,18 @@ Interval: 10</description>
       
       <guid>/tic-tac-toe/configure_alb/make_other_target_groups/</guid>
       <description>타겟그룹을 2개 더 만듭니다.
-대시보드 타겟 그룹 생성 Create target group을 선택하고 아래와 같이 입력합니다.
-Target group name: dashboard
-Target type: ip
-VPC: tic-tac-toe-vpc
-Port: 80
-Health check settings/Path: /
-나머지 정보는 기본으로 둡니다.
+대시보드 타겟 그룹 생성 앞서 만든 매치메이커 타겟그룹과 과정은 동일합니다.
+ Create target group을 선택하고 아래와 같이 입력합니다.
+ Target group name: dashboard
+ Target type: ip
+ VPC: tic-tac-toe-vpc
+ Port: 80
+ Health check settings/Path: /
+  나머지 정보는 기본으로 둡니다.
 헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.
-Healthy threshold: 2
-Interval: 10
-클라이언트 타겟 그룹 생성 Create target group을 선택하고 아래와 같이 입력합니다. 앞서 dashboard 타겟 그룹과 이름만 다릅니다.
-Target group name: tic-tac-toe-client</description>
+ Healthy threshold: 2
+ Interval: 10
+  Create를 선택하여 타겟그룹을 생성합니다.</description>
     </item>
     
     <item>
@@ -66,12 +67,11 @@ Target group name: tic-tac-toe-client</description>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
       <guid>/tic-tac-toe/configure_alb/make_albs/</guid>
-      <description>매치메이커 로드밸런서 생성 매치메이커 로드밸런서 설정  사이드 메뉴에서 Load Balancers 메뉴를 선택하고 Create Load Balancer를 선택한다. Application Load Balancer를 선택한다. 아래와 같이 내용을 채운다. 적혀있지 않으면 기본값을 그냥 둔다.  Name: matchmaker-ALB
-Availablility Zones 의 VPC: tic-tac-toe-vpc
-Availability Zones의 모든 항목을 체크.
-Next 선택
-보안 설정 HTTPS를 사용하지 않아서 나오는 경고는 무시하고 Next선택
-보안 그룹 설정  Security Groups 에서 Create a new security group 선택 Security group name: WebServer-SG 입력 포트 설정은 그대로 Next 선택  라우팅 설정 Routing 설정에서 아래와 같이 입력</description>
+      <description>매치메이커 로드밸런서 생성 매치메이커 로드밸런서 설정  사이드 메뉴에서 Load Balancers 메뉴를 선택하고 Create Load Balancer를 선택합니다. Application Load Balancer를 선택합니다. 아래와 같이 내용을 입력합니다.   Name: matchmaker-ALB
+ Availablility Zones 의 VPC: tic-tac-toe-vpc
+ Availability Zones의 모든 항목을 체크
+  가용영역 (Availability Zones)은 워크샵을 하는 사람에따라 다르게뜰 수 있습니다. us-west-2a, us-west-2b 가 아니라 us-west-2c, us-west-2d 가 나올수도 있습니다. us-west-2로 시작하면 문제 없으니 모두 선택해줍니다.
+ 다른 항목은 기본값을 사용합니다.</description>
     </item>
     
   </channel>

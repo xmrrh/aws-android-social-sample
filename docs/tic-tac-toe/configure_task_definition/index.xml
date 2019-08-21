@@ -28,19 +28,20 @@ Next를 선택하여 Review 페이지까지 이동합니다.
     </item>
     
     <item>
-      <title>매치 메이킹 작업 정의</title>
+      <title>매치 메이커 작업 정의</title>
       <link>/tic-tac-toe/configure_task_definition/make_task_defi_1/</link>
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
       <guid>/tic-tac-toe/configure_task_definition/make_task_defi_1/</guid>
-      <description>서비스에서 ECS로 이동 사이드 메뉴에서 Task Definitions 선택하고 Create new Task Definition 선택 launch type을 EC2로 선택하고 Next step 선택 아래 내용을 입력합니다.  Task Definition Name: matchmaker
-Task Role: tic-tac-toe-task-role
-Network Mode: Bridge
-Task execution role: tic-tac-toe-task-role
-Task memory: 256
-Task CPU: 512 Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
-Container name: matchmaker
-Image: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/matchmaker:latest 의 형식입니다.</description>
+      <description>서비스에서 ECS로 이동합니다. 사이드 메뉴에서 Task Definitions 선택하고 Create new Task Definition 선택합니다. launch type을 EC2로 선택하고 Next step 선택합니다. 아래 내용을 입력합니다.   Task Definition Name: matchmaker
+ Task Role: tic-tac-toe-task-role
+ Network Mode: Bridge
+ Task execution role: tic-tac-toe-task-role
+ Task memory: 256
+ Task CPU: 512
+  Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
+ Container name: matchmaker
+ Image: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다.</description>
     </item>
     
     <item>
@@ -50,17 +51,16 @@ Image: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다. 10
       
       <guid>/tic-tac-toe/configure_task_definition/make_task_defi_2/</guid>
       <description>두번째 작업 정의는 tic-tac-toe-server 를 만듭니다. 앞서 matchmaker 작업 정의를 참고하여 아래 항목을 적용한 작업 정의를 만들면 됩니다.
-launch type: EC2
-Task Definition Name: tic-tac-toe-server
-Task Role: tic-tac-toe-task-role
-Network Mode: Bridge
-Task execution role: tic-tac-toe-task-role
-Task memory: 256
-Task CPU: 256
-Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
-Container name: tic-tac-toe-server
-Image: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/tic-tac-toe-server:latest 의 형식입니다.
-Port mappings항목에서 Host는 0, Container Port는 3553을 입력합니다.</description>
+ launch type: EC2
+ Task Definition Name: tic-tac-toe-server
+ Task Role: tic-tac-toe-task-role
+ Network Mode: Bridge
+ Task execution role: tic-tac-toe-task-role
+ Task memory: 256
+ Task CPU: 256
+ Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
+ Container name: tic-tac-toe-server
+ Image: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다.</description>
     </item>
     
     <item>
@@ -70,18 +70,16 @@ Port mappings항목에서 Host는 0, Container Port는 3553을 입력합니다.<
       
       <guid>/tic-tac-toe/configure_task_definition/make_task_defi_3/</guid>
       <description>세번째 작업 정의는 tic-tac-toe-client 를 만듭니다. 이 작업은 간단한 웹 호스팅으로 FARGATE타입으로 생성하겠습니다.
-launch type: FARGATE
-Task Definition Name: tic-tac-toe-client
-Task Role: tic-tac-toe-task-role
-Task execution role: tic-tac-toe-task-role
-Task CPU: 0.25 vCPU
-Task memory: 0.5GB
-Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
-Container name: tic-tac-toe-client
-Image: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/tic-tac-toe-client:latest 의 형식입니다.
-Port mappings: 80
-HELATHCHECK 항목은 입력하지 않습니다.
-Log configuration/Auto-configure CloudWatch Logs: 활성화 s</description>
+ launch type: FARGATE
+ Task Definition Name: tic-tac-toe-client
+ Task Role: tic-tac-toe-task-role
+ Task execution role: tic-tac-toe-task-role
+ Task CPU: 0.25 vCPU
+ Task memory: 0.5GB
+ Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
+ Container name: tic-tac-toe-client
+ Image: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/tic-tac-toe-client:latest 의 형식입니다.
+ Port mappings: 80</description>
     </item>
     
     <item>
@@ -91,17 +89,15 @@ Log configuration/Auto-configure CloudWatch Logs: 활성화 s</description>
       
       <guid>/tic-tac-toe/configure_task_definition/make_task_defi_4/</guid>
       <description>마지막으로 만들 작업 정의는 dashboard 를 만듭니다. 앞서 matchmaker 작업 정의를 참고하여 아래 항목을 적용한 작업 정의를 만들면 됩니다.
-launch type: FARGATE
-Task Definition Name: dashboard
-Task Role: tic-tac-toe-task-role
-Task execution role: tic-tac-toe-task-role
-Task CPU: 0.25 vCPU
-Task memory: 0.5GB
-Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
-Container name: dashboard
-Image: dashboard 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/dashboard:latest 의 형식입니다.
-Port mappings: 80
-HELATHCHECK 항목은 입력하지 않습니다.</description>
+ launch type: FARGATE
+ Task Definition Name: dashboard
+ Task Role: tic-tac-toe-task-role
+ Task execution role: tic-tac-toe-task-role
+ Task CPU: 0.25 vCPU
+ Task memory: 0.5GB
+ Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
+ Container name: dashboard
+ Image: dashboard 컨테이너 이미지 이름과 리비전을 넣습니다.</description>
     </item>
     
     <item>
@@ -110,7 +106,7 @@ HELATHCHECK 항목은 입력하지 않습니다.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/tic-tac-toe/configure_task_definition/rebuild_dashboard/</guid>
-      <description>dashboard 소스코드에는 접속해야할 matchmaker 주소와 게임 클라이언트를 다운로드 할 주소가 필요합니다. 이 값을 넣어서 다시 빌드로 묶어서 리포지토리에 올리도록 합니다.
+      <description>dashboard 는 접속해야할 matchmaker 주소와 iframe으로 띄울 게임 클라이언트 주소가 필요합니다. 이 값을 넣어서 다시 빌드로 묶어서 리포지토리에 올리도록 합니다.
  EC2 서비스로 넘어갑니다. 왼쪽 사이드 메뉴에서 Load Balancers 를 선택햅니다. matchmaker-ALB 를 선택합니다. 하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다.   이번에는 tic-tac-toe-client-ALB 를 선택합니다. 하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다. Cloud9 워크샵으로 이동합니다. dashboard 프로젝트 밑에 있는 .env.production 파일을 편집합니다.</description>
     </item>
     

@@ -17,9 +17,7 @@
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
       <guid>/tic-tac-toe/configure_cloudmap/check_vpc/</guid>
-      <description>서비스에서 VPC로 이동
-ECS 클러스터 생성시 자동으로 만든 VPC를 확인한다. 적어놨으면 좋고 아니면 CIDR가 10.0.0.0/16 인것을 찾는다.
-알아보기 쉽도록 해당 vpc의 이름에 tic-tac-toe-vpc 를 적어준다.</description>
+      <description> 서비스에서 VPC로 이동합니다. ECS 클러스터 생성시 자동으로 만든 VPC를 확인합니다. 적어놨으면 좋고 아니면 CIDR가 10.0.0.0/16 인것을 찾습니다. 알아보기 쉽도록 해당 vpc의 이름에 tic-tac-toe-vpc 를 적어줍니다.  </description>
     </item>
     
     <item>
@@ -28,17 +26,13 @@ ECS 클러스터 생성시 자동으로 만든 VPC를 확인한다. 적어놨으
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
       <guid>/tic-tac-toe/configure_cloudmap/make_target_group/</guid>
-      <description>EC2 서비스로 넘어간다. 타겟 그룹을 선택하고 Create target group을 선택하고 아래와 같이 입력한다.
-Target group name: matchmaker
-Target type: IP
-VPC: tic-tac-toe-vpc
-Health check settings/Path: /api/health 헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정한다.
-Healthy threshold: 3
-Interval: 10
-위와 같은 방법으로 2개의 타겟 그룹을 더 만든다. 달라지는것은 Target group name와 Health check settings/Path다.
-Target group name: dashboard
-Health check settings/Path: /
-Target group name: tic-tc-toe-client</description>
+      <description>매치메이커 타겟 그룹 만들기  EC2 서비스로 넘어갑니다. 좌측 서이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker
+ Target type: IP
+ VPC: tic-tac-toe-vpc
+ Health check settings/Path: /api/health   헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.
+ Healthy threshold: 3
+ Interval: 10
+  위와 같은 방법으로 2개의 타겟 그룹을 더 만듭니다.</description>
     </item>
     
     <item>
