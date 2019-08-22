@@ -10,5 +10,57 @@
 	<atom:link href="/cleanup/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>ECS 클러스터 삭제</title>
+      <link>/cleanup/delete_cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cleanup/delete_cluster/</guid>
+      <description>ECS 클러스터 삭제 서비스 종료 아래 명령어를 Cloud9 터미널에 입력하여 서비스의 작업을 중단합니다.
+aws ecs update-service --cluster tic-tac-toe-cluster --service matchmaker --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service dashboard --desired-count 0  해당 서비스의 작업이 종료될때까지 1분가량 기다려줍니다.
+작업 종료  ECS 서비스로 갑니다. 사이드의 Clusters 메뉴를 선택합니다. tic-tac-toe-cluster 를 선택합니다. 탭 메뉴에서 Tasks를 선택합니다. Stop All 을 선택합니다.   다이얼로그 창의 텍스트 박스에 STOP ALL 을 입력합니다.</description>
+    </item>
+    
+    <item>
+      <title>EC2 삭제</title>
+      <link>/cleanup/delete_ec2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cleanup/delete_ec2/</guid>
+      <description>ECS 클러스터를 삭제할때 사용한 EC2는 자동삭제 되지 않습니다.
+아래 명령어를 Cloud9 터미널에 입력하여 ECS 클러스터로 사용했던 EC2를 종료합니다.
+aws ec2 describe-instances --filter Name=tag:Name,Values=&amp;quot;ECS Instance - EC2ContainerService-tic-tac-toe-cluster&amp;quot; | jq -r &#39;.Reservations[] | .Instances[] | .InstanceId&#39; &amp;gt; /tmp/ids aws ec2 terminate-instances --instance-ids $(cat /tmp/ids | paste -sd &amp;quot; &amp;quot; -) rm /tmp/ids  EC2 서비스로 가서 인스터스가 모두 종료되었는지 (종료 중인지) 확인합니다.</description>
+    </item>
+    
+    <item>
+      <title>클라우드 맵 삭제</title>
+      <link>/cleanup/delete_cloudmap/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cleanup/delete_cloudmap/</guid>
+      <description>아래 명령어를 Cloud9 터미널에 입력하여 Cloud Map 리소스를 삭제합니다.
+aws servicediscovery delete-service --id $(aws servicediscovery list-services | jq -r &#39;.Services[0].Id&#39;) aws servicediscovery delete-namespace --id $(aws servicediscovery list-namespaces | jq -r &#39;.Namespaces[0].Id&#39;)  네임스페이스를 지우는데는 시간이 몇분정도 걸립니다. 5분정도 기다린 후 확인을 해주세요.</description>
+    </item>
+    
+    <item>
+      <title>ALB 삭제</title>
+      <link>/cleanup/delete_alb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cleanup/delete_alb/</guid>
+      <description>아래 명령어를 Cloud9 터미널에 입력하여 ALB를 삭제합니다.
+aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names tic-tac-toe-client-ALB | jq -r &#39;.LoadBalancers[0].LoadBalancerArn&#39;) aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names matchmaker-ALB | jq -r &#39;.LoadBalancers[0].LoadBalancerArn&#39;) aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names dashboard-ALB | jq -r &#39;.LoadBalancers[0].LoadBalancerArn&#39;)  아래 명령어를 Cloud9 터미널에 입력하여 타겟 그룹을 삭제합니다.
+aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names dashboard | jq -r &#39;.TargetGroups[] | .TargetGroupArn&#39;) aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names matchmaker | jq -r &#39;.</description>
+    </item>
+    
+    <item>
+      <title>워크스페이스 삭제</title>
+      <link>/cleanup/delete_workspace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/cleanup/delete_workspace/</guid>
+      <description> Cloud9 서비스로 갑니다. 이름이 tic-tac-toe-workshop 인 enviorment를 선택하고 Delete를 눌러 삭제합니다.  </description>
+    </item>
+    
   </channel>
 </rss>

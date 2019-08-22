@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>서비스 구성 :: ECS HoL</title>
+    <title>ALB 삭제 :: ECS HoL</title>
 
     
     <link href="../../css/nucleus.css?1566451219" rel="stylesheet">
@@ -47,7 +47,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tic-tac-toe/configure_service/">
+  <body class="" data-url="/cleanup/delete_alb/">
     <nav id="sidebar" class="">
 
 
@@ -265,7 +265,7 @@
   
     
     <li data-nav-id="/tic-tac-toe/" title="컨테이너로 데디 서버 운영하기" class="dd-item 
-        parent
+        
         
         
         ">
@@ -861,8 +861,8 @@
   
     
     <li data-nav-id="/tic-tac-toe/configure_service/" title="서비스 구성" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../../tic-tac-toe/configure_service/">
@@ -1088,7 +1088,7 @@
   
     
     <li data-nav-id="/cleanup/" title="Cleanup" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1169,7 +1169,7 @@
  
   
     
-      <li data-nav-id="/cleanup/delete_alb/" title="ALB 삭제" class="dd-item ">
+      <li data-nav-id="/cleanup/delete_alb/" title="ALB 삭제" class="dd-item active">
         <a href="../../cleanup/delete_alb/">
         ALB 삭제
         
@@ -1233,7 +1233,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/aws-samples/eks-workshop/edit/master/content/tic-tac-toe/configure_service/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/aws-samples/eks-workshop/edit/master/content/cleanup/delete_alb.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -1248,6 +1248,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                     
           
@@ -1260,7 +1262,7 @@
             
           
           
-            <a href='../../'>Amazon EKS Wo</a> > <a href='../../tic-tac-toe/'>컨테이너로 데디 서버 운영하기</a> > 서비스 구성
+            <a href='../../'>Amazon EKS Wo</a> > <a href='../../cleanup/'>Cleanup</a> > ALB 삭제
           
          
           
@@ -1270,36 +1272,52 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
               </div>
             </div>
             
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>ALB 삭제</h1>
           
 
         
 
 
+<p>아래 명령어를 Cloud9 터미널에 입력하여 ALB를 삭제합니다.</p>
 
-	
+<pre><code>aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names tic-tac-toe-client-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn')
+aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names matchmaker-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn')
+aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names dashboard-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn')
+</code></pre>
 
-<h1 id="서비스-구성">서비스 구성</h1>
+<p>아래 명령어를 Cloud9 터미널에 입력하여 타겟 그룹을 삭제합니다.</p>
 
-<p>이제 사전 준비 작업이 끝났습니다. ECS 서비스를 만들고 실제 게임과 대시보드를 띄워보겠습니다.</p>
+<pre><code>aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names dashboard | jq -r '.TargetGroups[] | .TargetGroupArn')
+aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names matchmaker | jq -r '.TargetGroups[] | .TargetGroupArn')
+aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names tic-tac-toe-client | jq -r '.TargetGroups[] | .TargetGroupArn')
+</code></pre>
 
-
-
+<ol>
+<li><strong>EC2</strong> 서비스 로 넘어갑니다.</li>
+<li>화면의 좌측 사이드 메뉴에서 <strong>Load Balancers</strong>를 선택하고 워크샵에서 생성한 ALB가 모두 삭제됐는지 확인합니다.</li>
+<li>화면의 좌측 사이드 메뉴에서 <strong>Target Groups</strong>를 선택하고 워크샵에서 생성한 타겟그룹이 모두 삭제됐는지 확인합니다.</li>
+</ol>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div>
         
@@ -1482,7 +1500,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1497,9 +1514,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1917,90 +1931,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                 
                 
 
@@ -2069,9 +1999,6 @@
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -2156,6 +2083,45 @@
             
         
                     
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -2172,6 +2138,58 @@
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -2182,10 +2200,10 @@
 
 
         
-            <a class="nav nav-prev" href="../../tic-tac-toe/configure_cloudmap/make_cloudmap/" title="클라우드 맵 만들기"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../cleanup/delete_cloudmap/" title="클라우드 맵 삭제"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../tic-tac-toe/configure_service/make_service_dashboard/" title="대시보드 서비스 만들기" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../cleanup/delete_workspace/" title="워크스페이스 삭제" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -2221,3 +2239,4 @@
 
   </body>
 </html>
+

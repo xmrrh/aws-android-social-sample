@@ -45,6 +45,10 @@
   </url>
   
   <url>
+    <loc>/cleanup/delete_cluster/</loc>
+  </url>
+  
+  <url>
     <loc>/tic-tac-toe/build_cluster/</loc>
   </url>
   
@@ -61,6 +65,10 @@
   <url>
     <loc>/tic-tac-toe/configure_service/make_service_client/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cleanup/delete_ec2/</loc>
   </url>
   
   <url>
@@ -87,6 +95,10 @@
   </url>
   
   <url>
+    <loc>/cleanup/delete_cloudmap/</loc>
+  </url>
+  
+  <url>
     <loc>/tic-tac-toe/configure_alb/make_other_target_groups/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
   </url>
@@ -94,6 +106,14 @@
   <url>
     <loc>/tic-tac-toe/configure_service/make_service_done/</loc>
     <lastmod>2018-08-07T08:30:11-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/cleanup/delete_alb/</loc>
+  </url>
+  
+  <url>
+    <loc>/cleanup/delete_workspace/</loc>
   </url>
   
   <url>

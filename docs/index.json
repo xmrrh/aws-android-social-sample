@@ -63,6 +63,13 @@
 	"content": " ECS 작업이 사용할 IAM 역할을 만듭니다.\n역할 생성  IAM 에 가서 Roles 를 선택합니다. Create role을 선택합니다. 위에서부터 순서대로 AWS service/Elastic Container Service/Elastic Container Service Task 를 선택합니다.   퍼미션 생성 Create role 화면에서 다음 퍼미션을 찾아서 추가합니다.\nAmazonEC2ContainerRegistryReadOnly\nAmazonECS_FullAccess\nAWSCloudMapFullAccess\nCloudWatchLogsFullAccess\nNext를 선택하여 Review 페이지까지 이동합니다.\n리뷰 Role name 에는 tic-tac-toe-task-role 을 입력하고 Create role을 선택합니다. "
 },
 {
+	"uri": "/cleanup/delete_cluster/",
+	"title": "ECS 클러스터 삭제",
+	"tags": [],
+	"description": "",
+	"content": " ECS 클러스터 삭제 서비스 종료 아래 명령어를 Cloud9 터미널에 입력하여 서비스의 작업을 중단합니다.\naws ecs update-service --cluster tic-tac-toe-cluster --service matchmaker --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service dashboard --desired-count 0  해당 서비스의 작업이 종료될때까지 1분가량 기다려줍니다.\n작업 종료  ECS 서비스로 갑니다. 사이드의 Clusters 메뉴를 선택합니다. tic-tac-toe-cluster 를 선택합니다. 탭 메뉴에서 Tasks를 선택합니다. Stop All 을 선택합니다.   다이얼로그 창의 텍스트 박스에 STOP ALL 을 입력합니다. Stop all을 선택하여 모든 작업을 정지시킵니다.  새로고침 아이콘을 눌러 모든 작업(Task)이 종료된것을 확인하면 다음으로 넘어가세요.\n 아래 명령어를 Cloud9 터미널에 입력하여 등록된 서비스를 해지합니다.\naws ecs delete-service --cluster tic-tac-toe-cluster --service matchmaker aws ecs delete-service --cluster tic-tac-toe-cluster --service dashboard aws ecs delete-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client  아래 명령어를 Cloud9 터미널에 입력하여 클러스터를 삭제합니다.\naws ecs delete-cluster --cluster tic-tac-toe-cluster  ECS 클러스터를 모두 삭제 했습니다.\n"
+},
+{
 	"uri": "/tic-tac-toe/build_cluster/",
 	"title": "ECS 클러스터 생성",
 	"tags": [],
@@ -89,6 +96,13 @@
 	"tags": [],
 	"description": "",
 	"content": " 클라이언트 서비스는 tic-tac-toe-client-ALB와 FARGATE 작업을 연동한 웹서비스가 될 예정입니다. 앞 페이지의 생성 경험을 살려 아래 값대로 서비스를 생성해 주시기 바랍니다.\n서비스 구성 Launch type: FARGATE\nTask Definition: Family: tic-tac-toe-client, Revision: 1\nService name: tic-tac-toe-client\nNumber of tasks: 2\n다른 옵션은 기본값을 사용합니다.\nNext step 을 선택합니다.\n네트워크 구성 아래와 같이 입력합니다.\nCluster VPC: tic-tac-toe-vpc\nSubnets: 선택 가능한 2개의 서브넷 모두 선택\nSecurity groups 1. Edit 선택 1. Select existing security group 선택 1. WebServer-SG 선택\nAuto-assign public IP ENABLED\nLoad balancer type: Application Load Balancer\nService IAM role: 대시보드 서비스를 만들때 자동 생성한 IAM 역할이 있습니다. 이것을 선택합니다.\nLoad balancer name: tic-tac-toe-client-ALB\nContainer to load balance/Add to load balancer 선택\nProduction listener port: 80:HTTP 선택\nTarget group name: tic-tac-toe-client 선택\nEnable service discovery integration: 선택 해체\nNext step 선택\n오토 스케일링 Do not adjust the service\u0026rsquo;s desired count 선택\n리뷰 Create Service를 선택하여 서비스 생성\n서비스 생성 후 브라우저 주소창에 tic-tac-toe-client-ALB 의 주소를 넣고 정상 동작하는지 확인합니다.\n"
+},
+{
+	"uri": "/cleanup/delete_ec2/",
+	"title": "EC2 삭제",
+	"tags": [],
+	"description": "",
+	"content": "ECS 클러스터를 삭제할때 사용한 EC2는 자동삭제 되지 않습니다.\n아래 명령어를 Cloud9 터미널에 입력하여 ECS 클러스터로 사용했던 EC2를 종료합니다.\naws ec2 describe-instances --filter Name=tag:Name,Values=\u0026quot;ECS Instance - EC2ContainerService-tic-tac-toe-cluster\u0026quot; | jq -r '.Reservations[] | .Instances[] | .InstanceId' \u0026gt; /tmp/ids aws ec2 terminate-instances --instance-ids $(cat /tmp/ids | paste -sd \u0026quot; \u0026quot; -) rm /tmp/ids  EC2 서비스로 가서 인스터스가 모두 종료되었는지 (종료 중인지) 확인합니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/build_cluster/build_cluster/",
@@ -126,6 +140,13 @@
 	"content": "클러스터를 만들면서 자동으로 생성된 보안그룹은 우리가 원하는 포트를 포함하고 있지 않습니다. 이를 수정해줍니다.\n 상단의 왼쪽의 Services 메뉴를 통해 EC2로 넘어갑니다. 좌측 사이드 메뉴에서 Security Groups를 선택합니다. 필터에서 tic-tac-toe-cluster를 입력합니다. 하단에 하나의 보안그룹이 나타압니다. 보안그룹을 선택하고 하단의 탭 메뉴에서 Inbound를 선택합니다. Edit를 선택합니다. 아래와 같이 수정합니다.\n 22 포트 혀용, 소스는 any 8888 포트 허용, 소스는 any 32768-60999 포트 허용, 소스는 any   Save를 선택하여 보안그룹을 생성합니다.\n"
 },
 {
+	"uri": "/cleanup/delete_cloudmap/",
+	"title": "클라우드 맵 삭제",
+	"tags": [],
+	"description": "",
+	"content": "아래 명령어를 Cloud9 터미널에 입력하여 Cloud Map 리소스를 삭제합니다.\naws servicediscovery delete-service --id $(aws servicediscovery list-services | jq -r '.Services[0].Id') aws servicediscovery delete-namespace --id $(aws servicediscovery list-namespaces | jq -r '.Namespaces[0].Id')  네임스페이스를 지우는데는 시간이 몇분정도 걸립니다. 5분정도 기다린 후 확인을 해주세요.\n"
+},
+{
 	"uri": "/tic-tac-toe/configure_alb/make_other_target_groups/",
 	"title": "대시보드 타겟 그룹 만들기",
 	"tags": [],
@@ -138,6 +159,20 @@
 	"tags": [],
 	"description": "",
 	"content": "아까 띄워둔 대시보드를 새로고침 합니다. 창을 닫았다면 dashboard-ALB의 주소를 다시 입력합니다. 매치메이커 서버가 정상적으로 뜨고 잘 연결된다면 현재 유저수가 1로 잘 표시됩니다. (내지는 1보다 큽니다.) 브라우저를 여러개 띄웠다면 숫자는 다를 수 있습니다.\n이제 모든 준비는 끝났습니다. 게임서버를 준비시켜보겠습니다. "
+},
+{
+	"uri": "/cleanup/delete_alb/",
+	"title": "ALB 삭제",
+	"tags": [],
+	"description": "",
+	"content": "아래 명령어를 Cloud9 터미널에 입력하여 ALB를 삭제합니다.\naws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names tic-tac-toe-client-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn') aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names matchmaker-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn') aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names dashboard-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn')  아래 명령어를 Cloud9 터미널에 입력하여 타겟 그룹을 삭제합니다.\naws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names dashboard | jq -r '.TargetGroups[] | .TargetGroupArn') aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names matchmaker | jq -r '.TargetGroups[] | .TargetGroupArn') aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names tic-tac-toe-client | jq -r '.TargetGroups[] | .TargetGroupArn')   EC2 서비스 로 넘어갑니다. 화면의 좌측 사이드 메뉴에서 Load Balancers를 선택하고 워크샵에서 생성한 ALB가 모두 삭제됐는지 확인합니다. 화면의 좌측 사이드 메뉴에서 Target Groups를 선택하고 워크샵에서 생성한 타겟그룹이 모두 삭제됐는지 확인합니다.  "
+},
+{
+	"uri": "/cleanup/delete_workspace/",
+	"title": "워크스페이스 삭제",
+	"tags": [],
+	"description": "",
+	"content": " Cloud9 서비스로 갑니다. 이름이 tic-tac-toe-workshop 인 enviorment를 선택하고 Delete를 눌러 삭제합니다.  "
 },
 {
 	"uri": "/tic-tac-toe/configure_ecr/",
@@ -169,7 +204,7 @@
 },
 {
 	"uri": "/prerequisites/",
-	"title": "워크샵 시쟉하기",
+	"title": "워크샵 시작하기",
 	"tags": [],
 	"description": "",
 	"content": " 워크샵 시작 이번 워크샵은 Cloud9 에서 개발환경을 구축하고 진행하게 됩니다.\n이 문서는 한글 표기를 따르지만 스크린샷은 영문 콘솔로 진행했습니다.\n"
@@ -256,7 +291,7 @@
 	"title": "필요한 툴 설치하기",
 	"tags": [],
 	"description": "",
-	"content": " 앞으로 여러분이 Cloud9에서 실행해야 하는 명령어는 검은 박스에 있을것입니다. (검은 박스가 모두 명령어는 아닙니다!) 이것을 복사해서 Cloud9에 붙여넣을때 영억 선택 후 복사도 되지만 오른쪽 상단 \u0026ldquo;클립보드로 복사\u0026rdquo; 아이콘을 사용하면 더욱 쉽습니다.\n 필요한 툴 종류 실습에 사용한 툴과 버전은 다음과 같습니다. Cloud9은 Node.js, Typescript, docker가 이미 설치되어있으니 생략하지만 랩탑에서 실습할때는 아래 툴을 설치해 주시기 바랍니다.\nNode.JS: 10.16.2\nTypescript: 3.5.3\ndocker: 18.06.1-ce\nJQ 설치 아래 명령어를 Cloud9의 터미널에 입력합니다.\nsudo yum -y install jq  c9 설치 아래 명령어를 Cloud9의 터미널에 입력합니다.\nsudo npm install -g c9  "
+	"content": " 앞으로 여러분이 Cloud9에서 실행해야 하는 명령어는 검은 박스에 있을것입니다. (검은 박스가 모두 명령어는 아닙니다!) 이것을 복사해서 Cloud9에 붙여넣을때 영억 선택 후 복사도 되지만 오른쪽 상단 \u0026ldquo;클립보드로 복사\u0026rdquo; 아이콘을 사용하면 더욱 쉽습니다.\n 필요한 툴 종류 실습에 사용한 툴과 버전은 다음과 같습니다. Cloud9은 Node.js, Typescript, docker가 이미 설치되어있으니 생략하지만 랩탑에서 실습할때는 아래 툴을 설치해 주시기 바랍니다.\nNode.JS: 10.16.2\nTypescript: 3.5.3\ndocker: 18.06.1-ce\nJQ 설치 아래 명령어를 Cloud9의 터미널에 입력합니다.\nsudo yum -y install jq  c9 설치 아래 명령어를 Cloud9의 터미널에 입력합니다.\nnpm install -g c9  "
 },
 {
 	"uri": "/tic-tac-toe/",
@@ -326,7 +361,7 @@
 	"title": "Cleanup",
 	"tags": [],
 	"description": "",
-	"content": " Cleanup 여기부터는 아직 문서화 전입니다.\n"
+	"content": " 클린업 이번 워크샵에서 사용한 리소스를 삭제합니다.\n클린업은 콘솔 작업을 최대한 배제하고 CLI를 활용해봅니다. CLI를 사용해서 관리하면 이후에 스크립트로 자동화하기 쉽습니다.\n"
 },
 {
 	"uri": "/categories/",

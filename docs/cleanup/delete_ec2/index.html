@@ -15,7 +15,7 @@
     <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
 
-    <title>서비스 구성 :: ECS HoL</title>
+    <title>EC2 삭제 :: ECS HoL</title>
 
     
     <link href="../../css/nucleus.css?1566451219" rel="stylesheet">
@@ -47,7 +47,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/tic-tac-toe/configure_service/">
+  <body class="" data-url="/cleanup/delete_ec2/">
     <nav id="sidebar" class="">
 
 
@@ -265,7 +265,7 @@
   
     
     <li data-nav-id="/tic-tac-toe/" title="컨테이너로 데디 서버 운영하기" class="dd-item 
-        parent
+        
         
         
         ">
@@ -861,8 +861,8 @@
   
     
     <li data-nav-id="/tic-tac-toe/configure_service/" title="서비스 구성" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../../tic-tac-toe/configure_service/">
@@ -1088,7 +1088,7 @@
   
     
     <li data-nav-id="/cleanup/" title="Cleanup" class="dd-item 
-        
+        parent
         
         
         ">
@@ -1131,7 +1131,7 @@
  
   
     
-      <li data-nav-id="/cleanup/delete_ec2/" title="EC2 삭제" class="dd-item ">
+      <li data-nav-id="/cleanup/delete_ec2/" title="EC2 삭제" class="dd-item active">
         <a href="../../cleanup/delete_ec2/">
         EC2 삭제
         
@@ -1233,7 +1233,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/aws-samples/eks-workshop/edit/master/content/tic-tac-toe/configure_service/_index.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/aws-samples/eks-workshop/edit/master/content/cleanup/delete_ec2.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -1248,6 +1248,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                     
           
@@ -1260,7 +1262,7 @@
             
           
           
-            <a href='../../'>Amazon EKS Wo</a> > <a href='../../tic-tac-toe/'>컨테이너로 데디 서버 운영하기</a> > 서비스 구성
+            <a href='../../'>Amazon EKS Wo</a> > <a href='../../cleanup/'>Cleanup</a> > EC2 삭제
           
          
           
@@ -1270,36 +1272,43 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
               </div>
             </div>
             
 
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>EC2 삭제</h1>
           
 
         
 
 
+<p>ECS 클러스터를 삭제할때 사용한 EC2는 자동삭제 되지 않습니다.</p>
 
-	
+<p>아래 명령어를 Cloud9 터미널에 입력하여 ECS 클러스터로 사용했던 EC2를 종료합니다.</p>
 
-<h1 id="서비스-구성">서비스 구성</h1>
+<pre><code>aws ec2 describe-instances --filter Name=tag:Name,Values=&quot;ECS Instance - EC2ContainerService-tic-tac-toe-cluster&quot; | jq -r '.Reservations[] | .Instances[] | .InstanceId' &gt; /tmp/ids
+aws ec2 terminate-instances --instance-ids $(cat /tmp/ids | paste -sd &quot; &quot; -)
+rm /tmp/ids
+</code></pre>
 
-<p>이제 사전 준비 작업이 끝났습니다. ECS 서비스를 만들고 실제 게임과 대시보드를 띄워보겠습니다.</p>
-
-
-
+<p><strong>EC2</strong> 서비스로 가서 인스터스가 모두 종료되었는지 (종료 중인지) 확인합니다.</p>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-        
-            </div> 
+
         
         </div>
         
@@ -1482,7 +1491,6 @@
             
                 
                     
-                    
                 
                 
 
@@ -1497,9 +1505,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1917,90 +1922,6 @@
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                 
                 
 
@@ -2069,9 +1990,6 @@
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -2156,6 +2074,97 @@
             
         
                     
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
             
             
@@ -2182,10 +2191,10 @@
 
 
         
-            <a class="nav nav-prev" href="../../tic-tac-toe/configure_cloudmap/make_cloudmap/" title="클라우드 맵 만들기"> <i class="fas fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../../cleanup/delete_cluster/" title="ECS 클러스터 삭제"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../tic-tac-toe/configure_service/make_service_dashboard/" title="대시보드 서비스 만들기" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../cleanup/delete_cloudmap/" title="클라우드 맵 삭제" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -2221,3 +2230,4 @@
 
   </body>
 </html>
+
