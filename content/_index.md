@@ -1,5 +1,5 @@
 ---
-title: "Amazon EKS Wo"
+title: "Games On AWS"
 chapter: true
 weight: 1
 ---
