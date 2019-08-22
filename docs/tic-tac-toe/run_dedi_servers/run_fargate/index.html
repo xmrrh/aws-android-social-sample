@@ -6,7 +6,7 @@
     <meta property="og:title" content="Games On AWS" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jenosys.github.io/tic-tac-toe-workshop-hol/tic-tac-toe/" />
-    <meta property="og:image" content="https://eksworkshop.com/images/3-service-animated.gif" />
+    <meta property="og:image" content="https://jenosys.github.io/tic-tac-toe-workshop-hol/images/tic-tac-toe/dashboard.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="generator" content="Hugo 0.56.3" />
     <meta name="description" content="ECS HoL">
@@ -18,21 +18,21 @@
     <title>게임 서버를 파게이트로 띄우기 :: ECS HoL</title>
 
     
-    <link href="../../../css/nucleus.css?1566470563" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1566470563" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1566470563" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1566470563" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1566470563" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1566470563" rel="stylesheet">
-    <link href="../../../css/theme.css?1566470563" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1566470563" rel="stylesheet">
-    <link href="../../../css/jquery-ui.min.css?1566470563" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1566488532" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1566488532" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1566488532" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1566488532" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1566488532" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1566488532" rel="stylesheet">
+    <link href="../../../css/theme.css?1566488532" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1566488532" rel="stylesheet">
+    <link href="../../../css/jquery-ui.min.css?1566488532" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1566470563" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1566488532" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1566470563"></script>
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1566470563"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1566488532"></script>
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1566488532"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1566470563"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1566470563"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1566488532"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1566488532"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1566470563"></script>
+<script type="text/javascript" src="../../../js/search.js?1566488532"></script>
 
     
   </div>
@@ -786,25 +786,6 @@
           
           
         
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/tic-tac-toe/configure_cloudmap/check_vpc/" title="VPC 이름 변경" class="dd-item ">
-        <a href="../../../tic-tac-toe/configure_cloudmap/check_vpc/">
-        VPC 이름 변경
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
           
             
             
@@ -1967,22 +1948,6 @@ tic-tac-toe-server-SG 를 만든적 있다면, 이것을 선택합니다.</li>
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
                     
@@ -2272,20 +2237,20 @@ tic-tac-toe-server-SG 를 만든적 있다면, 이것을 선택합니다.</li>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1566470563"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1566470563"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566470563"></script>
-    <script src="../../../js/jquery.sticky.js?1566470563"></script>
-    <script src="../../../js/featherlight.min.js?1566470563"></script>
-    <script src="../../../js/html5shiv-printshiv.min.js?1566470563"></script>
-    <script src="../../../js/highlight.pack.js?1566470563"></script>
+    <script src="../../../js/clipboard.min.js?1566488532"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1566488532"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566488532"></script>
+    <script src="../../../js/jquery.sticky.js?1566488532"></script>
+    <script src="../../../js/featherlight.min.js?1566488532"></script>
+    <script src="../../../js/html5shiv-printshiv.min.js?1566488532"></script>
+    <script src="../../../js/highlight.pack.js?1566488532"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1566470563"></script>
-    <script src="../../../js/learn.js?1566470563"></script>
-    <script src="../../../js/hugo-learn.js?1566470563"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1566488532"></script>
+    <script src="../../../js/learn.js?1566488532"></script>
+    <script src="../../../js/hugo-learn.js?1566488532"></script>
 
-    <link href="../../../mermaid/mermaid.css?1566470563" type="text/css" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.min.js?1566470563"></script>
+    <link href="../../../mermaid/mermaid.css?1566488532" type="text/css" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.min.js?1566488532"></script>
     <script>
 	var config = {
         startOnLoad:true,

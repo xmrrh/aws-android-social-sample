@@ -31,4 +31,3 @@ Ad blocker나 tracking blocker는 Cloud9 사용에 방해를 줄 수 있습니�
 ![c9after](/images/c9after.png)
 
 - 이 테마를 적용하고 싶다면, Cloud9의 메뉴에서 순서대로 선택하세요. **View / Themes / Solarized / Solarized Dark**
-in the Cloud9 workspace menu.

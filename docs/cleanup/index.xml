@@ -17,7 +17,7 @@
       
       <guid>/cleanup/delete_cluster/</guid>
       <description>ECS 클러스터 삭제 서비스 종료 아래 명령어를 Cloud9 터미널에 입력하여 서비스의 작업을 중단합니다.
-aws ecs update-service --cluster tic-tac-toe-cluster --service matchmaker --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service dashboard --desired-count 0  해당 서비스의 작업이 종료될때까지 1분가량 기다려줍니다.
+aws ecs update-service --cluster tic-tac-toe-cluster --service matchmaker --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service dashboard --desired-count 0  모든 서비스의 작업들이 종료될때까지 1분가량 기다려줍니다.
 작업 종료  ECS 서비스로 갑니다. 사이드의 Clusters 메뉴를 선택합니다. tic-tac-toe-cluster 를 선택합니다. 탭 메뉴에서 Tasks를 선택합니다. Stop All 을 선택합니다.   다이얼로그 창의 텍스트 박스에 STOP ALL 을 입력합니다.</description>
     </item>
     

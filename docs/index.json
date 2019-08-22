@@ -14,13 +14,6 @@
 	"content": " 서비스에서 VPC로 이동헙나다. ECS 클러스터 생성시 자동으로 만든 VPC를 확인합니다.\n앞서 적어놨으면 해당 VPC를 찾고, 아니면 CIDR가 10.0.0.0/16 인것을 찾습니다. 알아보기 쉽도록 해당 VPC 이름에 tic-tac-toe-vpc 을 적습니다.  "
 },
 {
-	"uri": "/tic-tac-toe/configure_cloudmap/check_vpc/",
-	"title": "VPC 이름 변경",
-	"tags": [],
-	"description": "",
-	"content": " 서비스에서 VPC로 이동합니다. ECS 클러스터 생성시 자동으로 만든 VPC를 확인합니다. 적어놨으면 좋고 아니면 CIDR가 10.0.0.0/16 인것을 찾습니다. 알아보기 쉽도록 해당 vpc의 이름에 tic-tac-toe-vpc 를 적어줍니다.  "
-},
-{
 	"uri": "/tic-tac-toe/configure_service/make_service_dashboard/",
 	"title": "대시보드 서비스 만들기",
 	"tags": [],
@@ -46,7 +39,7 @@
 	"title": "AWS 계정 생성",
 	"tags": [],
 	"description": "",
-	"content": " 여러분의 계정은 새로운 IAM 역할(role)을 만들거나 다른 퍼미션(permission)을 만들 수 있는 권한이 있어야 합니다.\n  관리자 권한이 있는 AWS 계정이 없다면: 여기를 눌러 새로 만드세요 AWS 계정을 가지고 있다면, 다음 링크를 눌러 관리자 권한이 있는 새로운 IAM 유저를 만듭니다. Create a new IAM user to use for the workshop\n 사용자 내용을 적습니다:  AdministratorAccess IAM 정책을 추가합니다.:  Create user를 선택합니다.:  로그인 URL을 적어놓고 저장합니다.:   "
+	"content": " 여러분의 계정은 새로운 IAM 역할(role)을 만들거나 다른 퍼미션(permission)을 만들 수 있는 권한이 있어야 합니다.\n  관리자 권한이 있는 AWS 계정이 없다면: 계정생성 바로가기 AWS 계정을 가지고 있다면, 다음 링크를 눌러 관리자 권한이 있는 새로운 IAM 유저를 만듭니다. 워크샵용 IAM 유저 생성 바로가기\n 사용자 내용을 적습니다:  AdministratorAccess IAM 정책을 추가합니다.:  Create user를 선택합니다.:  로그인 URL을 적어놓고 저장합니다.:   "
 },
 {
 	"uri": "/tic-tac-toe/build_cluster/iamrole/",
@@ -67,7 +60,7 @@
 	"title": "ECS 클러스터 삭제",
 	"tags": [],
 	"description": "",
-	"content": " ECS 클러스터 삭제 서비스 종료 아래 명령어를 Cloud9 터미널에 입력하여 서비스의 작업을 중단합니다.\naws ecs update-service --cluster tic-tac-toe-cluster --service matchmaker --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service dashboard --desired-count 0  해당 서비스의 작업이 종료될때까지 1분가량 기다려줍니다.\n작업 종료  ECS 서비스로 갑니다. 사이드의 Clusters 메뉴를 선택합니다. tic-tac-toe-cluster 를 선택합니다. 탭 메뉴에서 Tasks를 선택합니다. Stop All 을 선택합니다.   다이얼로그 창의 텍스트 박스에 STOP ALL 을 입력합니다. Stop all을 선택하여 모든 작업을 정지시킵니다.  새로고침 아이콘을 눌러 모든 작업(Task)이 종료된것을 확인하면 다음으로 넘어가세요.\n 아래 명령어를 Cloud9 터미널에 입력하여 등록된 서비스를 해지합니다.\naws ecs delete-service --cluster tic-tac-toe-cluster --service matchmaker aws ecs delete-service --cluster tic-tac-toe-cluster --service dashboard aws ecs delete-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client  아래 명령어를 Cloud9 터미널에 입력하여 클러스터를 삭제합니다.\naws ecs delete-cluster --cluster tic-tac-toe-cluster  ECS 클러스터를 모두 삭제 했습니다.\n"
+	"content": " ECS 클러스터 삭제 서비스 종료 아래 명령어를 Cloud9 터미널에 입력하여 서비스의 작업을 중단합니다.\naws ecs update-service --cluster tic-tac-toe-cluster --service matchmaker --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client --desired-count 0 aws ecs update-service --cluster tic-tac-toe-cluster --service dashboard --desired-count 0  모든 서비스의 작업들이 종료될때까지 1분가량 기다려줍니다.\n작업 종료  ECS 서비스로 갑니다. 사이드의 Clusters 메뉴를 선택합니다. tic-tac-toe-cluster 를 선택합니다. 탭 메뉴에서 Tasks를 선택합니다. Stop All 을 선택합니다.   다이얼로그 창의 텍스트 박스에 STOP ALL 을 입력합니다. Stop all을 선택하여 모든 작업을 정지시킵니다.  새로고침 아이콘을 눌러 모든 작업(Task)이 종료된것을 확인하면 다음으로 넘어가세요.\n 아래 명령어를 Cloud9 터미널에 입력하여 등록된 서비스를 해지합니다.\naws ecs delete-service --cluster tic-tac-toe-cluster --service matchmaker aws ecs delete-service --cluster tic-tac-toe-cluster --service dashboard aws ecs delete-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client  모든 서비스가 삭제될때까지 약간의 시간이 걸릴 수 있습니다. 1분가량 기다려줍니다. 아래 명령어를 Cloud9 터미널에 입력하여 클러스터를 삭제합니다.\naws ecs delete-cluster --cluster tic-tac-toe-cluster  클러스터 삭제 명령이 에러가 날 경우, 잠시 기다렸다가 다시 시도하시기 바랍니다.\n ECS 클러스터를 모두 삭제 했습니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/build_cluster/",
@@ -200,7 +193,7 @@
 	"title": "워크샵 생성",
 	"tags": [],
 	"description": "",
-	"content": " Cloud9 워크샵은 루트 유저가 아니라 관리자 권한이 있는 IAM 유저로 만들어야 합니다. 현재 로그인중인 계정이 루트 유저가 아니라 IAM 유저인지 확인해주세요.\n 이 워크샵은 Oregon (us-west-2) 리전에서 만들고, 테스트 했습니다.\n Ad blocker나 tracking blocker는 Cloud9 사용에 방해를 줄 수 있습니다. 그러므로 해당 기능을 끄거나, Cloud9 도메인에서 사용하지 않도록 해주세요. 또한 Cloud9 은 쿠키를 필요로 합니다. 화이트리스팅은 다음 링크를 참고바랍니다. specific domains.\n Cloud9 생성하기  Oregon  새로운 Cloud9 워크샵을 생성합니다.: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2\n  $(function(){$(\"#region\").tabs();});  Create environment 을 선택합니다. 이름을 tic-tac-toe-workshop 으로 지정하고 나머지는 모두 기본 옵션으로 둡니다. 워크샵이 시작되면, welcome tab 과 lower work area 을 닫고 메인 작업창 메뉴를 통해 새 terminal 을 엽니다.:  워크샵은 다음과 같은 모습이어야 합니다.:  이 테마를 적용하고 싶다면, Cloud9의 메뉴에서 순서대로 선택하세요. View / Themes / Solarized / Solarized Dark in the Cloud9 workspace menu.\n  "
+	"content": " Cloud9 워크샵은 루트 유저가 아니라 관리자 권한이 있는 IAM 유저로 만들어야 합니다. 현재 로그인중인 계정이 루트 유저가 아니라 IAM 유저인지 확인해주세요.\n 이 워크샵은 Oregon (us-west-2) 리전에서 만들고, 테스트 했습니다.\n Ad blocker나 tracking blocker는 Cloud9 사용에 방해를 줄 수 있습니다. 그러므로 해당 기능을 끄거나, Cloud9 도메인에서 사용하지 않도록 해주세요. 또한 Cloud9 은 쿠키를 필요로 합니다. 화이트리스팅은 다음 링크를 참고바랍니다. specific domains.\n Cloud9 생성하기  Oregon  새로운 Cloud9 워크샵을 생성합니다.: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2\n  $(function(){$(\"#region\").tabs();});  Create environment 을 선택합니다. 이름을 tic-tac-toe-workshop 으로 지정하고 나머지는 모두 기본 옵션으로 둡니다. 워크샵이 시작되면, welcome tab 과 lower work area 을 닫고 메인 작업창 메뉴를 통해 새 terminal 을 엽니다.:  워크샵은 다음과 같은 모습이어야 합니다.:  이 테마를 적용하고 싶다면, Cloud9의 메뉴에서 순서대로 선택하세요. View / Themes / Solarized / Solarized Dark\n  "
 },
 {
 	"uri": "/prerequisites/",
@@ -277,7 +270,7 @@
 	"title": "프로젝트 알아보기",
 	"tags": [],
 	"description": "",
-	"content": " 잠시 쉬어가며, 각 프로젝트와 컨테이너를 알아봅니다.\nDashboard 리액트로 만들어진 대시보드 겸 클라이언트 본체 입니다.\n게임 클라이언트로 비유하자면 로비에서 채팅을 하거나 상점을 보거나 하는 상태를 대표합니다.\n대시보드로써는 현재 떠 있는 데디 서버의 리스트와 상태, 몇가지 명령을 내릴 수 있습니다.\n빌드 후엔 단순한 웹페이지인데 nginx로 컨텐이너화 시켜서 스태틱 파일을 배포하게 됩니다. server/Dockerfile을 참고하세요.\nMatchMaker node.js로 만들어진 통합서버 입니다. 대시보드의 서버이기도 하고 매치 메이커기도 하고 모니터링 서버이기도 합니다.\nnode.js 의 서버 기능으로 Restful API 서비스를 제공하고 WebSocket 서비스를 합니다.\nTic-Tac-Toe 클라이언트 WebSocket을 사용하는 1:1 게임 클라이언트 입니다.\n빌드 후에 NginX와 묶어서 클라이언트 파일 배포를 하는 컨테이너가 됩니다.\nTic-Tac-Toe 서버 Tic-Tac-Toe 클라이언트를 받아주는 데디서버입니다.\n서버가 뜨거나 죽을때, 유저가 접속할때등 상태가 변할때마다 AWS CloudMap에 내 상태를 기록하여 MatchMaker서버가 데디케이티드 서버들의 상태를 추적하기 쉽게 합니다. 서버가 뜰때 스스로에 대한 정보를 얻기위해 복잡한 Dockerfile과 entrypoint 를 가지고 있습니다.\nTic-Tac-Toe 게임은 오픈소스를 가져다 사용했습니다.\n사용된 기술이 궁금하신 분들은 직접 방문해보셔도 좋습니다.\ntic-tac-toe multiplayer\n "
+	"content": " 잠시 쉬어가며, 각 프로젝트와 컨테이너를 알아봅니다.\nDashboard 리액트로 만들어진 대시보드 겸 클라이언트 본체 입니다.\n게임 클라이언트로 비유하자면 로비에서 채팅을 하거나 상점을 보거나 하는 상태를 대표합니다.\n대시보드로써는 현재 떠 있는 데디 서버의 리스트와 상태, 몇가지 명령을 내릴 수 있습니다.\n빌드 후엔 단순한 웹페이지인데 nginx로 컨텐이너화 시켜서 스태틱 파일을 배포하게 됩니다. client/dashboard/Dockerfile을 참고하세요.\nMatchMaker node.js로 만들어진 통합서버 입니다. 대시보드의 서버이기도 하고 매치 메이커기도 하고 모니터링 서버이기도 합니다.\nnode.js 의 서버 기능으로 Restful API 서비스를 제공하고 WebSocket 서비스를 합니다.\nTic-Tac-Toe 클라이언트 WebSocket을 사용하는 1:1 게임 클라이언트 입니다.\n빌드 후에 NginX와 묶어서 클라이언트 파일 배포를 하는 컨테이너가 됩니다.\nTic-Tac-Toe 서버 Tic-Tac-Toe 클라이언트를 받아주는 데디서버입니다.\n서버가 뜨거나 죽을때, 유저가 접속할때등 상태가 변할때마다 AWS CloudMap에 내 상태를 기록하여 MatchMaker서버가 데디케이티드 서버들의 상태를 추적하기 쉽게 합니다. 서버가 뜰때 스스로에 대한 정보를 얻기위해 복잡한 Dockerfile과 entrypoint 를 가지고 있습니다.\nTic-Tac-Toe 게임은 오픈소스를 가져다 사용했습니다.\n사용된 기술이 궁금하신 분들은 직접 방문해보셔도 좋습니다.\ntic-tac-toe multiplayer\n "
 },
 {
 	"uri": "/tic-tac-toe/configure_task_definition/rebuild_dashboard/",

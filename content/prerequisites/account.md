@@ -8,9 +8,9 @@ weight: 1
 여러분의 계정은 새로운 IAM 역할(role)을 만들거나 다른 퍼미션(permission)을 만들 수 있는 권한이 있어야 합니다.
 {{% /notice %}}
 
-1. 관리자 권한이 있는 AWS 계정이 없다면: [여기를 눌러 새로 만드세요](https://aws.amazon.com/getting-started/)
+1. 관리자 권한이 있는 AWS 계정이 없다면: [계정생성 바로가기](https://aws.amazon.com/getting-started/)
 1. AWS 계정을 가지고 있다면, 다음 링크를 눌러 관리자 권한이 있는 새로운 IAM 유저를 만듭니다.
-[Create a new IAM user to use for the workshop](https://console.aws.amazon.com/iam/home?#/users$new)
+[워크샵용 IAM 유저 생성 바로가기](https://console.aws.amazon.com/iam/home?#/users$new)
 
 1. 사용자 내용을 적습니다:
 ![Create User](/images/iam-1-create-user.png)

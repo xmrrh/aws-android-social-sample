@@ -15,7 +15,7 @@ aws ecs update-service --cluster tic-tac-toe-cluster --service tic-tac-toe-clien
 aws ecs update-service --cluster tic-tac-toe-cluster --service dashboard --desired-count 0
 ```
 
-해당 서비스의 작업이 종료될때까지 1분가량 기다려줍니다.
+모든 서비스의 작업들이 종료될때까지 1분가량 기다려줍니다.
 
 ### 작업 종료
 
@@ -47,10 +47,15 @@ aws ecs delete-service --cluster tic-tac-toe-cluster --service matchmaker
 aws ecs delete-service --cluster tic-tac-toe-cluster --service dashboard
 aws ecs delete-service --cluster tic-tac-toe-cluster --service tic-tac-toe-client
 ```
+
+모든 서비스가 삭제될때까지 약간의 시간이 걸릴 수 있습니다. 1분가량 기다려줍니다.
 아래 명령어를 Cloud9 터미널에 입력하여 클러스터를 삭제합니다.
 ```
 aws ecs delete-cluster --cluster tic-tac-toe-cluster
 ```
 
+{{% notice info %}}
+클러스터 삭제 명령이 에러가 날 경우, 잠시 기다렸다가 다시 시도하시기 바랍니다.
+{{% /notice %}}
 
 ECS 클러스터를 모두 삭제 했습니다.
