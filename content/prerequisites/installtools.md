@@ -29,5 +29,5 @@ sudo yum -y install jq
 #### c9 설치
 아래 명령어를 Cloud9의 터미널에 입력합니다.
 ```
-sudo npm install -g c9 
+npm install -g c9 
 ```
