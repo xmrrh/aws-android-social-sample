@@ -18,21 +18,21 @@
     <title>대시보드 컨테이너 업데이트 :: ECS HoL</title>
 
     
-    <link href="../../../css/nucleus.css?1566451219" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1566451219" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1566451219" rel="stylesheet">
-    <link href="../../../css/theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/jquery-ui.min.css?1566451219" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1566462182" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1566462182" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1566462182" rel="stylesheet">
+    <link href="../../../css/theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/jquery-ui.min.css?1566462182" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1566451219" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1566462182" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1566451219"></script>
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1566451219"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1566462182"></script>
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1566462182"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1566451219"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1566462182"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1566462182"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/search.js?1566462182"></script>
 
     
   </div>
@@ -1087,13 +1087,13 @@
  
   
     
-    <li data-nav-id="/cleanup/" title="Cleanup" class="dd-item 
+    <li data-nav-id="/cleanup/" title="클린 업" class="dd-item 
         
         
         
         ">
       <a href="../../../cleanup/">
-          Cleanup
+          클린 업
           
       </a>
       
@@ -1305,15 +1305,15 @@
 <li><strong>EC2</strong> 서비스로 넘어갑니다.</li>
 <li>왼쪽 사이드 메뉴에서 <strong>Load Balancers</strong> 를 선택햅니다.</li>
 <li>matchmaker-ALB 를 선택합니다.</li>
-<li>하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다.</li>
-</ol>
 
-<p><img src="../../../images/tic-tac-toe/dashboard-rebuld-1.png" alt="Example Service" /></p>
+<li><p>하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다.
+<img src="../../../images/tic-tac-toe/dashboard-rebuld-1.png" alt="Example Service" /></p></li>
 
-<ol>
-<li>이번에는 tic-tac-toe-client-ALB 를 선택합니다.</li>
-<li>하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다.</li>
-<li>Cloud9 워크샵으로 이동합니다.</li>
+<li><p>이번에는 tic-tac-toe-client-ALB 를 선택합니다.</p></li>
+
+<li><p>하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다.</p></li>
+
+<li><p>Cloud9 워크샵으로 이동합니다.</p></li>
 
 <li><p>dashboard 프로젝트 밑에 있는 .env.production 파일을 편집합니다.</p>
 
@@ -1322,10 +1322,9 @@ c9 .env.production
 </code></pre></li>
 </ol>
 
-<p>파일에는 리액트 빌드시에 사용하는 REACT_APP_API_URL, REACT_APP_CLIENT_URL 환경변수가 있습니다.
-이곳에 앞서 복사해놓은 ALB 주소를 각각 적습니다.</p>
-
-<p>API_URL이 matchmaker-ALB 주소이고, CLIENT_URL 이 tic-tac-toe-client-ALB 주소 입니다.</p>
+<p>파일에는 리액트 빌드시에 사용하는 REACT_APP_API_URL, REACT_APP_CLIENT_URL 환경변수가 있습니다.<br>
+이곳에 앞서 복사해놓은 ALB 주소를 각각 적습니다.<br>
+API_URL이 matchmaker-ALB 주소이고, CLIENT_URL 이 tic-tac-toe-client-ALB 주소 입니다.</p>
 
 <p>
 <div class="notices info" ><p>주소의 시작부분에 http://가 빠지지 않도록 주의하세요.</p>
@@ -1336,7 +1335,7 @@ c9 .env.production
 </div>
 </p>
 
-<p>수정된 dashboard 를 빌드해서 컨테이너로 묶고, 리포지토리에 올립니다. 우리는 이 과정을 build.sh 파일로 묶어놨기 때문에 쉽게 할 수 있습니다.
+<p>수정된 dashboard 를 빌드해서 컨테이너로 묶고, 리포지토리에 올립니다. 우리는 이 과정을 build.sh 파일로 묶어놨기 때문에 쉽게 할 수 있습니다.<br>
 아래 명령어를 터미널에 입력합니다.</p>
 
 <pre><code>cd ~/environment/tic-tac-toe-workshop/client/dashboard/
@@ -2251,20 +2250,20 @@ sh build.sh
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566451219"></script>
-    <script src="../../../js/jquery.sticky.js?1566451219"></script>
-    <script src="../../../js/featherlight.min.js?1566451219"></script>
-    <script src="../../../js/html5shiv-printshiv.min.js?1566451219"></script>
-    <script src="../../../js/highlight.pack.js?1566451219"></script>
+    <script src="../../../js/clipboard.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566462182"></script>
+    <script src="../../../js/jquery.sticky.js?1566462182"></script>
+    <script src="../../../js/featherlight.min.js?1566462182"></script>
+    <script src="../../../js/html5shiv-printshiv.min.js?1566462182"></script>
+    <script src="../../../js/highlight.pack.js?1566462182"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1566451219"></script>
-    <script src="../../../js/learn.js?1566451219"></script>
-    <script src="../../../js/hugo-learn.js?1566451219"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1566462182"></script>
+    <script src="../../../js/learn.js?1566462182"></script>
+    <script src="../../../js/hugo-learn.js?1566462182"></script>
 
-    <link href="../../../mermaid/mermaid.css?1566451219" type="text/css" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.min.js?1566451219"></script>
+    <link href="../../../mermaid/mermaid.css?1566462182" type="text/css" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.min.js?1566462182"></script>
     <script>
 	var config = {
         startOnLoad:true,

@@ -26,13 +26,8 @@
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
       <guid>/tic-tac-toe/configure_cloudmap/make_target_group/</guid>
-      <description>매치메이커 타겟 그룹 만들기  EC2 서비스로 넘어갑니다. 좌측 서이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker
- Target type: IP
- VPC: tic-tac-toe-vpc
- Health check settings/Path: /api/health   헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.
- Healthy threshold: 3
- Interval: 10
-  위와 같은 방법으로 2개의 타겟 그룹을 더 만듭니다.</description>
+      <description>매치메이커 타겟 그룹 만들기  EC2 서비스로 넘어갑니다. 좌측 서이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker Target type: IP VPC: tic-tac-toe-vpc Health check settings/Path: /api/health   헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.
+ Healthy threshold: 3 Interval: 10   위와 같은 방법으로 2개의 타겟 그룹을 더 만듭니다. 달라지는것은 Target group name와 Health check settings/Path 입니다.</description>
     </item>
     
     <item>

@@ -18,21 +18,21 @@
     <title>ALB 만들기 :: ECS HoL</title>
 
     
-    <link href="../../../css/nucleus.css?1566451219" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1566451219" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1566451219" rel="stylesheet">
-    <link href="../../../css/theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/jquery-ui.min.css?1566451219" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1566462182" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1566462182" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1566462182" rel="stylesheet">
+    <link href="../../../css/theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/jquery-ui.min.css?1566462182" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1566451219" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1566462182" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1566451219"></script>
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1566451219"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1566462182"></script>
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1566462182"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1566451219"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1566462182"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1566462182"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/search.js?1566462182"></script>
 
     
   </div>
@@ -1087,13 +1087,13 @@
  
   
     
-    <li data-nav-id="/cleanup/" title="Cleanup" class="dd-item 
+    <li data-nav-id="/cleanup/" title="클린 업" class="dd-item 
         
         
         
         ">
       <a href="../../../cleanup/">
-          Cleanup
+          클린 업
           
       </a>
       
@@ -1286,7 +1286,7 @@
 <ul>
 <li><a href="#매치메이커-로드밸런서-생성">매치메이커 로드밸런서 생성</a>
 <ul>
-<li><a href="#매치메이커-로드밸런서-설정">매치메이커 로드밸런서 설정</a></li>
+<li><a href="#기본-설정">기본 설정</a></li>
 <li><a href="#보안-설정">보안 설정</a></li>
 <li><a href="#보안-그룹-설정">보안 그룹 설정</a></li>
 <li><a href="#라우팅-설정">라우팅 설정</a></li>
@@ -1318,7 +1318,7 @@
 
 <h2 id="매치메이커-로드밸런서-생성">매치메이커 로드밸런서 생성</h2>
 
-<h3 id="매치메이커-로드밸런서-설정">매치메이커 로드밸런서 설정</h3>
+<h3 id="기본-설정">기본 설정</h3>
 
 <ol>
 <li>사이드 메뉴에서 <strong>Load Balancers</strong> 메뉴를 선택하고 <strong>Create Load Balancer</strong>를 선택합니다.</li>
@@ -1327,15 +1327,15 @@
 </ol>
 
 <ul>
-<li><p><strong>Name</strong>: matchmaker-ALB</p></li>
-
-<li><p><strong>Availablility Zones</strong> 의 <strong>VPC</strong>: tic-tac-toe-vpc</p></li>
-
-<li><p><strong>Availability Zones</strong>의 모든 항목을 체크</p></li>
+<li><strong>Name</strong>: matchmaker-ALB</li>
+<li><strong>Availablility Zones</strong> 의 <strong>VPC</strong>: tic-tac-toe-vpc</li>
+<li><strong>Availability Zones</strong>의 모든 항목을 체크</li>
 </ul>
 
 
-<div class="notices info" ><p>가용영역 (Availability Zones)은 워크샵을 하는 사람에따라 다르게뜰 수 있습니다. us-west-2a, us-west-2b 가 아니라 us-west-2c, us-west-2d 가 나올수도 있습니다. us-west-2로 시작하면 문제 없으니 모두 선택해줍니다.</p>
+<div class="notices info" ><p>가용영역 (Availability Zones)은 워크샵을 하는 사람에따라 다르게뜰 수 있습니다.<br>
+us-west-2a, us-west-2b 가 아니라 us-west-2c, us-west-2d 가 나올수도 있습니다.<br>
+us-west-2로 시작하면 문제 없으니 모두 선택해줍니다.</p>
 </div>
 
 
@@ -1347,9 +1347,8 @@
 
 <h3 id="보안-설정">보안 설정</h3>
 
-<p>HTTPS를 사용하지 않아서 나오는 경고는 무시합니다.</p>
-
-<p><strong>Next</strong>을 선택하여 다음 화면으로 넘어갑니다.</p>
+<p>HTTPS를 사용하지 않아서 나오는 경고는 무시합니다.<br>
+<strong>Next</strong>을 선택하여 다음 화면으로 넘어갑니다.</p>
 
 <h3 id="보안-그룹-설정">보안 그룹 설정</h3>
 
@@ -1368,9 +1367,8 @@
 <p>Routing 설정에서 아래와 같이 입력합니다.</p>
 
 <ul>
-<li><p><strong>Target group</strong>: Existing target group</p></li>
-
-<li><p><strong>Name</strong>: matchmaker 선택</p></li>
+<li><strong>Target group</strong>: Existing target group</li>
+<li><strong>Name</strong>: matchmaker 선택</li>
 </ul>
 
 <p><img src="../../../images/tic-tac-toe/alb-3.png" alt="Example Service" /></p>
@@ -1381,7 +1379,7 @@
 
 <p><strong>Create</strong> 선택하고 ALB를 생성합니다.</p>
 
-<p>로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록합니다.
+<p>로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록해 놓습니다.
 나중에 필요합니다.</p>
 
 <p><img src="../../../images/tic-tac-toe/alb-4.png" alt="Example Service" /></p>
@@ -1391,40 +1389,30 @@
 <p>매치메이커 로드밸런서와 만드는 과정은 동일하며, 입력값만 아래처럼 넣습니다.</p>
 
 <ul>
-<li><p><strong>Name</strong>: dashboard-ALB</p></li>
-
-<li><p><strong>Availablility Zones</strong> 의 <strong>VPC</strong>: tic-tac-toe-vpc</p></li>
-
-<li><p><strong>Availability Zones</strong>의 모든 항목을 체크</p></li>
-
-<li><p><strong>Security Group</strong>: 앞서 만든 WebServer-SG을 선택</p></li>
-
-<li><p><strong>Target group</strong>: Existing target group</p></li>
-
-<li><p><strong>Name</strong>: dashboard 선택</p></li>
+<li><strong>Name</strong>: dashboard-ALB</li>
+<li><strong>Availablility Zones</strong> 의 <strong>VPC</strong>: tic-tac-toe-vpc</li>
+<li><strong>Availability Zones</strong>의 모든 항목을 체크</li>
+<li><strong>Security Group</strong>: 앞서 만든 WebServer-SG을 선택</li>
+<li><strong>Target group</strong>: Existing target group</li>
+<li><strong>Name</strong>: dashboard 선택</li>
 </ul>
 
-<p>로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록합니다.</p>
+<p>로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록해 놓습니다.</p>
 
 <h2 id="클라이언트-로드밸런서">클라이언트 로드밸런서</h2>
 
 <p>대시보드 로드밸런서와 만드는 방식은 동일하며, 파라메터만 다음과 같이 입력한다.</p>
 
 <ul>
-<li><p><strong>Name</strong>: tic-tac-toe-client-ALB</p></li>
-
-<li><p><strong>Availablility Zones</strong> 의 <strong>VPC</strong>: tic-tac-toe-vpc</p></li>
-
-<li><p><strong>Availability Zones</strong>의 모든 항목을 체크</p></li>
-
-<li><p><strong>Security Group</strong>: 앞서 만든 WebServer-SG을 선택</p></li>
-
-<li><p><strong>Target group</strong>: Existing target group</p></li>
-
-<li><p><strong>Name</strong>: tic-tac-toe-client 선택</p></li>
+<li><strong>Name</strong>: tic-tac-toe-client-ALB</li>
+<li><strong>Availablility Zones</strong> 의 <strong>VPC</strong>: tic-tac-toe-vpc</li>
+<li><strong>Availability Zones</strong>의 모든 항목을 체크</li>
+<li><strong>Security Group</strong>: 앞서 만든 WebServer-SG을 선택</li>
+<li><strong>Target group</strong>: Existing target group</li>
+<li><strong>Name</strong>: tic-tac-toe-client 선택</li>
 </ul>
 
-<p>로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록합니다.</p>
+<p>로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록해 놓습니다.</p>
 
 
 <footer class=" footline" >
@@ -2330,20 +2318,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566451219"></script>
-    <script src="../../../js/jquery.sticky.js?1566451219"></script>
-    <script src="../../../js/featherlight.min.js?1566451219"></script>
-    <script src="../../../js/html5shiv-printshiv.min.js?1566451219"></script>
-    <script src="../../../js/highlight.pack.js?1566451219"></script>
+    <script src="../../../js/clipboard.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566462182"></script>
+    <script src="../../../js/jquery.sticky.js?1566462182"></script>
+    <script src="../../../js/featherlight.min.js?1566462182"></script>
+    <script src="../../../js/html5shiv-printshiv.min.js?1566462182"></script>
+    <script src="../../../js/highlight.pack.js?1566462182"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1566451219"></script>
-    <script src="../../../js/learn.js?1566451219"></script>
-    <script src="../../../js/hugo-learn.js?1566451219"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1566462182"></script>
+    <script src="../../../js/learn.js?1566462182"></script>
+    <script src="../../../js/hugo-learn.js?1566462182"></script>
 
-    <link href="../../../mermaid/mermaid.css?1566451219" type="text/css" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.min.js?1566451219"></script>
+    <link href="../../../mermaid/mermaid.css?1566462182" type="text/css" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.min.js?1566462182"></script>
     <script>
 	var config = {
         startOnLoad:true,

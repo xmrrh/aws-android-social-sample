@@ -18,21 +18,21 @@
     <title>대시보드 서비스 만들기 :: ECS HoL</title>
 
     
-    <link href="../../../css/nucleus.css?1566451219" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1566451219" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1566451219" rel="stylesheet">
-    <link href="../../../css/theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/jquery-ui.min.css?1566451219" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1566462182" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1566462182" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1566462182" rel="stylesheet">
+    <link href="../../../css/theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/jquery-ui.min.css?1566462182" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1566451219" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1566462182" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1566451219"></script>
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1566451219"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1566462182"></script>
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1566462182"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1566451219"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1566462182"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1566462182"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/search.js?1566462182"></script>
 
     
   </div>
@@ -1087,13 +1087,13 @@
  
   
     
-    <li data-nav-id="/cleanup/" title="Cleanup" class="dd-item 
+    <li data-nav-id="/cleanup/" title="클린 업" class="dd-item 
         
         
         
         ">
       <a href="../../../cleanup/">
-          Cleanup
+          클린 업
           
       </a>
       
@@ -1323,9 +1323,8 @@
 </ol>
 
 <ul>
-<li><p><strong>Launch type</strong>: FARGATE</p></li>
-
-<li><p><strong>Task Definition</strong>: Family: dashboard, Revision: 1</p></li>
+<li><strong>Launch type</strong>: FARGATE</li>
+<li><strong>Task Definition</strong>: Family: dashboard, Revision: 1</li>
 </ul>
 
 
@@ -1334,14 +1333,12 @@
 
 
 <ul>
-<li><p><strong>Service name</strong>: dashboard</p></li>
-
-<li><p><strong>Number of tasks</strong>: 2</p></li>
+<li><strong>Service name</strong>: dashboard</li>
+<li><strong>Number of tasks</strong>: 2</li>
 </ul>
 
-<p>다른 옵션은 기본값을 사용합니다.</p>
-
-<p><img src="../../../images/tic-tac-toe/service-dashbard-1.png" alt="Example Service" /></p>
+<p>다른 옵션은 기본값을 사용합니다.
+<img src="../../../images/tic-tac-toe/service-dashbard-1.png" alt="Example Service" /></p>
 
 <p><strong>Next step</strong>을 선택하여 다음 화면으로 넘어갑니다.</p>
 
@@ -1350,36 +1347,25 @@
 <p>아래와 같이 입력합니다.</p>
 
 <ul>
-<li><p><strong>Cluster VPC</strong>: tic-tac-toe-vpc</p></li>
-
-<li><p><strong>Subnets</strong>: 선택 가능한 2개의 서브넷 모두 선택</p></li>
-
-<li><p><strong>Security groups</strong></p>
+<li><strong>Cluster VPC</strong>: tic-tac-toe-vpc</li>
+<li><strong>Subnets</strong>: 선택 가능한 2개의 서브넷 모두 선택</li>
+<li><strong>Security groups</strong>
 
 <ol>
 <li><strong>Edit</strong> 선택</li>
 <li><strong>Select existing security group</strong> 선택</li>
 <li>WebServer-SG 선택</li>
 </ol></li>
-
-<li><p><strong>Auto-assign public IP</strong> ENABLED</p></li>
-
-<li><p><strong>Load balancer type</strong>: Application Load Balancer</p></li>
-
-<li><p><strong>Service IAM role</strong>: Create new role</p></li>
-
-<li><p><strong>Load balancer name</strong>: dashboard-ALB</p></li>
-
-<li><p><strong>Container to load balance</strong>/<strong>Add to load balancer</strong> 선택</p></li>
-
-<li><p><strong>Production listener port</strong>: 80:HTTP 선택</p></li>
-
-<li><p><strong>Target group name</strong>: dashboard</p></li>
-
-<li><p><strong>Enable service discovery integration</strong>: 선택 해제</p></li>
+<li><strong>Auto-assign public IP</strong> ENABLED</li>
+<li><strong>Load balancer type</strong>: Application Load Balancer</li>
+<li><strong>Service IAM role</strong>: Create new role</li>
+<li><strong>Load balancer name</strong>: dashboard-ALB</li>
+<li><strong>Container to load balance</strong>/<strong>Add to load balancer</strong> 선택</li>
+<li><strong>Production listener port</strong>: 80:HTTP 선택</li>
+<li><strong>Target group name</strong>: dashboard</li>
+<li><strong>Enable service discovery integration</strong>: 선택 해제
+<img src="../../../images/tic-tac-toe/service-dashbard-2.png" alt="Example Service" /></li>
 </ul>
-
-<p><img src="../../../images/tic-tac-toe/service-dashbard-2.png" alt="Example Service" /></p>
 
 <p><strong>Next step</strong>을 선택하여 다음 화면으로 넘어갑니다.</p>
 
@@ -1395,7 +1381,7 @@
 
 <h2 id="서비스-생성-후">서비스 생성 후</h2>
 
-<p>제대로 설정을 하고 서비스를 생성하면, 잠시 후 해당 서비스에서 2개의 FARGATE 작업이 실행됩니다.
+<p>실수없이 설정을 하고 서비스를 생성하면, 잠시 후 해당 서비스에서 2개의 FARGATE 작업이 실행됩니다.<br>
 Last Status가 PROVISIONING =&gt; PENDING =&gt; RUNNING 단계로 바뀌때까지 기다립니다.</p>
 
 <p><img src="../../../images/tic-tac-toe/service-dashbard-4.png" alt="Example Service" /></p>
@@ -1404,7 +1390,8 @@ Last Status가 PROVISIONING =&gt; PENDING =&gt; RUNNING 단계로 바뀌때까�
 
 <p><img src="../../../images/tic-tac-toe/service-dashbard-5.png" alt="Example Service" /></p>
 
-<p>축하합니다! 성공적으로 첫번째 웹 서비스를 띄웠습니다.
+<p>축하합니다!<br>
+성공적으로 첫번째 웹 서비스를 띄웠습니다.<br>
 아직 매치메이커 서버가 없기때문에 페이지가 아무런 응답을 하지 않습니다.
 계속 진행해서 모든 서비스를 띄워보겠습니다.</p>
 
@@ -2309,20 +2296,20 @@ Last Status가 PROVISIONING =&gt; PENDING =&gt; RUNNING 단계로 바뀌때까�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566451219"></script>
-    <script src="../../../js/jquery.sticky.js?1566451219"></script>
-    <script src="../../../js/featherlight.min.js?1566451219"></script>
-    <script src="../../../js/html5shiv-printshiv.min.js?1566451219"></script>
-    <script src="../../../js/highlight.pack.js?1566451219"></script>
+    <script src="../../../js/clipboard.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566462182"></script>
+    <script src="../../../js/jquery.sticky.js?1566462182"></script>
+    <script src="../../../js/featherlight.min.js?1566462182"></script>
+    <script src="../../../js/html5shiv-printshiv.min.js?1566462182"></script>
+    <script src="../../../js/highlight.pack.js?1566462182"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1566451219"></script>
-    <script src="../../../js/learn.js?1566451219"></script>
-    <script src="../../../js/hugo-learn.js?1566451219"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1566462182"></script>
+    <script src="../../../js/learn.js?1566462182"></script>
+    <script src="../../../js/hugo-learn.js?1566462182"></script>
 
-    <link href="../../../mermaid/mermaid.css?1566451219" type="text/css" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.min.js?1566451219"></script>
+    <link href="../../../mermaid/mermaid.css?1566462182" type="text/css" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.min.js?1566462182"></script>
     <script>
 	var config = {
         startOnLoad:true,

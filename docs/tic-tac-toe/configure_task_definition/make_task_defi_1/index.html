@@ -18,21 +18,21 @@
     <title>매치 메이커 작업 정의 :: ECS HoL</title>
 
     
-    <link href="../../../css/nucleus.css?1566451219" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1566451219" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1566451219" rel="stylesheet">
-    <link href="../../../css/theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/jquery-ui.min.css?1566451219" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1566462182" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1566462182" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1566462182" rel="stylesheet">
+    <link href="../../../css/theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/jquery-ui.min.css?1566462182" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1566451219" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1566462182" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1566451219"></script>
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1566451219"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1566462182"></script>
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1566462182"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1566451219"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1566462182"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1566462182"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/search.js?1566462182"></script>
 
     
   </div>
@@ -1087,13 +1087,13 @@
  
   
     
-    <li data-nav-id="/cleanup/" title="Cleanup" class="dd-item 
+    <li data-nav-id="/cleanup/" title="클린 업" class="dd-item 
         
         
         
         ">
       <a href="../../../cleanup/">
-          Cleanup
+          클린 업
           
       </a>
       
@@ -1306,17 +1306,12 @@
 </ol>
 
 <ul>
-<li><p><strong>Task Definition Name</strong>: matchmaker</p></li>
-
-<li><p><strong>Task Role</strong>: tic-tac-toe-task-role</p></li>
-
-<li><p><strong>Network Mode</strong>: Bridge</p></li>
-
-<li><p><strong>Task execution role</strong>: tic-tac-toe-task-role</p></li>
-
-<li><p><strong>Task memory</strong>: 256</p></li>
-
-<li><p><strong>Task CPU</strong>: 512</p></li>
+<li><strong>Task Definition Name</strong>: matchmaker</li>
+<li><strong>Task Role</strong>: tic-tac-toe-task-role</li>
+<li><strong>Network Mode</strong>: Bridge</li>
+<li><strong>Task execution role</strong>: tic-tac-toe-task-role</li>
+<li><strong>Task memory</strong>: 256</li>
+<li><strong>Task CPU</strong>: 512</li>
 </ul>
 
 <p><img src="../../../images/tic-tac-toe/task-definition-matchmaker-1.png" alt="Example Service" /></p>
@@ -1324,11 +1319,9 @@
 <p><strong>Add container</strong>를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.</p>
 
 <ul>
-<li><p><strong>Container name</strong>: matchmaker</p></li>
-
-<li><p><strong>Image</strong>: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/matchmaker:latest 의 형식입니다.</p></li>
-
-<li><p><strong>Port mappings</strong>항목에서 Host는 0, Container Port는 8888을 입력합니다.</p></li>
+<li><strong>Container name</strong>: matchmaker</li>
+<li><strong>Image</strong>: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/matchmaker:latest 의 형식입니다.</li>
+<li><strong>Port mappings</strong>항목에서 Host는 0, Container Port는 8888을 입력합니다.</li>
 </ul>
 
 <p><img src="../../../images/tic-tac-toe/task-definition-matchmaker-2.png" alt="Example Service" /></p>
@@ -1345,18 +1338,15 @@
 필요한 환경변수는 3개 입니다.</p>
 
 <ul>
-<li><p>AWS_REGION: us-west-2</p></li>
-
-<li><p>ECS_CLUSTER_NAME: tic-tac-toe-cluster</p></li>
-
-<li><p>ECS_TASK_DEFINITION: tic-tac-toe-server</p></li>
+<li>AWS_REGION: us-west-2</li>
+<li>ECS_CLUSTER_NAME: tic-tac-toe-cluster</li>
+<li>ECS_TASK_DEFINITION: tic-tac-toe-server</li>
 </ul>
 
 <p><img src="../../../images/tic-tac-toe/task-definition-matchmaker-4.png" alt="Example Service" /></p>
 
-<p>아래로 내려가서 <strong>Log configuration</strong> 항목의 Auto-configure CloudWatch Logs를 활성화 합니다.</p>
-
-<p><strong>Add</strong>를 선택합니다. 이미 한번 적용했다면 버튼 이름은 <strong>Update</strong>로 변경됩니다.</p>
+<p>아래로 내려가서 <strong>Log configuration</strong> 항목의 Auto-configure CloudWatch Logs를 활성화 합니다.<br>
+<strong>Add</strong>를 선택합니다. 이미 한번 적용했다면 버튼 이름은 <strong>Update</strong>로 변경됩니다.</p>
 
 <p><strong>Create</strong> 를 선택해서 작업을 만듭니다.</p>
 
@@ -2269,20 +2259,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566451219"></script>
-    <script src="../../../js/jquery.sticky.js?1566451219"></script>
-    <script src="../../../js/featherlight.min.js?1566451219"></script>
-    <script src="../../../js/html5shiv-printshiv.min.js?1566451219"></script>
-    <script src="../../../js/highlight.pack.js?1566451219"></script>
+    <script src="../../../js/clipboard.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566462182"></script>
+    <script src="../../../js/jquery.sticky.js?1566462182"></script>
+    <script src="../../../js/featherlight.min.js?1566462182"></script>
+    <script src="../../../js/html5shiv-printshiv.min.js?1566462182"></script>
+    <script src="../../../js/highlight.pack.js?1566462182"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1566451219"></script>
-    <script src="../../../js/learn.js?1566451219"></script>
-    <script src="../../../js/hugo-learn.js?1566451219"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1566462182"></script>
+    <script src="../../../js/learn.js?1566462182"></script>
+    <script src="../../../js/hugo-learn.js?1566462182"></script>
 
-    <link href="../../../mermaid/mermaid.css?1566451219" type="text/css" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.min.js?1566451219"></script>
+    <link href="../../../mermaid/mermaid.css?1566462182" type="text/css" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.min.js?1566462182"></script>
     <script>
 	var config = {
         startOnLoad:true,

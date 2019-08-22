@@ -11,7 +11,7 @@
 	"title": "VPC 이름 변경",
 	"tags": [],
 	"description": "",
-	"content": "서비스에서 VPC로 이동헙나다.\nECS 클러스터 생성시 자동으로 만든 VPC를 확인합니다. 앞서 적어놨으면 해당 VPC를 찾고, 아니면 CIDR가 10.0.0.0/16 인것을 찾습니다.\n알아보기 쉽도록 해당 VPC 이름에 tic-tac-toe-vpc 을 적습니다.\n"
+	"content": " 서비스에서 VPC로 이동헙나다. ECS 클러스터 생성시 자동으로 만든 VPC를 확인합니다.\n앞서 적어놨으면 해당 VPC를 찾고, 아니면 CIDR가 10.0.0.0/16 인것을 찾습니다. 알아보기 쉽도록 해당 VPC 이름에 tic-tac-toe-vpc 을 적습니다.  "
 },
 {
 	"uri": "/tic-tac-toe/configure_cloudmap/check_vpc/",
@@ -25,14 +25,14 @@
 	"title": "대시보드 서비스 만들기",
 	"tags": [],
 	"description": "",
-	"content": " 대시보드 서비스는 daboard ALB와 FARGATE 작업을 연동한 웹서비스가 될 예정입니다.\n서비스 구성  ECS 서비스로 갑니다. 앞서 만든 tic-tac-toe-cluster를 선택합니다. 탭 메뉴에서 Services를 선택하고 Create를 선택합니다. 아래와 같이 입력합니다.   Launch type: FARGATE\n Task Definition: Family: dashboard, Revision: 1\n  실수 없이 잘 따라오셨다면 dashboard 작업 정의는 1개의 리비전을 가지고 있습니다. 중간에 개정을 하셨다면 가장 최신 리비전을 선택하시면 됩니다. 우리는 중간에 dashboard 컨테이너를 새로 묶어서 올린적이 있습니다. 컨테이너 리비전과 작업 정의 리비전은 다른것임을 염두하셔야 합니다.\n  Service name: dashboard\n Number of tasks: 2\n  다른 옵션은 기본값을 사용합니다.\nNext step을 선택하여 다음 화면으로 넘어갑니다.\n네트워크 구성 아래와 같이 입력합니다.\n Cluster VPC: tic-tac-toe-vpc\n Subnets: 선택 가능한 2개의 서브넷 모두 선택\n Security groups\n Edit 선택 Select existing security group 선택 WebServer-SG 선택  Auto-assign public IP ENABLED\n Load balancer type: Application Load Balancer\n Service IAM role: Create new role\n Load balancer name: dashboard-ALB\n Container to load balance/Add to load balancer 선택\n Production listener port: 80:HTTP 선택\n Target group name: dashboard\n Enable service discovery integration: 선택 해제\n  Next step을 선택하여 다음 화면으로 넘어갑니다.\n오토 스케일링 Do not adjust the service\u0026rsquo;s desired count 선택합니다.\n리뷰 Create Service를 선택하여 서비스를 생성합니다.\n서비스 생성 후 제대로 설정을 하고 서비스를 생성하면, 잠시 후 해당 서비스에서 2개의 FARGATE 작업이 실행됩니다. Last Status가 PROVISIONING =\u0026gt; PENDING =\u0026gt; RUNNING 단계로 바뀌때까지 기다립니다.\n바뀌고나면 브러우저 주소창에 dashboard ALB의 주소를 입력하여 접속해봅니다.\n축하합니다! 성공적으로 첫번째 웹 서비스를 띄웠습니다. 아직 매치메이커 서버가 없기때문에 페이지가 아무런 응답을 하지 않습니다. 계속 진행해서 모든 서비스를 띄워보겠습니다.\n"
+	"content": " 대시보드 서비스는 daboard ALB와 FARGATE 작업을 연동한 웹서비스가 될 예정입니다.\n서비스 구성  ECS 서비스로 갑니다. 앞서 만든 tic-tac-toe-cluster를 선택합니다. 탭 메뉴에서 Services를 선택하고 Create를 선택합니다. 아래와 같이 입력합니다.   Launch type: FARGATE Task Definition: Family: dashboard, Revision: 1  실수 없이 잘 따라오셨다면 dashboard 작업 정의는 1개의 리비전을 가지고 있습니다. 중간에 개정을 하셨다면 가장 최신 리비전을 선택하시면 됩니다. 우리는 중간에 dashboard 컨테이너를 새로 묶어서 올린적이 있습니다. 컨테이너 리비전과 작업 정의 리비전은 다른것임을 염두하셔야 합니다.\n  Service name: dashboard Number of tasks: 2  다른 옵션은 기본값을 사용합니다. Next step을 선택하여 다음 화면으로 넘어갑니다.\n네트워크 구성 아래와 같이 입력합니다.\n Cluster VPC: tic-tac-toe-vpc Subnets: 선택 가능한 2개의 서브넷 모두 선택 Security groups  Edit 선택 Select existing security group 선택 WebServer-SG 선택  Auto-assign public IP ENABLED Load balancer type: Application Load Balancer Service IAM role: Create new role Load balancer name: dashboard-ALB Container to load balance/Add to load balancer 선택 Production listener port: 80:HTTP 선택 Target group name: dashboard Enable service discovery integration: 선택 해제   Next step을 선택하여 다음 화면으로 넘어갑니다.\n오토 스케일링 Do not adjust the service\u0026rsquo;s desired count 선택합니다.\n리뷰 Create Service를 선택하여 서비스를 생성합니다.\n서비스 생성 후 실수없이 설정을 하고 서비스를 생성하면, 잠시 후 해당 서비스에서 2개의 FARGATE 작업이 실행됩니다.\nLast Status가 PROVISIONING =\u0026gt; PENDING =\u0026gt; RUNNING 단계로 바뀌때까지 기다립니다.\n바뀌고나면 브러우저 주소창에 dashboard ALB의 주소를 입력하여 접속해봅니다.\n축하합니다!\n성공적으로 첫번째 웹 서비스를 띄웠습니다.\n아직 매치메이커 서버가 없기때문에 페이지가 아무런 응답을 하지 않습니다. 계속 진행해서 모든 서비스를 띄워보겠습니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/run_dedi_servers/run_task/",
 	"title": "서버 준비 하기",
 	"tags": [],
 	"description": "",
-	"content": " 작업 실행  ECS/Cluster/tic-tac-toe-cluster 로 들어갑니다. 탭 메뉴에서 Tasks를 선택햅니다. Run new Task를 선택합니다. 아래 내용으로 작업을 입력합니다.  Launch type: EC2\nTask Definition: tic-tac-toe-server:1\nNumber of tasks: 10\n나머지 값은 기본으로 둡니다.\nRun Task을 선택합니다.\n실행 결과 잠시 후 게임 서버들이 실행되는것을 볼 수 있습니다. 새로고침아이콘을 눌러 상태를 갱신해서 볼 수 있습니다.\n모든 작업의 상태가 RUNNING이 되기를 기다립니다.\n클라우드 맵에서 확인하기  AWS Cloud Map 서비스로 갑니다. tic-tac-toe/dedi-server를 선택합니다. 방금 띄운 게임 서버들이 자신의 정보를 클라우드 맵에 올린것을 볼 수 있습니다.  대시보드에서 확인하기  대시보드창으로 돌아갑니다. 왼쪽 사이드 메뉴에서 모니터링을 선택합니다. 준비중인 데디 서버들을 확인합니다.  "
+	"content": " 작업 실행  ECS/Cluster/tic-tac-toe-cluster 로 들어갑니다. 탭 메뉴에서 Tasks를 선택햅니다. Run new Task를 선택합니다. 아래 내용으로 작업을 입력합니다.  Launch type: EC2 Task Definition: tic-tac-toe-server:1 Number of tasks: 10   나머지 값은 기본으로 둡니다.\nRun Task을 선택합니다.\n실행 결과 잠시 후 게임 서버들이 실행되는것을 볼 수 있습니다. 새로고침아이콘을 눌러 상태를 갱신해서 볼 수 있습니다.\n모든 작업의 상태가 RUNNING이 되기를 기다립니다. 클라우드 맵에서 확인하기  AWS Cloud Map 서비스로 갑니다. tic-tac-toe/dedi-server를 선택합니다. 방금 띄운 게임 서버들이 자신의 정보를 클라우드 맵에 올린것을 볼 수 있습니다.   대시보드에서 확인하기  대시보드창으로 돌아갑니다. 왼쪽 사이드 메뉴에서 모니터링을 선택합니다. 준비중인 데디 서버들을 확인합니다.  "
 },
 {
 	"uri": "/tic-tac-toe/configure_ecr/clone_source/",
@@ -46,21 +46,21 @@
 	"title": "AWS 계정 생성",
 	"tags": [],
 	"description": "",
-	"content": " 여러분의 계정은 새로운 IAM 역할(role)을 만들거나 다른 퍼미션(permission)을 만들 수 있는 권한이 있어야 합니다.\n  관리자 권한이 있는 AWS 계정이 없다면: 여기를 눌러 새로 만드세요\n Once you have an AWS account, ensure you are following the remaining workshop steps as an IAM user with administrator access to the AWS account: Create a new IAM user to use for the workshop\n 사용자 내용을 적습니다:  Attach the AdministratorAccess IAM Policy:  Click to create the new user:  Take note of the login URL and save:   "
+	"content": " 여러분의 계정은 새로운 IAM 역할(role)을 만들거나 다른 퍼미션(permission)을 만들 수 있는 권한이 있어야 합니다.\n  관리자 권한이 있는 AWS 계정이 없다면: 여기를 눌러 새로 만드세요 AWS 계정을 가지고 있다면, 다음 링크를 눌러 관리자 권한이 있는 새로운 IAM 유저를 만듭니다. Create a new IAM user to use for the workshop\n 사용자 내용을 적습니다:  AdministratorAccess IAM 정책을 추가합니다.:  Create user를 선택합니다.:  로그인 URL을 적어놓고 저장합니다.:   "
 },
 {
 	"uri": "/tic-tac-toe/build_cluster/iamrole/",
 	"title": "ECS EC2를 위한 IAM 역할 만들기",
 	"tags": [],
 	"description": "",
-	"content": "ECS 클러스터의 EC2가 사용할 IAM 역할을 만듭니다.\n IAM 에 가서 Roles 를 선택합니다. Create role을 선택합니다. 위에서부터 순서대로 AWS service/EC2/Elastic Container Service 를 선택합니다. 하단에 새롭게 표시되는 Select your use case에서 EC2 Role for Elastic Container Service를 선택합니다. Next: Permissions를 선택합니다.  반복적으로 Next:를 눌러 Review페이지까지 진행합니다.\n Role name 에는 tic-tac-toe-ecs-role 을 입력하고 Create role을 선택합니다.   "
+	"content": "ECS 클러스터의 EC2가 사용할 IAM 역할을 만듭니다.\n IAM 에 가서 Roles 를 선택합니다. Create role을 선택합니다. 위에서부터 순서대로 AWS service/EC2/Elastic Container Service 를 선택합니다. 하단에 새롭게 표시되는 Select your use case에서 EC2 Role for Elastic Container Service를 선택합니다. Next: Permissions를 선택합니다.  반복적으로 Next:를 눌러 Review페이지까지 진행합니다. Role name 에는 tic-tac-toe-ecs-role 을 입력하고 Create role을 선택합니다.   "
 },
 {
 	"uri": "/tic-tac-toe/configure_task_definition/iamrole/",
 	"title": "ECS 작업을 위한 IAM 역할 만들기",
 	"tags": [],
 	"description": "",
-	"content": " ECS 작업이 사용할 IAM 역할을 만듭니다.\n역할 생성  IAM 에 가서 Roles 를 선택합니다. Create role을 선택합니다. 위에서부터 순서대로 AWS service/Elastic Container Service/Elastic Container Service Task 를 선택합니다.   퍼미션 생성 Create role 화면에서 다음 퍼미션을 찾아서 추가합니다.\nAmazonEC2ContainerRegistryReadOnly\nAmazonECS_FullAccess\nAWSCloudMapFullAccess\nCloudWatchLogsFullAccess\nNext를 선택하여 Review 페이지까지 이동합니다.\n리뷰 Role name 에는 tic-tac-toe-task-role 을 입력하고 Create role을 선택합니다. "
+	"content": " ECS 작업이 사용할 IAM 역할을 만듭니다.\n역할 생성  IAM 에 가서 Roles 를 선택합니다. Create role을 선택합니다. 위에서부터 순서대로 AWS service/Elastic Container Service/Elastic Container Service Task 를 선택합니다.   퍼미션 생성 Create role 화면에서 다음 퍼미션을 찾아서 추가합니다.\n AmazonEC2ContainerRegistryReadOnly\n AmazonECS_FullAccess\n AWSCloudMapFullAccess\n CloudWatchLogsFullAccess\n  Next를 선택하여 Review 페이지까지 이동합니다.\n리뷰 Role name 에는 tic-tac-toe-task-role 을 입력합니다. Create role을 선택합니다.\n"
 },
 {
 	"uri": "/cleanup/delete_cluster/",
@@ -81,21 +81,21 @@
 	"title": "게임 서버를 파게이트로 띄우기",
 	"tags": [],
 	"description": "",
-	"content": " 앞서 게임서버는 EC2 타입의 작업으로 띄웠습니다. EC2 타입은 EC2 클러스터를 필요로 합니다. 이번에는 서버리스 타입인 파게이트로 게임서버를 만들어서 띄워보겠습니다.\n작업 정의 추가  ECS/Task Definitions/tic-tac-toe-server 를 선택합니다. 가장 최근 리비전을 선택합니다. (문서대로 왔다면 tic-tac-toe-server:1) 입니다. 상단의 Create new revision 을 선택합니다. 몇가지만 바꿔서 Fargate타입으로 바꿉니다. 아래 내용을 입력하세요.  Task Definition Name: tic-tac-toe-server-fargate\nNetwork Mode: awsvpc\nRequires compatibilities: FARGATE 만 선택\nTask memory: 0.5GB\nTask CPU: 0.25 vCPU\n하단의 Create 선택\n새롭게 tic-tac-toe-server-fargate 작업 정의가 생긴것을 볼 수 있습니다.\n작업 실행  Cluster/tic-tac-toe-cluster 를 선택합니다. Tasks 탭을 선택하고 Run new Task를 선택합니다. 아래처럼 입력합니다.  Launch type: FARGATE\nTask Definition: tic-tac-toe-server-fargate:1\nNumber of tasks: 5\nCluster VPC: tic-tac-toe-vpc\nSubnets: 선택가능한 모든 서브넷\nSecurity groups: Edit선택\n tic-tac-toe-server-SG 를 만든적 있다면, 이것을 선택합니다.\n 처음이라면\n   Create new security group을 선택하고 이름에 tic-tac-toe-server-SG 을 입력합니다. 인바운드 규칙을 CUSTOM TCP 3553로 입력합니다. Save 를 선택합니다.  Auto-assign public IP: ENABLED\nRun Task를 선택하여 작업을 수행합니다.\n대시보드에서 확인 콘솔에서 파게이트 게임 서버가 뜨는것을 확인 할 수 있습니다.\n이후 대시보드로 돌아가서 보면 파게이트 게임 서버가 추가로 준비하고 있습니다.\n"
+	"content": " 앞서 게임서버는 EC2 타입의 작업으로 띄웠습니다.\nEC2 타입은 EC2 클러스터를 필요로 합니다.\n이번에는 서버리스 타입인 파게이트로 게임서버를 만들어서 띄워보겠습니다.\n작업 정의 추가  ECS/Task Definitions/tic-tac-toe-server 를 선택합니다. 가장 최근 리비전을 선택합니다. (문서대로 왔다면 tic-tac-toe-server:1) 입니다. 상단의 Create new revision 을 선택합니다. 몇가지만 바꿔서 Fargate타입으로 바꿉니다. 아래 내용을 입력하세요.  Task Definition Name: tic-tac-toe-server-fargate Network Mode: awsvpc Requires compatibilities: FARGATE 만 선택 Task memory: 0.5GB Task CPU: 0.25 vCPU   하단의 Create을 선택합니다. 새롭게 tic-tac-toe-server-fargate 작업 정의가 생긴것을 볼 수 있습니다.\n작업 실행  Cluster/tic-tac-toe-cluster 를 선택합니다. Tasks 탭을 선택하고 Run new Task를 선택합니다. 아래처럼 입력합니다.  Launch type: FARGATE Task Definition: tic-tac-toe-server-fargate:1 Number of tasks: 5 Cluster VPC: tic-tac-toe-vpc Subnets: 선택가능한 모든 서브넷 Security groups: Edit선택\ntic-tac-toe-server-SG 를 만든적 있다면, 이것을 선택합니다.    처음이라면   Create new security group을 선택하고 이름에 tic-tac-toe-server-SG 을 입력합니다. 인바운드 규칙을 CUSTOM TCP 3553로 입력합니다. Save 를 선택합니다.    Auto-assign public IP: ENABLED  Run Task를 선택하여 작업을 수행합니다. 대시보드에서 확인 콘솔에서 파게이트 게임 서버가 뜨는것을 확인 할 수 있습니다.\n이후 대시보드로 돌아가서 보면 파게이트 게임 서버가 추가로 준비하고 있습니다. "
 },
 {
 	"uri": "/tic-tac-toe/run_dedi_servers/run_game/",
 	"title": "게임 실행 하기",
 	"tags": [],
 	"description": "",
-	"content": " 게임 실행 대시보드 화면을 3개 띄웁니다. 2개는 게임을 할 것이고, 1개는 이 상황을 모니터링 할 것입니다.\n 대시보드상에서 좌측 사이드 메뉴의 게임을 선택합니다. START GAME 선택합니다. 또 다른 브라우저에서 동일하게 START_GAME 을 선택합니다. 매칭은 최대 30초간 기다리므로 30초 이내에 2개의 브라우저에서 참여해세요.  게임 화면 매칭이 성사되면 양 브라우저에서 게임이 실행됩니다. 양쪽 모두 화면을 터치하여 게임에 참여하면 게임이 시작됩니다.\n모니터링 또다른 대시보드로 이동합니다. 모니터링 메뉴로 이동하여 다른 브라우저에 게임할때 상황을 지켜보면 활성화 된 게임서버와 대기중인 게임서버, 그리고 게임이 끝나고 사라지는 게임서버를 볼 수 있습니다.\n"
+	"content": " 게임 실행 대시보드 화면을 3개 띄웁니다.\n2개는 게임을 할 것이고, 1개는 이 상황을 모니터링 할 것입니다.\n 대시보드상에서 좌측 사이드 메뉴의 게임을 선택합니다. START GAME 선택합니다. 또 다른 브라우저에서 동일하게 START_GAME 을 선택합니다.\n매칭은 최대 30초간 기다리므로 30초 이내에 2개의 브라우저에서 참여해세요.  게임 화면 매칭이 성사되면 양 브라우저에서 게임이 실행됩니다.\n양쪽 모두 화면을 터치하여 게임에 참여하면 게임이 시작됩니다.\n모니터링 또다른 대시보드로 이동합니다.\n모니터링 메뉴로 이동하여 다른 브라우저에 게임할때 상황을 지켜보면 활성화 된 게임서버와 대기중인 게임서버, 그리고 게임이 끝나고 사라지는 게임서버를 볼 수 있습니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_service/make_service_client/",
 	"title": "클라이언트 서비스 만들기",
 	"tags": [],
 	"description": "",
-	"content": " 클라이언트 서비스는 tic-tac-toe-client-ALB와 FARGATE 작업을 연동한 웹서비스가 될 예정입니다. 앞 페이지의 생성 경험을 살려 아래 값대로 서비스를 생성해 주시기 바랍니다.\n서비스 구성 Launch type: FARGATE\nTask Definition: Family: tic-tac-toe-client, Revision: 1\nService name: tic-tac-toe-client\nNumber of tasks: 2\n다른 옵션은 기본값을 사용합니다.\nNext step 을 선택합니다.\n네트워크 구성 아래와 같이 입력합니다.\nCluster VPC: tic-tac-toe-vpc\nSubnets: 선택 가능한 2개의 서브넷 모두 선택\nSecurity groups 1. Edit 선택 1. Select existing security group 선택 1. WebServer-SG 선택\nAuto-assign public IP ENABLED\nLoad balancer type: Application Load Balancer\nService IAM role: 대시보드 서비스를 만들때 자동 생성한 IAM 역할이 있습니다. 이것을 선택합니다.\nLoad balancer name: tic-tac-toe-client-ALB\nContainer to load balance/Add to load balancer 선택\nProduction listener port: 80:HTTP 선택\nTarget group name: tic-tac-toe-client 선택\nEnable service discovery integration: 선택 해체\nNext step 선택\n오토 스케일링 Do not adjust the service\u0026rsquo;s desired count 선택\n리뷰 Create Service를 선택하여 서비스 생성\n서비스 생성 후 브라우저 주소창에 tic-tac-toe-client-ALB 의 주소를 넣고 정상 동작하는지 확인합니다.\n"
+	"content": " 클라이언트 서비스는 tic-tac-toe-client-ALB와 FARGATE 작업을 연동한 웹서비스가 될 예정입니다.\n앞 페이지의 생성 경험을 살려 아래 값대로 서비스를 생성해 주시기 바랍니다.\n서비스 구성  Launch type: FARGATE Task Definition: Family: tic-tac-toe-client, Revision: 1 Service name: tic-tac-toe-client Number of tasks: 2  다른 옵션은 기본값을 사용합니다.\nNext step 을 선택합니다.\n네트워크 구성 아래와 같이 입력합니다.\n Cluster VPC: tic-tac-toe-vpc Subnets: 선택 가능한 2개의 서브넷 모두 선택 Security groups  Edit 선택 Select existing security group 선택 WebServer-SG 선택  Auto-assign public IP ENABLED Load balancer type: Application Load Balancer Service IAM role: 대시보드 서비스를 만들때 자동 생성한 IAM 역할이 있습니다. 이것을 선택합니다. Load balancer name: tic-tac-toe-client-ALB Container to load balance/Add to load balancer 선택 Production listener port: 80:HTTP 선택 Target group name: tic-tac-toe-client 선택 Enable service discovery integration: 선택 해체  Next step 선택\n오토 스케일링 Do not adjust the service\u0026rsquo;s desired count 선택\n리뷰 Create Service를 선택하여 서비스를 생성합니다.\n서비스 생성 후 브라우저 주소창에 tic-tac-toe-client-ALB 의 주소를 넣고 정상 동작하는지 확인합니다.\n"
 },
 {
 	"uri": "/cleanup/delete_ec2/",
@@ -116,21 +116,21 @@
 	"title": "매치메이커 서비스 만들기",
 	"tags": [],
 	"description": "",
-	"content": " 매치메이커 서비스는 matchmaker-ALB와 EC2 작업을 연동한 Restful 웹서비스가 될 예정입니다.\n매치 메이커 서버에는 서비스 상태를 모니터링하고 변경사항을 클라이언트에게 보내주는 로직이 들어있습니다. 따라서 2개 이상의 서버가 뜨면 동작이 이상해 질 수 있습니다. 그래서 1개의 작업만 유지되도록 설정했습니다.\n1개의 작업이라도 서비스로 등록하면 작업이 비정상 종료되거나 호스트가 비정상 종료되더라도 ECS가 다시 띄워주므로 활용가치가 있습니다.\n서비스 구성  서비스 생성을 선택합니다. 아래와 같이 입력합니다.  Launch type: EC2\nTask Definition: Family: matchmaker, Revision: 1\nService name: matchmaker\nNumber of tasks: 1\n다른 옵션은 기본값을 사용합니다.\nNext step을 선택하여 다음 화면으로 넘어갑니다.\n네트워크 구성 아래와 같이 입력합니다.\nCluster VPC: tic-tac-toe-vpc\nSubnets: 선택 가능한 2개의 서브넷 모두 선택\nSecurity groups 1. Edit 선택 1. Select existing security group 선택 1. WebServer-SG 선택\nAuto-assign public IP ENABLED\nLoad balancer type: Application Load Balancer\nService IAM role: 대시보드 서비스를 만들때 자동 생성한 IAM 역할이 있습니다. 이것을 선택합니다.\nLoad balancer name: matchmaker-ALB\nContainer to load balance/Add to load balancer 선택\nProduction listener port: matchmaker:0:8888 을 로드밸런서에 추가(Add to load balancer)\nTarget group name: matchmaker\nEnable service discovery integration: 선택 해제\nNext step을 선택하여 다음 화면으로 넘어갑니다.\n오토 스케일링 Do not adjust the service\u0026rsquo;s desired count 선택\n리뷰 Create Service를 선택하여 서비스 생성\n서비스 생성 후 서비스가 작업을 만들고 이 작업이 ALB의 헬스체크를 통과하기까지 시간이 조금 걸립니다. 작업의 state가 RUNNING이 된 후에 2~3분을 기다린 후 http:///api/health 를 입력했을때 200이 출력되면 정상입니다.\n"
+	"content": " 매치메이커 서비스는 matchmaker-ALB와 EC2 작업을 연동한 Restful 웹서비스가 될 예정입니다.\n매치 메이커 서버에는 서비스 상태를 모니터링하고 변경사항을 클라이언트에게 보내주는 로직이 들어있습니다.\n따라서 2개 이상의 서버가 뜨면 동작이 이상해 질 수 있습니다. 그래서 1개의 작업만 유지되도록 설정했습니다.\n1개의 작업이라도 서비스로 등록하면 작업이 비정상 종료되거나 호스트가 비정상 종료되더라도 ECS가 다시 띄워주므로 활용가치가 있습니다.\n서비스 구성  서비스 생성을 선택합니다. 아래와 같이 입력합니다.   Launch type: EC2 Task Definition: Family: matchmaker, Revision: 1 Service name: matchmaker Number of tasks: 1  다른 옵션은 기본값을 사용합니다.\nNext step을 선택하여 다음 화면으로 넘어갑니다.\n네트워크 구성 아래와 같이 입력합니다.\n Cluster VPC: tic-tac-toe-vpc Subnets: 선택 가능한 2개의 서브넷 모두 선택 Security groups  Edit 선택 Select existing security group 선택 WebServer-SG 선택  Auto-assign public IP ENABLED Load balancer type: Application Load Balancer Service IAM role: 대시보드 서비스를 만들때 자동 생성한 IAM 역할이 있습니다. 이것을 선택합니다. Load balancer name: matchmaker-ALB Container to load balance/Add to load balancer 선택 Production listener port: matchmaker:0:8888 을 로드밸런서에 추가(Add to load balancer) Target group name: matchmaker Enable service discovery integration: 선택 해제  Next step을 선택하여 다음 화면으로 넘어갑니다.\n오토 스케일링 Do not adjust the service\u0026rsquo;s desired count 선택\n리뷰 Create Service를 선택하여 서비스를 생성합니다.\n서비스 생성 후 서비스가 작업을 만들고 이 작업이 ALB의 헬스체크를 통과하기까지 시간이 조금 걸립니다.\n작업의 state가 RUNNING이 된 후에 http://매치메이커 ALB 주소/api/health 를 입력했을때 200이 출력되면 정상입니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_alb/make_matchmaker_target_group/",
 	"title": "매치메이커 타겟 그룹 만들기",
 	"tags": [],
 	"description": "",
-	"content": " EC2 서비스로 넘어갑니다. 좌측 사이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker\n Target type: instance\n VPC: tic-tac-toe-vpc\n Port: 8888\n Health check settings/Path: /api/health\n  나머지 정보는 기본으로 둡니다.\n헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.\n Healthy threshold: 2\n Interval: 10\n  Create를 선택하여 타겟그룹을 생성합니다.\n"
+	"content": " EC2 서비스로 넘어갑니다. 좌측 사이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker Target type: instance VPC: tic-tac-toe-vpc Port: 8888 Health check settings/Path: /api/health  나머지 항목은 기본값으로 둡니다.\n헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.\n Healthy threshold: 2 Interval: 10  Create를 선택하여 타겟그룹을 생성합니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_cloudmap/make_target_group/",
 	"title": "타겟 그룹 만들기",
 	"tags": [],
 	"description": "",
-	"content": " 매치메이커 타겟 그룹 만들기  EC2 서비스로 넘어갑니다. 좌측 서이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker\n Target type: IP\n VPC: tic-tac-toe-vpc\n Health check settings/Path: /api/health   헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.\n Healthy threshold: 3\n Interval: 10\n  위와 같은 방법으로 2개의 타겟 그룹을 더 만듭니다. 달라지는것은 Target group name와 Health check settings/Path 입니다.\n대시보드 타겟 그룹 만들기  Target group name: dashboard\n Health check settings/Path: /\n  클라이언트 타겟 그룹 만들기  Target group name: tic-tc-toe-client\n Health check settings/Path: /\n  "
+	"content": " 매치메이커 타겟 그룹 만들기  EC2 서비스로 넘어갑니다. 좌측 서이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker Target type: IP VPC: tic-tac-toe-vpc Health check settings/Path: /api/health   헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.\n Healthy threshold: 3 Interval: 10   위와 같은 방법으로 2개의 타겟 그룹을 더 만듭니다. 달라지는것은 Target group name와 Health check settings/Path 입니다.\n대시보드 타겟 그룹 만들기  Target group name: dashboard Health check settings/Path: /  클라이언트 타겟 그룹 만들기  Target group name: tic-tc-toe-client Health check settings/Path: /   matchmaker 만 Port와 Target type이 다른것을 주의하세요.\n "
 },
 {
 	"uri": "/tic-tac-toe/build_cluster/edit_sg/",
@@ -144,28 +144,28 @@
 	"title": "클라우드 맵 삭제",
 	"tags": [],
 	"description": "",
-	"content": "아래 명령어를 Cloud9 터미널에 입력하여 Cloud Map 리소스를 삭제합니다.\naws servicediscovery delete-service --id $(aws servicediscovery list-services | jq -r '.Services[0].Id') aws servicediscovery delete-namespace --id $(aws servicediscovery list-namespaces | jq -r '.Namespaces[0].Id')  네임스페이스를 지우는데는 시간이 몇분정도 걸립니다. 5분정도 기다린 후 확인을 해주세요.\n"
+	"content": "아래 명령어를 Cloud9 터미널에 입력하여 Cloud Map 리소스를 삭제합니다.\naws servicediscovery delete-service --id $(aws servicediscovery list-services | jq -r '.Services[0].Id') aws servicediscovery delete-namespace --id $(aws servicediscovery list-namespaces | jq -r '.Namespaces[0].Id')  네임스페이스를 지우는데는 시간이 몇분정도 걸립니다. 3분정도 기다린 후 확인을 해주세요.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_alb/make_other_target_groups/",
 	"title": "대시보드 타겟 그룹 만들기",
 	"tags": [],
 	"description": "",
-	"content": " 타겟그룹을 2개 더 만듭니다.\n대시보드 타겟 그룹 생성 앞서 만든 매치메이커 타겟그룹과 과정은 동일합니다.\n Create target group을 선택하고 아래와 같이 입력합니다.\n Target group name: dashboard\n Target type: ip\n VPC: tic-tac-toe-vpc\n Port: 80\n Health check settings/Path: /\n  나머지 정보는 기본으로 둡니다.\n헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.\n Healthy threshold: 2\n Interval: 10\n  Create를 선택하여 타겟그룹을 생성합니다.\n클라이언트 타겟 그룹 생성 Create target group을 선택하고 아래와 같이 입력합니다. 위에서 만든 dashboard 타겟 그룹과 이름만 다릅니다.\n Target group name: tic-tac-toe-client\n Target type: ip\n VPC: tic-tac-toe-vpc\n Port: 80\n Health check settings/Path: /\n Target group name: tic-tc-toe-client\n Health check settings/Path: /\n  Create를 선택하여 타겟그룹을 생성합니다.\n결과 화면 3개의 타겟그룹을 다 만들고 나면 다음과 같은 결과화면을 보게됩니다. Port와 Target type을 확인하시기 바랍니다.\n"
+	"content": " 타겟그룹을 2개 더 만듭니다.\n대시보드 타겟 그룹 생성 앞서 만든 매치메이커 타겟그룹과 과정은 동일합니다.\n Create target group을 선택하고 아래와 같이 입력합니다. Target group name: dashboard Target type: ip VPC: tic-tac-toe-vpc Port: 80 Health check settings - Path: /  나머지 항목은 기본값으로 둡니다.\n헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.\n Healthy threshold: 2 Interval: 10  Create를 선택하여 타겟그룹을 생성합니다.\n클라이언트 타겟 그룹 생성 Create target group을 선택하고 아래와 같이 입력합니다. 위에서 만든 dashboard 타겟 그룹과 이름만 다릅니다.\n Target group name: tic-tac-toe-client Target type: ip VPC: tic-tac-toe-vpc Port: 80 Health check settings - Path: /  Create를 선택하여 타겟그룹을 생성합니다.\n결과 화면 3개의 타겟그룹을 다 만들고 나면 다음과 같은 결과화면을 보게됩니다. Port와 Target type을 확인하시기 바랍니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_service/make_service_done/",
 	"title": "서비스 확인",
 	"tags": [],
 	"description": "",
-	"content": "아까 띄워둔 대시보드를 새로고침 합니다. 창을 닫았다면 dashboard-ALB의 주소를 다시 입력합니다. 매치메이커 서버가 정상적으로 뜨고 잘 연결된다면 현재 유저수가 1로 잘 표시됩니다. (내지는 1보다 큽니다.) 브라우저를 여러개 띄웠다면 숫자는 다를 수 있습니다.\n이제 모든 준비는 끝났습니다. 게임서버를 준비시켜보겠습니다. "
+	"content": "아까 띄워둔 대시보드를 새로고침 합니다. 창을 닫았다면 dashboard-ALB의 주소를 다시 입력합니다.\n매치메이커 서버가 정상적으로 뜨고 잘 연결된다면 현재 유저수가 1로 잘 표시됩니다. (1 이상이면 정상입니다.)\n이제 모든 준비는 끝났습니다.\n게임서버를 준비시켜보겠습니다. "
 },
 {
 	"uri": "/cleanup/delete_alb/",
 	"title": "ALB 삭제",
 	"tags": [],
 	"description": "",
-	"content": "아래 명령어를 Cloud9 터미널에 입력하여 ALB를 삭제합니다.\naws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names tic-tac-toe-client-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn') aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names matchmaker-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn') aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names dashboard-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn')  아래 명령어를 Cloud9 터미널에 입력하여 타겟 그룹을 삭제합니다.\naws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names dashboard | jq -r '.TargetGroups[] | .TargetGroupArn') aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names matchmaker | jq -r '.TargetGroups[] | .TargetGroupArn') aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names tic-tac-toe-client | jq -r '.TargetGroups[] | .TargetGroupArn')   EC2 서비스 로 넘어갑니다. 화면의 좌측 사이드 메뉴에서 Load Balancers를 선택하고 워크샵에서 생성한 ALB가 모두 삭제됐는지 확인합니다. 화면의 좌측 사이드 메뉴에서 Target Groups를 선택하고 워크샵에서 생성한 타겟그룹이 모두 삭제됐는지 확인합니다.  "
+	"content": "아래 명령어를 Cloud9 터미널에 입력하여 ALB를 삭제합니다.\naws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names tic-tac-toe-client-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn') aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names matchmaker-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn') aws elbv2 delete-load-balancer --load-balancer-arn $(aws elbv2 describe-load-balancers --names dashboard-ALB | jq -r '.LoadBalancers[0].LoadBalancerArn')  아래 명령어를 Cloud9 터미널에 입력하여 타겟 그룹을 삭제합니다.\naws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names dashboard | jq -r '.TargetGroups[] | .TargetGroupArn') aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names matchmaker | jq -r '.TargetGroups[] | .TargetGroupArn') aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names tic-tac-toe-client | jq -r '.TargetGroups[] | .TargetGroupArn')   EC2 서비스로 넘어갑니다. 화면의 좌측 사이드 메뉴에서 Load Balancers를 선택하고 워크샵에서 생성한 ALB가 모두 삭제됐는지 확인합니다. 화면의 좌측 사이드 메뉴에서 Target Groups를 선택하고 워크샵에서 생성한 타겟그룹이 모두 삭제됐는지 확인합니다.  "
 },
 {
 	"uri": "/cleanup/delete_workspace/",
@@ -179,14 +179,14 @@
 	"title": "ECR 구성",
 	"tags": [],
 	"description": "",
-	"content": " ECR 구성 소스에는 총 4개의 프로젝트가 포함되어 있습니다. 우리는 프로젝트마다 컨테이어로 묶어서 개별 리파지토리에 올리게 됩니다.\n"
+	"content": " ECR 구성 소스에는 총 4개의 프로젝트가 포함되어 있습니다.\n우리는 프로젝트마다 컨테이어로 묶어서 개별 리파지토리에 올리게 됩니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_ecr/make_first_ecr/",
 	"title": "첫번째 리포지토리 만들기",
 	"tags": [],
 	"description": "",
-	"content": "이 페이지에서는 matchmaker 리포지토리를 만듭니다. 순서를 잘 기억하시고 다음페이지에서 나머지 3개의 리포지토리를 만들때 참고하시기 바랍니다.\n ECS 메뉴에서 사이드의 Repositories를 선택합니다. Create repository를 선택합니다. 첫번째 리포지토리는 이름을 matchmaker로 합니다.  방금 만든 matchmaker를 선택하고 메뉴에서 View push commands를 선택합니다. 이 화면에는 4개의 커맨드를 포함하고 있습니다. 이는 ECR에 컨테이너 이미지를 푸시하기 위해 필요한 명령어 순서 입니다. 이 명령어들을 순서에 맞춰 복사해 놓습니다.\nCloud9 워크샵으로 돌아가서 아래 명령어를 입력합니다.\nc9 open ~/environment/tic-tac-toe-workshop/server/matchmaker/build.sh  이 파일엔 ECR 푸시명령어들이 주석처리되어 있는데 이 주석들을 지우고 아까 복사한 명령어를 넣습니다.\n결과 화면은 다음 스크린샷처럼 5줄의 명령어로 이뤄어져있어야 합니다. 파일 수정이 끝났으면 저장을 하고 화면을 닫습니다.\n"
+	"content": "이 페이지에서는 matchmaker 리포지토리를 만듭니다.\n순서를 잘 기억하시고 다음페이지에서 나머지 3개의 리포지토리를 만들때 참고하시기 바랍니다.\n ECS 메뉴에서 사이드의 Repositories를 선택합니다. Create repository를 선택합니다. 첫번째 리포지토리는 이름을 matchmaker로 합니다.  방금 만든 matchmaker를 선택하고 메뉴에서 View push commands를 선택합니다. 이 화면에는 4개의 커맨드를 포함하고 있습니다. 이는 ECR에 컨테이너 이미지를 푸시하기 위해 필요한 명령어 순서 입니다.\n이 명령어들을 순서에 맞춰 복사해 놓습니다.\nCloud9 워크샵으로 돌아가서 아래 명령어를 입력합니다.\nc9 open ~/environment/tic-tac-toe-workshop/server/matchmaker/build.sh  이 파일엔 ECR 푸시명령어들이 주석처리되어 있는데 이 주석들을 지우고 아까 복사한 명령어를 넣습니다.\n결과 화면은 다음 스크린샷처럼 5줄의 명령어로 이뤄어져있어야 합니다. 파일 수정이 끝났으면 저장을 하고 화면을 닫습니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_cloudmap/make_cloudmap/",
@@ -200,7 +200,7 @@
 	"title": "워크샵 생성",
 	"tags": [],
 	"description": "",
-	"content": " The Cloud9 workspace should be built by an IAM user with Administrator privileges, not the root account user. Please ensure you are logged in as an IAM user, not the root account user.\n This workshop was designed to run in the Oregon (us-west-2) region. Please don\u0026rsquo;t run in any other region. Future versions of this workshop will expand region availability, and this message will be removed.\n -- Ad blocker나 tracking blocker는 Cloud9 사용에 방해를 줄 수 있습니다. 그러므로 해당 기능을 끄거나, Cloud9 도메인에서 사용하지 않도록 해주세요. 또한 Cloud9 은 쿠키를 필요로 합니다. 화이트리스팅은 다음 링크를 참고바랍니다. specific domains.\n Launch Cloud9 in your closest region:  Oregon  Create a Cloud9 Environment: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2\n  $(function(){$(\"#region\").tabs();});  Create environment 을 선택합니다. 이름을 tic-tac-toe-workshop 으로 지정하고 나머지는 모두 기본 옵션으로 둡니다. 워크샵이 시작되면, welcome tab 과 lower work area 을 닫고 메인 작업창 메뉴를 통해 새 terminal 을 엽니다.:  워크샵은 다음과 같은 모습이어야 합니다.:  이 테마를 적용하고 싶다면, Cloud9의 메뉴에서 순서대로 선택하세요. View / Themes / Solarized / Solarized Dark in the Cloud9 workspace menu.\n  "
+	"content": " Cloud9 워크샵은 루트 유저가 아니라 관리자 권한이 있는 IAM 유저로 만들어야 합니다. 현재 로그인중인 계정이 루트 유저가 아니라 IAM 유저인지 확인해주세요.\n 이 워크샵은 Oregon (us-west-2) 리전에서 만들고, 테스트 했습니다.\n Ad blocker나 tracking blocker는 Cloud9 사용에 방해를 줄 수 있습니다. 그러므로 해당 기능을 끄거나, Cloud9 도메인에서 사용하지 않도록 해주세요. 또한 Cloud9 은 쿠키를 필요로 합니다. 화이트리스팅은 다음 링크를 참고바랍니다. specific domains.\n Cloud9 생성하기  Oregon  새로운 Cloud9 워크샵을 생성합니다.: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2\n  $(function(){$(\"#region\").tabs();});  Create environment 을 선택합니다. 이름을 tic-tac-toe-workshop 으로 지정하고 나머지는 모두 기본 옵션으로 둡니다. 워크샵이 시작되면, welcome tab 과 lower work area 을 닫고 메인 작업창 메뉴를 통해 새 terminal 을 엽니다.:  워크샵은 다음과 같은 모습이어야 합니다.:  이 테마를 적용하고 싶다면, Cloud9의 메뉴에서 순서대로 선택하세요. View / Themes / Solarized / Solarized Dark in the Cloud9 workspace menu.\n  "
 },
 {
 	"uri": "/prerequisites/",
@@ -214,28 +214,28 @@
 	"title": "ALB 만들기",
 	"tags": [],
 	"description": "",
-	"content": " 매치메이커 로드밸런서 생성 매치메이커 로드밸런서 설정  사이드 메뉴에서 Load Balancers 메뉴를 선택하고 Create Load Balancer를 선택합니다. Application Load Balancer를 선택합니다. 아래와 같이 내용을 입력합니다.   Name: matchmaker-ALB\n Availablility Zones 의 VPC: tic-tac-toe-vpc\n Availability Zones의 모든 항목을 체크\n  가용영역 (Availability Zones)은 워크샵을 하는 사람에따라 다르게뜰 수 있습니다. us-west-2a, us-west-2b 가 아니라 us-west-2c, us-west-2d 가 나올수도 있습니다. us-west-2로 시작하면 문제 없으니 모두 선택해줍니다.\n 다른 항목은 기본값을 사용합니다.\nNext을 선택하여 다음 화면으로 넘어갑니다.\n보안 설정 HTTPS를 사용하지 않아서 나오는 경고는 무시합니다.\nNext을 선택하여 다음 화면으로 넘어갑니다.\n보안 그룹 설정  Security Groups 에서 Create a new security group 선택합니다. Security group name: WebServer-SG 입력합니다. 포트 설정은 기본값을 그대로 둡니다.  Next을 선택하여 다음 화면으로 넘어갑니다.\n라우팅 설정 Routing 설정에서 아래와 같이 입력합니다.\n Target group: Existing target group\n Name: matchmaker 선택\n  Review 화면까지이 나올때까지 Next선택을 선택합니다.\n리뷰 Create 선택하고 ALB를 생성합니다.\n로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록합니다. 나중에 필요합니다.\n대시보드 로드밸런서 매치메이커 로드밸런서와 만드는 과정은 동일하며, 입력값만 아래처럼 넣습니다.\n Name: dashboard-ALB\n Availablility Zones 의 VPC: tic-tac-toe-vpc\n Availability Zones의 모든 항목을 체크\n Security Group: 앞서 만든 WebServer-SG을 선택\n Target group: Existing target group\n Name: dashboard 선택\n  로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록합니다.\n클라이언트 로드밸런서 대시보드 로드밸런서와 만드는 방식은 동일하며, 파라메터만 다음과 같이 입력한다.\n Name: tic-tac-toe-client-ALB\n Availablility Zones 의 VPC: tic-tac-toe-vpc\n Availability Zones의 모든 항목을 체크\n Security Group: 앞서 만든 WebServer-SG을 선택\n Target group: Existing target group\n Name: tic-tac-toe-client 선택\n  로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록합니다.\n"
+	"content": " 매치메이커 로드밸런서 생성 기본 설정  사이드 메뉴에서 Load Balancers 메뉴를 선택하고 Create Load Balancer를 선택합니다. Application Load Balancer를 선택합니다. 아래와 같이 내용을 입력합니다.   Name: matchmaker-ALB Availablility Zones 의 VPC: tic-tac-toe-vpc Availability Zones의 모든 항목을 체크  가용영역 (Availability Zones)은 워크샵을 하는 사람에따라 다르게뜰 수 있습니다.\nus-west-2a, us-west-2b 가 아니라 us-west-2c, us-west-2d 가 나올수도 있습니다.\nus-west-2로 시작하면 문제 없으니 모두 선택해줍니다.\n 다른 항목은 기본값을 사용합니다.\nNext을 선택하여 다음 화면으로 넘어갑니다.\n보안 설정 HTTPS를 사용하지 않아서 나오는 경고는 무시합니다.\nNext을 선택하여 다음 화면으로 넘어갑니다.\n보안 그룹 설정  Security Groups 에서 Create a new security group 선택합니다. Security group name: WebServer-SG 입력합니다. 포트 설정은 기본값을 그대로 둡니다.  Next을 선택하여 다음 화면으로 넘어갑니다.\n라우팅 설정 Routing 설정에서 아래와 같이 입력합니다.\n Target group: Existing target group Name: matchmaker 선택  Review 화면까지이 나올때까지 Next선택을 선택합니다.\n리뷰 Create 선택하고 ALB를 생성합니다.\n로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록해 놓습니다. 나중에 필요합니다.\n대시보드 로드밸런서 매치메이커 로드밸런서와 만드는 과정은 동일하며, 입력값만 아래처럼 넣습니다.\n Name: dashboard-ALB Availablility Zones 의 VPC: tic-tac-toe-vpc Availability Zones의 모든 항목을 체크 Security Group: 앞서 만든 WebServer-SG을 선택 Target group: Existing target group Name: dashboard 선택  로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록해 놓습니다.\n클라이언트 로드밸런서 대시보드 로드밸런서와 만드는 방식은 동일하며, 파라메터만 다음과 같이 입력한다.\n Name: tic-tac-toe-client-ALB Availablility Zones 의 VPC: tic-tac-toe-vpc Availability Zones의 모든 항목을 체크 Security Group: 앞서 만든 WebServer-SG을 선택 Target group: Existing target group Name: tic-tac-toe-client 선택  로드밸런서가 생성되고 나면 리스트 화면에서 퍼블릭 주소를 복사해서 기록해 놓습니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_ecr/make_others_ecr/",
 	"title": "나머지 리포지토리 만들기",
 	"tags": [],
 	"description": "",
-	"content": " 앞서 만든 방법과 동일하게 3개의 리파지토리를 더 만듭니다.\nDashboard 리포지토리 만들기  matchmaker 리포지토리를 만든 방식대로 dashboard 리포지토리를 만듭니다. 아래 명령어를 Cloud9의 터미널에 입력하여 dashboard 의 빌드 스크립트 파일을 엽니다.\nc9 open ~/environment/tic-tac-toe-workshop/client/dashboard/build.sh   dashboard 에서 얻은 푸시 명령어를 반영하고, 저장 후 파일을 닫습니다.\ntic-tac-toe-server 리포지토리 만들기  matchmaker 리포지토리를 만든 방식대로 tic-tac-toe-server 리포지토리를 만듭니다. 아래 명령어를 Cloud9의 터미널에 입력하여 tic-tac-toe 서버의 빌드 스크립트 파일을 엽니다.\nc9 open ~/environment/tic-tac-toe-workshop/server/tic-tac-toe/build.sh   tic-tac-toe-server 에서 얻은 푸시 명령어를 반영하고 저장후 파일을 닫습니다.\ntic-tac-toe-client 리포지토리 만들기  matchmaker 리포지토리를 만든 방식대로 tic-tac-toe-client 리포지토리를 만듭니다. 아래 명령어를 Cloud9의 터미널에 입력하여 tic-tac-toe 클라이언트의 빌드 스크립트 파일을 엽니다.\nc9 open ~/environment/tic-tac-toe-workshop/client/tic-tac-toe/build.sh   tic-tac-toe-client 에서 얻은 푸시 명령어를 반영하고 저장후 파일을 닫습니다.\n간단한 반복 작업이니 천천히 확인하면서 하시면 어렵지 않습니다. 4개의 리포지토리를 다 만들고 나면 다음 화면과 같이 보입니다. "
+	"content": " 앞서 만든 방법과 동일하게 3개의 리파지토리를 더 만듭니다.\nDashboard 리포지토리 만들기  matchmaker 리포지토리를 만든 방식대로 dashboard 리포지토리를 만듭니다. 아래 명령어를 Cloud9의 터미널에 입력하여 dashboard 의 빌드 스크립트 파일을 엽니다.\nc9 open ~/environment/tic-tac-toe-workshop/client/dashboard/build.sh   dashboard 에서 얻은 푸시 명령어를 반영하고, 저장 후 파일을 닫습니다.\ntic-tac-toe-server 리포지토리 만들기  matchmaker 리포지토리를 만든 방식대로 tic-tac-toe-server 리포지토리를 만듭니다. 아래 명령어를 Cloud9의 터미널에 입력하여 tic-tac-toe 서버의 빌드 스크립트 파일을 엽니다.\nc9 open ~/environment/tic-tac-toe-workshop/server/tic-tac-toe/build.sh   tic-tac-toe-server 에서 얻은 푸시 명령어를 반영하고 저장후 파일을 닫습니다.\ntic-tac-toe-client 리포지토리 만들기  matchmaker 리포지토리를 만든 방식대로 tic-tac-toe-client 리포지토리를 만듭니다. 아래 명령어를 Cloud9의 터미널에 입력하여 tic-tac-toe 클라이언트의 빌드 스크립트 파일을 엽니다.\nc9 open ~/environment/tic-tac-toe-workshop/client/tic-tac-toe/build.sh   tic-tac-toe-client 에서 얻은 푸시 명령어를 반영하고 저장후 파일을 닫습니다.\n간단한 반복 작업이니 천천히 확인하면서 하시면 어렵지 않습니다.\n4개의 리포지토리를 다 만들고 나면 다음 화면과 같이 보입니다. "
 },
 {
 	"uri": "/tic-tac-toe/configure_task_definition/make_task_defi_1/",
 	"title": "매치 메이커 작업 정의",
 	"tags": [],
 	"description": "",
-	"content": " 서비스에서 ECS로 이동합니다. 사이드 메뉴에서 Task Definitions 선택하고 Create new Task Definition 선택합니다. launch type을 EC2로 선택하고 Next step 선택합니다. 아래 내용을 입력합니다.   Task Definition Name: matchmaker\n Task Role: tic-tac-toe-task-role\n Network Mode: Bridge\n Task execution role: tic-tac-toe-task-role\n Task memory: 256\n Task CPU: 512\n  Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.\n Container name: matchmaker\n Image: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/matchmaker:latest 의 형식입니다.\n Port mappings항목에서 Host는 0, Container Port는 8888을 입력합니다.\n  HELATHCHECK/Command영역에 다음 내용을 넣습니다.\nCMD-SHELL,curl -f http://localhost:8888/api/health || exit 1  다른 수치는 아래 이미지를 참고합니다. ENVIRONMENT 항목에서 컨테이너에게 넘길 환경변수를 설정합니다. 필요한 환경변수는 3개 입니다.\n AWS_REGION: us-west-2\n ECS_CLUSTER_NAME: tic-tac-toe-cluster\n ECS_TASK_DEFINITION: tic-tac-toe-server\n  아래로 내려가서 Log configuration 항목의 Auto-configure CloudWatch Logs를 활성화 합니다.\nAdd를 선택합니다. 이미 한번 적용했다면 버튼 이름은 Update로 변경됩니다.\nCreate 를 선택해서 작업을 만듭니다.\n마지막에 Create를 누르지 않고 창을 닫으면 작업 정의가 만들어지지 않습니다!\n "
+	"content": " 서비스에서 ECS로 이동합니다. 사이드 메뉴에서 Task Definitions 선택하고 Create new Task Definition 선택합니다. launch type을 EC2로 선택하고 Next step 선택합니다. 아래 내용을 입력합니다.   Task Definition Name: matchmaker Task Role: tic-tac-toe-task-role Network Mode: Bridge Task execution role: tic-tac-toe-task-role Task memory: 256 Task CPU: 512  Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.\n Container name: matchmaker Image: matchmaker 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/matchmaker:latest 의 형식입니다. Port mappings항목에서 Host는 0, Container Port는 8888을 입력합니다.  HELATHCHECK/Command영역에 다음 내용을 넣습니다.\nCMD-SHELL,curl -f http://localhost:8888/api/health || exit 1  다른 수치는 아래 이미지를 참고합니다. ENVIRONMENT 항목에서 컨테이너에게 넘길 환경변수를 설정합니다. 필요한 환경변수는 3개 입니다.\n AWS_REGION: us-west-2 ECS_CLUSTER_NAME: tic-tac-toe-cluster ECS_TASK_DEFINITION: tic-tac-toe-server  아래로 내려가서 Log configuration 항목의 Auto-configure CloudWatch Logs를 활성화 합니다.\nAdd를 선택합니다. 이미 한번 적용했다면 버튼 이름은 Update로 변경됩니다.\nCreate 를 선택해서 작업을 만듭니다.\n마지막에 Create를 누르지 않고 창을 닫으면 작업 정의가 만들어지지 않습니다!\n "
 },
 {
 	"uri": "/tic-tac-toe/configure_task_definition/make_task_defi_2/",
 	"title": "게임 서버 작업 정의",
 	"tags": [],
 	"description": "",
-	"content": "두번째 작업 정의는 tic-tac-toe-server 를 만듭니다. 앞서 matchmaker 작업 정의를 참고하여 아래 항목을 적용한 작업 정의를 만들면 됩니다.\n launch type: EC2\n Task Definition Name: tic-tac-toe-server\n Task Role: tic-tac-toe-task-role\n Network Mode: Bridge\n Task execution role: tic-tac-toe-task-role\n Task memory: 256\n Task CPU: 256\n Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.\n Container name: tic-tac-toe-server\n Image: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/tic-tac-toe-server:latest 의 형식입니다.\n Port mappings항목에서 Host는 0, Container Port는 3553을 입력합니다.\n HELATHCHECK 항목은 입력하지 않습니다.\n ENVIRONMENT 항목에서 컨테이너에게 넘길 환경변수를 설정합니다. 필요한 환경변수는 3개 입니다.\n AWS_DEFAULT_REGION: us-west-2\n AWS_REGION: us-west-2\n NODE_ENV: production\n   Log configuration/Auto-configure CloudWatch Logs: 활성화\n다 적었으면 Add를 선택합니다. 이미 한번 적용했다면 버튼 이름은 Update로 변경됩니다.\nCreate 를 선택해서 작업을 만듭니다.\n"
+	"content": "두번째 작업 정의는 tic-tac-toe-server 를 만듭니다. 앞서 matchmaker 작업 정의를 참고하여 아래 항목을 적용한 작업 정의를 만들면 됩니다.\n launch type: EC2 Task Definition Name: tic-tac-toe-server Task Role: tic-tac-toe-task-role Network Mode: Bridge Task execution role: tic-tac-toe-task-role Task memory: 256 Task CPU: 256  Add container를 선택합니다.\n Container name: tic-tac-toe-server Image: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/tic-tac-toe-server:latest 의 형식입니다. Port mappings항목에서 Host는 0, Container Port는 3553을 입력합니다. HELATHCHECK 항목은 입력하지 않습니다. ENVIRONMENT 항목에서 컨테이너에게 넘길 환경변수를 설정합니다. 필요한 환경변수는 3개 입니다.  AWS_DEFAULT_REGION: us-west-2 AWS_REGION: us-west-2 NODE_ENV: production  Log configuration/Auto-configure CloudWatch Logs: 활성화  Add를 선택합니다. 이미 한번 적용했다면 버튼 이름은 Update로 변경됩니다.\nCreate 를 선택해서 작업을 만듭니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_ecr/make_containers_and_push/",
@@ -249,14 +249,14 @@
 	"title": "게임 클라이언트 작업 정의",
 	"tags": [],
 	"description": "",
-	"content": "세번째 작업 정의는 tic-tac-toe-client 를 만듭니다. 이 작업은 간단한 웹 호스팅으로 FARGATE타입으로 생성하겠습니다.\n launch type: FARGATE\n Task Definition Name: tic-tac-toe-client\n Task Role: tic-tac-toe-task-role\n Task execution role: tic-tac-toe-task-role\n Task CPU: 0.25 vCPU\n Task memory: 0.5GB\n Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.\n Container name: tic-tac-toe-client\n Image: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/tic-tac-toe-client:latest 의 형식입니다.\n Port mappings: 80\n HELATHCHECK 항목은 입력하지 않습니다.\n Log configuration/Auto-configure CloudWatch Logs: 활성화\n  다 적었으면 Add를 선택합니다. 이미 한번 적용했다면 버튼 이름은 Update로 변경됩니다.\nCreate 를 선택해서 작업을 만듭니다.\n"
+	"content": "세번째 작업 정의는 tic-tac-toe-client 를 만듭니다. 이 작업은 간단한 웹 호스팅으로 FARGATE타입으로 생성하겠습니다.\n launch type: FARGATE Task Definition Name: tic-tac-toe-client Task Role: tic-tac-toe-task-role Task execution role: tic-tac-toe-task-role Task CPU: 0.25 vCPU Task memory: 0.5GB  Add container를 선택합니다.\n Container name: tic-tac-toe-client Image: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/tic-tac-toe-client:latest 의 형식입니다. Port mappings: 80 HELATHCHECK 항목은 입력하지 않습니다. Log configuration/Auto-configure CloudWatch Logs: 활성화  Add를 선택합니다. 이미 한번 적용했다면 버튼 이름은 Update로 변경됩니다.\nCreate 를 선택해서 작업을 만듭니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_task_definition/make_task_defi_4/",
 	"title": "대시보드 작업 정의",
 	"tags": [],
 	"description": "",
-	"content": "마지막으로 만들 작업 정의는 dashboard 를 만듭니다. 앞서 matchmaker 작업 정의를 참고하여 아래 항목을 적용한 작업 정의를 만들면 됩니다.\n launch type: FARGATE\n Task Definition Name: dashboard\n Task Role: tic-tac-toe-task-role\n Task execution role: tic-tac-toe-task-role\n Task CPU: 0.25 vCPU\n Task memory: 0.5GB\n Add container를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.\n Container name: dashboard\n Image: dashboard 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/dashboard:latest 의 형식입니다.\n Port mappings: 80\n HELATHCHECK 항목은 입력하지 않습니다.\n Log configuration/Auto-configure CloudWatch Logs: 활성화\n  다 적었으면 Add를 선택합니다. 이미 한번 적용했다면 버튼 이름은 Update로 변경됩니다.\nCreate 를 선택해서 작업을 만듭니다.\n"
+	"content": "마지막으로 만들 작업 정의는 dashboard 를 만듭니다. 앞서 matchmaker 작업 정의를 참고하여 아래 항목을 적용한 작업 정의를 만들면 됩니다.\n launch type: FARGATE Task Definition Name: dashboard Task Role: tic-tac-toe-task-role Task execution role: tic-tac-toe-task-role Task CPU: 0.25 vCPU Task memory: 0.5GB  Add container를 선택합니다.\n Container name: dashboard Image: dashboard 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/dashboard:latest 의 형식입니다. Port mappings: 80 HELATHCHECK 항목은 입력하지 않습니다. Log configuration/Auto-configure CloudWatch Logs: 활성화  Add를 선택합니다. 이미 한번 적용했다면 버튼 이름은 Update로 변경됩니다.\nCreate 를 선택해서 작업을 만듭니다.\n"
 },
 {
 	"uri": "/tic-tac-toe/configure_alb/",
@@ -270,21 +270,21 @@
 	"title": "개선 사항",
 	"tags": [],
 	"description": "",
-	"content": " 모든 워크샵을 마쳤습니다. 축하합니다. 모든 워크샵을 마쳤습니다.\n게임 플레이와 데디 서버의 상태를 여러가지로 만져보며 테스트 해보시기 바랍니다.\n각 프로젝트의 Dockerfile과 entrypoint 파일도 살펴보시기 바랍니다.\n개선사항  대시보드와 클라이언트의 경우 Nginx를 이용한 단순 웹서버 입니다. 이 경우 컨테이너보다는 S3의 웹호스팅과 CloudFront 조합이 낫습니다. 실습에서 ALB를 3개를 만들었습니다. ALB는 경로기반 라우팅이 가능합니다. 따라서 우리가 만든 3개의 ALB를 하나로 합칠 수 있습니다. 실습에서는 빠져있지만 도메인을 가지고 있다면 클라우드 맵과 연동하여 여러 부분을 편리하게 만들 수 있습니다. 소스에 몇가지를 하드코딩했습니다. (Cluster 이름, ALB 주소, 클라우드 맵 서비스등) 그리고 컨테이너 환경변수로도 하드코딩 했습니다. 환경변수를 저장할 수 있는 저장소가 있다면 이러한 하드코딩을 빼서 유연한 서비스 구성을 할 수 있을겁니다. AWS Systems Manager Prameter Store를 이럴때 활용 할 수 있습니다. EC2 Cluster의 오토스케일링을 활용할 방법을 찾아봅시다.  "
+	"content": " 모든 워크샵을 마쳤습니다. 축하합니다. 모든 워크샵을 마쳤습니다.\n게임 플레이와 데디 서버의 상태를 여러가지로 만져보며 테스트 해보시기 바랍니다.\n각 프로젝트의 Dockerfile과 entrypoint 파일도 살펴보시기 바랍니다.\n개선사항  대시보드와 클라이언트의 경우 Nginx를 이용한 단순 웹서버 입니다. 이 경우 컨테이너보다는 S3의 웹호스팅과 CloudFront 조합이 낫습니다. 실습에서 ALB를 3개를 만들었습니다. ALB는 경로기반 라우팅이 가능합니다. 따라서 우리가 만든 3개의 ALB를 하나로 합칠 수 있습니다. 실습에서는 빠져있지만 도메인을 가지고 있다면 클라우드 맵과 연동하여 여러 부분을 편리하게 만들 수 있습니다. 소스에 몇가지를 하드코딩했습니다. (Cluster 이름, ALB 주소, 클라우드 맵 서비스등) 그리고 컨테이너 환경변수로도 하드코딩 했습니다.\n환경변수를 저장할 수 있는 저장소가 있다면 이러한 하드코딩을 빼서 유연한 서비스 구성을 할 수 있을겁니다.\nAWS Systems Manager Prameter Store를 이럴때 활용 할 수 있습니다.\n EC2 Cluster의 오토스케일링을 활용할 방법을 찾아봅시다.  "
 },
 {
 	"uri": "/tic-tac-toe/configure_ecr/container_detail/",
 	"title": "프로젝트 알아보기",
 	"tags": [],
 	"description": "",
-	"content": " 잠시 쉬어가며, 각 프로젝트와 컨테이너를 알아봅니다.\nDashboard 리액트로 만들어진 대시보드 겸 클라이언트 본체 입니다. 게임 클라이언트로 비유하자면 로비에서 채팅을 하거나 상점을 보거나 하는 상태를 대표합니다. 대시보드로써는 현재 떠 있는 데디 서버의 리스트와 상태, 몇가지 명령을 내릴 수 있습니다.\n빌드 후엔 단순한 웹페이지인데 nginx로 컨텐이너화 시켜서 스태틱 파일을 배포하게 됩니다. server/Dockerfile을 참고하세요.\nMatchMaker node.js로 만들어진 통합서버 입니다. 대시보드의 서버이기도 하고 매치 메이커기도 하고 모니터링 서버이기도 합니다. node.js 의 서버 기능으로 Restful API 서비스를 제공하고 WebSocket 서비스를 합니다.\nTic-Tac-Toe 클라이언트 WebSocket을 사용하는 1:1 게임 클라이언트 입니다. 빌드 후에 NginX와 묶어서 클라이언트 파일 배포를 하는 컨테이너가 됩니다.\nTic-Tac-Toe 서버 Tic-Tac-Toe 클라이언트를 받아주는 데디서버입니다. 서버가 뜨거나 죽을때, 유저가 접속할때등 상태가 변할때마다 AWS CloudMap에 내 상태를 기록하여 MatchMaker서버가 데디케이티드 서버들의 상태를 추적하기 쉽게 합니다. 서버가 뜰때 스스로에 대한 정보를 얻기위해 복잡한 Dockerfile과 entrypoint 를 가지고 있습니다.\nTic-Tac-Toe 게임은 오픈소스를 가져다 사용했습니다. 사용된 기술이 궁금하신 분들은 직접 방문해보셔도 좋습니다. tic-tac-toe multiplayer\n "
+	"content": " 잠시 쉬어가며, 각 프로젝트와 컨테이너를 알아봅니다.\nDashboard 리액트로 만들어진 대시보드 겸 클라이언트 본체 입니다.\n게임 클라이언트로 비유하자면 로비에서 채팅을 하거나 상점을 보거나 하는 상태를 대표합니다.\n대시보드로써는 현재 떠 있는 데디 서버의 리스트와 상태, 몇가지 명령을 내릴 수 있습니다.\n빌드 후엔 단순한 웹페이지인데 nginx로 컨텐이너화 시켜서 스태틱 파일을 배포하게 됩니다. server/Dockerfile을 참고하세요.\nMatchMaker node.js로 만들어진 통합서버 입니다. 대시보드의 서버이기도 하고 매치 메이커기도 하고 모니터링 서버이기도 합니다.\nnode.js 의 서버 기능으로 Restful API 서비스를 제공하고 WebSocket 서비스를 합니다.\nTic-Tac-Toe 클라이언트 WebSocket을 사용하는 1:1 게임 클라이언트 입니다.\n빌드 후에 NginX와 묶어서 클라이언트 파일 배포를 하는 컨테이너가 됩니다.\nTic-Tac-Toe 서버 Tic-Tac-Toe 클라이언트를 받아주는 데디서버입니다.\n서버가 뜨거나 죽을때, 유저가 접속할때등 상태가 변할때마다 AWS CloudMap에 내 상태를 기록하여 MatchMaker서버가 데디케이티드 서버들의 상태를 추적하기 쉽게 합니다. 서버가 뜰때 스스로에 대한 정보를 얻기위해 복잡한 Dockerfile과 entrypoint 를 가지고 있습니다.\nTic-Tac-Toe 게임은 오픈소스를 가져다 사용했습니다.\n사용된 기술이 궁금하신 분들은 직접 방문해보셔도 좋습니다.\ntic-tac-toe multiplayer\n "
 },
 {
 	"uri": "/tic-tac-toe/configure_task_definition/rebuild_dashboard/",
 	"title": "대시보드 컨테이너 업데이트",
 	"tags": [],
 	"description": "",
-	"content": "dashboard 는 접속해야할 matchmaker 주소와 iframe으로 띄울 게임 클라이언트 주소가 필요합니다. 이 값을 넣어서 다시 빌드로 묶어서 리포지토리에 올리도록 합니다.\n EC2 서비스로 넘어갑니다. 왼쪽 사이드 메뉴에서 Load Balancers 를 선택햅니다. matchmaker-ALB 를 선택합니다. 하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다.   이번에는 tic-tac-toe-client-ALB 를 선택합니다. 하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다. Cloud9 워크샵으로 이동합니다. dashboard 프로젝트 밑에 있는 .env.production 파일을 편집합니다.\ncd ~/environment/tic-tac-toe-workshop/client/dashboard/ c9 .env.production   파일에는 리액트 빌드시에 사용하는 REACT_APP_API_URL, REACT_APP_CLIENT_URL 환경변수가 있습니다. 이곳에 앞서 복사해놓은 ALB 주소를 각각 적습니다.\nAPI_URL이 matchmaker-ALB 주소이고, CLIENT_URL 이 tic-tac-toe-client-ALB 주소 입니다.\n 주소의 시작부분에 http://가 빠지지 않도록 주의하세요.\n 주소를 잘 넣었는지 확인하시기 바랍니다. 이곳에 정확한 주소를 넣지 않으면 이후에 데모가 제대로 돌아가지 않게 됩니다. 반대로 이후 데모에서 페이지를 찾을 수 없다는 에러가 난다면 이곳을 확인해보시길 바랍니다.\n 수정된 dashboard 를 빌드해서 컨테이너로 묶고, 리포지토리에 올립니다. 우리는 이 과정을 build.sh 파일로 묶어놨기 때문에 쉽게 할 수 있습니다. 아래 명령어를 터미널에 입력합니다.\ncd ~/environment/tic-tac-toe-workshop/client/dashboard/ sh build.sh  명령어 수행이 끝나고 ECS 서비스/Repositories/dashboard 를 가보면 방금 올린 새로운 이미지가 올라온것을 볼 수 있습니다.\n"
+	"content": "dashboard 는 접속해야할 matchmaker 주소와 iframe으로 띄울 게임 클라이언트 주소가 필요합니다. 이 값을 넣어서 다시 빌드로 묶어서 리포지토리에 올리도록 합니다.\n EC2 서비스로 넘어갑니다. 왼쪽 사이드 메뉴에서 Load Balancers 를 선택햅니다. matchmaker-ALB 를 선택합니다. 하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다.  이번에는 tic-tac-toe-client-ALB 를 선택합니다.\n 하단에 뜨는 정보중에서 Description / DNS name 을 복사해 놓습니다.\n Cloud9 워크샵으로 이동합니다.\n dashboard 프로젝트 밑에 있는 .env.production 파일을 편집합니다.\ncd ~/environment/tic-tac-toe-workshop/client/dashboard/ c9 .env.production   파일에는 리액트 빌드시에 사용하는 REACT_APP_API_URL, REACT_APP_CLIENT_URL 환경변수가 있습니다.\n이곳에 앞서 복사해놓은 ALB 주소를 각각 적습니다.\nAPI_URL이 matchmaker-ALB 주소이고, CLIENT_URL 이 tic-tac-toe-client-ALB 주소 입니다.\n 주소의 시작부분에 http://가 빠지지 않도록 주의하세요.\n 주소를 잘 넣었는지 확인하시기 바랍니다. 이곳에 정확한 주소를 넣지 않으면 이후에 데모가 제대로 돌아가지 않게 됩니다. 반대로 이후 데모에서 페이지를 찾을 수 없다는 에러가 난다면 이곳을 확인해보시길 바랍니다.\n 수정된 dashboard 를 빌드해서 컨테이너로 묶고, 리포지토리에 올립니다. 우리는 이 과정을 build.sh 파일로 묶어놨기 때문에 쉽게 할 수 있습니다.\n아래 명령어를 터미널에 입력합니다.\ncd ~/environment/tic-tac-toe-workshop/client/dashboard/ sh build.sh  명령어 수행이 끝나고 ECS 서비스/Repositories/dashboard 를 가보면 방금 올린 새로운 이미지가 올라온것을 볼 수 있습니다.\n"
 },
 {
 	"uri": "/prerequisites/installtools/",
@@ -358,7 +358,7 @@
 },
 {
 	"uri": "/cleanup/",
-	"title": "Cleanup",
+	"title": "클린 업",
 	"tags": [],
 	"description": "",
 	"content": " 클린업 이번 워크샵에서 사용한 리소스를 삭제합니다.\n클린업은 콘솔 작업을 최대한 배제하고 CLI를 활용해봅니다. CLI를 사용해서 관리하면 이후에 스크립트로 자동화하기 쉽습니다.\n"
@@ -396,7 +396,7 @@
 	"title": "Oregon",
 	"tags": [],
 	"description": "",
-	"content": "Create a Cloud9 Environment: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2\n"
+	"content": "새로운 Cloud9 워크샵을 생성합니다.: https://us-west-2.console.aws.amazon.com/cloud9/home?region=us-west-2\n"
 },
 {
 	"uri": "/prerequisites/ap-southeast-1/",

@@ -27,8 +27,10 @@ cd ~/environment git clone https://github.com/jenosys/tic-tac-toe-workshop.git  
       <pubDate>Tue, 07 Aug 2018 08:30:11 -0700</pubDate>
       
       <guid>/tic-tac-toe/configure_ecr/make_first_ecr/</guid>
-      <description>이 페이지에서는 matchmaker 리포지토리를 만듭니다. 순서를 잘 기억하시고 다음페이지에서 나머지 3개의 리포지토리를 만들때 참고하시기 바랍니다.
- ECS 메뉴에서 사이드의 Repositories를 선택합니다. Create repository를 선택합니다. 첫번째 리포지토리는 이름을 matchmaker로 합니다.  방금 만든 matchmaker를 선택하고 메뉴에서 View push commands를 선택합니다. 이 화면에는 4개의 커맨드를 포함하고 있습니다. 이는 ECR에 컨테이너 이미지를 푸시하기 위해 필요한 명령어 순서 입니다. 이 명령어들을 순서에 맞춰 복사해 놓습니다.
+      <description>이 페이지에서는 matchmaker 리포지토리를 만듭니다.
+순서를 잘 기억하시고 다음페이지에서 나머지 3개의 리포지토리를 만들때 참고하시기 바랍니다.
+ ECS 메뉴에서 사이드의 Repositories를 선택합니다. Create repository를 선택합니다. 첫번째 리포지토리는 이름을 matchmaker로 합니다.  방금 만든 matchmaker를 선택하고 메뉴에서 View push commands를 선택합니다. 이 화면에는 4개의 커맨드를 포함하고 있습니다. 이는 ECR에 컨테이너 이미지를 푸시하기 위해 필요한 명령어 순서 입니다.
+이 명령어들을 순서에 맞춰 복사해 놓습니다.
 Cloud9 워크샵으로 돌아가서 아래 명령어를 입력합니다.
 c9 open ~/environment/tic-tac-toe-workshop/server/matchmaker/build.sh  이 파일엔 ECR 푸시명령어들이 주석처리되어 있는데 이 주석들을 지우고 아까 복사한 명령어를 넣습니다.</description>
     </item>
@@ -65,9 +67,12 @@ cd ~/environment/tic-tac-toe-workshop/server/matchmaker/ ./build.sh   matchmaker
       
       <guid>/tic-tac-toe/configure_ecr/container_detail/</guid>
       <description>잠시 쉬어가며, 각 프로젝트와 컨테이너를 알아봅니다.
-Dashboard 리액트로 만들어진 대시보드 겸 클라이언트 본체 입니다. 게임 클라이언트로 비유하자면 로비에서 채팅을 하거나 상점을 보거나 하는 상태를 대표합니다. 대시보드로써는 현재 떠 있는 데디 서버의 리스트와 상태, 몇가지 명령을 내릴 수 있습니다.
+Dashboard 리액트로 만들어진 대시보드 겸 클라이언트 본체 입니다.
+게임 클라이언트로 비유하자면 로비에서 채팅을 하거나 상점을 보거나 하는 상태를 대표합니다.
+대시보드로써는 현재 떠 있는 데디 서버의 리스트와 상태, 몇가지 명령을 내릴 수 있습니다.
 빌드 후엔 단순한 웹페이지인데 nginx로 컨텐이너화 시켜서 스태틱 파일을 배포하게 됩니다. server/Dockerfile을 참고하세요.
-MatchMaker node.js로 만들어진 통합서버 입니다. 대시보드의 서버이기도 하고 매치 메이커기도 하고 모니터링 서버이기도 합니다. node.js 의 서버 기능으로 Restful API 서비스를 제공하고 WebSocket 서비스를 합니다.</description>
+MatchMaker node.js로 만들어진 통합서버 입니다. 대시보드의 서버이기도 하고 매치 메이커기도 하고 모니터링 서버이기도 합니다.
+node.js 의 서버 기능으로 Restful API 서비스를 제공하고 WebSocket 서비스를 합니다.</description>
     </item>
     
   </channel>

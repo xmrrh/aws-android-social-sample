@@ -18,21 +18,21 @@
     <title>개선 사항 :: ECS HoL</title>
 
     
-    <link href="../../../css/nucleus.css?1566451219" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1566451219" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1566451219" rel="stylesheet">
-    <link href="../../../css/theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/jquery-ui.min.css?1566451219" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1566462182" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1566462182" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1566462182" rel="stylesheet">
+    <link href="../../../css/theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/jquery-ui.min.css?1566462182" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1566451219" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1566462182" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1566451219"></script>
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1566451219"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1566462182"></script>
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1566462182"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1566451219"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1566462182"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1566462182"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/search.js?1566462182"></script>
 
     
   </div>
@@ -1087,13 +1087,13 @@
  
   
     
-    <li data-nav-id="/cleanup/" title="Cleanup" class="dd-item 
+    <li data-nav-id="/cleanup/" title="클린 업" class="dd-item 
         
         
         
         ">
       <a href="../../../cleanup/">
-          Cleanup
+          클린 업
           
       </a>
       
@@ -1310,11 +1310,9 @@
 
 <h2 id="모든-워크샵을-마쳤습니다">모든 워크샵을 마쳤습니다.</h2>
 
-<p>축하합니다. 모든 워크샵을 마쳤습니다.</p>
-
-<p>게임 플레이와 데디 서버의 상태를 여러가지로 만져보며 테스트 해보시기 바랍니다.</p>
-
-<p>각 프로젝트의 Dockerfile과 entrypoint 파일도 살펴보시기 바랍니다.</p>
+<p>축하합니다. 모든 워크샵을 마쳤습니다.<br>
+게임 플레이와 데디 서버의 상태를 여러가지로 만져보며 테스트 해보시기 바랍니다.<br>
+각 프로젝트의 Dockerfile과 entrypoint 파일도 살펴보시기 바랍니다.</p>
 
 <h2 id="개선사항">개선사항</h2>
 
@@ -1322,9 +1320,9 @@
 <li>대시보드와 클라이언트의 경우 Nginx를 이용한 단순 웹서버 입니다. 이 경우 컨테이너보다는 S3의 웹호스팅과 CloudFront 조합이 낫습니다.</li>
 <li>실습에서 ALB를 3개를 만들었습니다. ALB는 경로기반 라우팅이 가능합니다. 따라서 우리가 만든 3개의 ALB를 하나로 합칠 수 있습니다.</li>
 <li>실습에서는 빠져있지만 도메인을 가지고 있다면 클라우드 맵과 연동하여 여러 부분을 편리하게 만들 수 있습니다.</li>
-<li>소스에 몇가지를 하드코딩했습니다. (Cluster 이름, ALB 주소, 클라우드 맵 서비스등) 그리고 컨테이너 환경변수로도 하드코딩 했습니다.
-환경변수를 저장할 수 있는 저장소가 있다면 이러한 하드코딩을 빼서 유연한 서비스 구성을 할 수 있을겁니다.
-AWS Systems Manager Prameter Store를 이럴때 활용 할 수 있습니다.</li>
+<li>소스에 몇가지를 하드코딩했습니다. (Cluster 이름, ALB 주소, 클라우드 맵 서비스등) 그리고 컨테이너 환경변수로도 하드코딩 했습니다.<br>
+환경변수를 저장할 수 있는 저장소가 있다면 이러한 하드코딩을 빼서 유연한 서비스 구성을 할 수 있을겁니다.<br>
+AWS Systems Manager Prameter Store를 이럴때 활용 할 수 있습니다.<br></li>
 <li>EC2 Cluster의 오토스케일링을 활용할 방법을 찾아봅시다.</li>
 </ul>
 
@@ -2223,7 +2221,7 @@ AWS Systems Manager Prameter Store를 이럴때 활용 할 수 있습니다.</li
             <a class="nav nav-prev" href="../../../tic-tac-toe/run_dedi_servers/run_game/" title="게임 실행 하기"> <i class="fas fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../../../cleanup/" title="Cleanup" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../../../cleanup/" title="클린 업" style="margin-right: 0px;"><i class="fas fa-chevron-right"></i></a>
         
     </div>
 
@@ -2232,20 +2230,20 @@ AWS Systems Manager Prameter Store를 이럴때 활용 할 수 있습니다.</li
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566451219"></script>
-    <script src="../../../js/jquery.sticky.js?1566451219"></script>
-    <script src="../../../js/featherlight.min.js?1566451219"></script>
-    <script src="../../../js/html5shiv-printshiv.min.js?1566451219"></script>
-    <script src="../../../js/highlight.pack.js?1566451219"></script>
+    <script src="../../../js/clipboard.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566462182"></script>
+    <script src="../../../js/jquery.sticky.js?1566462182"></script>
+    <script src="../../../js/featherlight.min.js?1566462182"></script>
+    <script src="../../../js/html5shiv-printshiv.min.js?1566462182"></script>
+    <script src="../../../js/highlight.pack.js?1566462182"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1566451219"></script>
-    <script src="../../../js/learn.js?1566451219"></script>
-    <script src="../../../js/hugo-learn.js?1566451219"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1566462182"></script>
+    <script src="../../../js/learn.js?1566462182"></script>
+    <script src="../../../js/hugo-learn.js?1566462182"></script>
 
-    <link href="../../../mermaid/mermaid.css?1566451219" type="text/css" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.min.js?1566451219"></script>
+    <link href="../../../mermaid/mermaid.css?1566462182" type="text/css" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.min.js?1566462182"></script>
     <script>
 	var config = {
         startOnLoad:true,

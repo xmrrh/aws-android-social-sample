@@ -18,21 +18,21 @@
     <title>서버 준비 하기 :: ECS HoL</title>
 
     
-    <link href="../../../css/nucleus.css?1566451219" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1566451219" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1566451219" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1566451219" rel="stylesheet">
-    <link href="../../../css/theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1566451219" rel="stylesheet">
-    <link href="../../../css/jquery-ui.min.css?1566451219" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1566462182" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1566462182" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1566462182" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1566462182" rel="stylesheet">
+    <link href="../../../css/theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1566462182" rel="stylesheet">
+    <link href="../../../css/jquery-ui.min.css?1566462182" rel="stylesheet">
     
-      <link href="../../../css/theme-mine.css?1566451219" rel="stylesheet">
+      <link href="../../../css/theme-mine.css?1566462182" rel="stylesheet">
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1566451219"></script>
-    <script src="../../../js/jquery-ui-1.12.1.min.js?1566451219"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1566462182"></script>
+    <script src="../../../js/jquery-ui-1.12.1.min.js?1566462182"></script>
 
 
     <style type="text/css">
@@ -64,14 +64,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1566451219"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1566462182"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1566462182"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1566451219"></script>
+<script type="text/javascript" src="../../../js/search.js?1566462182"></script>
 
     
   </div>
@@ -1087,13 +1087,13 @@
  
   
     
-    <li data-nav-id="/cleanup/" title="Cleanup" class="dd-item 
+    <li data-nav-id="/cleanup/" title="클린 업" class="dd-item 
         
         
         
         ">
       <a href="../../../cleanup/">
-          Cleanup
+          클린 업
           
       </a>
       
@@ -1316,14 +1316,14 @@
 <li><strong>ECS</strong>/<strong>Cluster</strong>/tic-tac-toe-cluster 로 들어갑니다.</li>
 <li>탭 메뉴에서 <strong>Tasks</strong>를 선택햅니다.</li>
 <li><strong>Run new Task</strong>를 선택합니다.</li>
-<li>아래 내용으로 작업을 입력합니다.</li>
+<li>아래 내용으로 작업을 입력합니다.
+
+<ul>
+<li><strong>Launch type</strong>: EC2</li>
+<li><strong>Task Definition</strong>: tic-tac-toe-server:1</li>
+<li><strong>Number of tasks</strong>: 10</li>
+</ul></li>
 </ol>
-
-<p><strong>Launch type</strong>: EC2</p>
-
-<p><strong>Task Definition</strong>: tic-tac-toe-server:1</p>
-
-<p><strong>Number of tasks</strong>: 10</p>
 
 <p>나머지 값은 기본으로 둡니다.</p>
 
@@ -1331,21 +1331,18 @@
 
 <h2 id="실행-결과">실행 결과</h2>
 
-<p>잠시 후 게임 서버들이 실행되는것을 볼 수 있습니다. <code>새로고침</code>아이콘을 눌러 상태를 갱신해서 볼 수 있습니다.</p>
-
-<p>모든 작업의 상태가 RUNNING이 되기를 기다립니다.</p>
-
-<p><img src="../../../images/tic-tac-toe/run-dedis-1.png" alt="Example Service" /></p>
+<p>잠시 후 게임 서버들이 실행되는것을 볼 수 있습니다. <code>새로고침</code>아이콘을 눌러 상태를 갱신해서 볼 수 있습니다.<br>
+모든 작업의 상태가 RUNNING이 되기를 기다립니다.
+<img src="../../../images/tic-tac-toe/run-dedis-1.png" alt="Example Service" /></p>
 
 <h2 id="클라우드-맵에서-확인하기">클라우드 맵에서 확인하기</h2>
 
 <ol>
 <li><strong>AWS Cloud Map</strong> 서비스로 갑니다.</li>
 <li><strong>tic-tac-toe</strong>/<strong>dedi-server</strong>를 선택합니다.</li>
-<li>방금 띄운 게임 서버들이 자신의 정보를 클라우드 맵에 올린것을 볼 수 있습니다.</li>
+<li>방금 띄운 게임 서버들이 자신의 정보를 클라우드 맵에 올린것을 볼 수 있습니다.
+<img src="../../../images/tic-tac-toe/run-dedis-2.png" alt="Example Service" /></li>
 </ol>
-
-<p><img src="../../../images/tic-tac-toe/run-dedis-2.png" alt="Example Service" /></p>
 
 <h2 id="대시보드에서-확인하기">대시보드에서 확인하기</h2>
 
@@ -2258,20 +2255,20 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1566451219"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566451219"></script>
-    <script src="../../../js/jquery.sticky.js?1566451219"></script>
-    <script src="../../../js/featherlight.min.js?1566451219"></script>
-    <script src="../../../js/html5shiv-printshiv.min.js?1566451219"></script>
-    <script src="../../../js/highlight.pack.js?1566451219"></script>
+    <script src="../../../js/clipboard.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1566462182"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1566462182"></script>
+    <script src="../../../js/jquery.sticky.js?1566462182"></script>
+    <script src="../../../js/featherlight.min.js?1566462182"></script>
+    <script src="../../../js/html5shiv-printshiv.min.js?1566462182"></script>
+    <script src="../../../js/highlight.pack.js?1566462182"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1566451219"></script>
-    <script src="../../../js/learn.js?1566451219"></script>
-    <script src="../../../js/hugo-learn.js?1566451219"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1566462182"></script>
+    <script src="../../../js/learn.js?1566462182"></script>
+    <script src="../../../js/hugo-learn.js?1566462182"></script>
 
-    <link href="../../../mermaid/mermaid.css?1566451219" type="text/css" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.min.js?1566451219"></script>
+    <link href="../../../mermaid/mermaid.css?1566462182" type="text/css" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.min.js?1566462182"></script>
     <script>
 	var config = {
         startOnLoad:true,
