@@ -12,10 +12,8 @@ weight: 22
 실습에 사용한 툴과 버전은 다음과 같습니다. Cloud9은 Node.js, Typescript, docker가 이미 설치되어있으니 생략하지만
 랩탑에서 실습할때는 아래 툴을 설치해 주시기 바랍니다.
 
-Node.JS: 10.16.2
-
-Typescript: 3.5.3
-
+Node.JS: 10.16.2<br>
+Typescript: 3.5.3<br>
 docker: 18.06.1-ce
 
 

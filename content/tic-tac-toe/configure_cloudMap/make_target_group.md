@@ -10,20 +10,15 @@ weight: 3
 1. 좌측 서이드 메뉴에서 **Target Groups**를 선택하고 **Create target group**을 선택하고 아래와 같이 입력합니다.
 
 * **Target group name**: matchmaker
-
 * **Target type**: IP
-
 * **VPC**: tic-tac-toe-vpc
-
-* **Health check settings**/**Path**: /api/health
+* **Health check settings/Path**: /api/health
 ![Example Service](/images/tic-tac-toe/target_group-1.png)
 
 헬스체크 시간을 단축하기 위해 **Advanced health check settings**의 파라메터를 아래와 같이 수정합니다.
 
 * **Healthy threshold**: 3
-
 * **Interval**: 10
-
 ![Example Service](/images/tic-tac-toe/target_group-2.png)
 
 
@@ -33,14 +28,14 @@ weight: 3
 ## 대시보드 타겟 그룹 만들기 
 
 * **Target group name**: dashboard
-
-* **Health check settings**/**Path**: /
+* **Health check settings/Path**: /
 
 ## 클라이언트 타겟 그룹 만들기 
 
 * **Target group name**: tic-tc-toe-client
-
-* **Health check settings**/**Path**: /
-
-
+* **Health check settings/Path**: /
 ![Example Service](/images/tic-tac-toe/target_group-3.png)
+
+{{% notice info %}}
+matchmaker 만 Port와 Target type이 다른것을 주의하세요.
+{{% /notice %}}

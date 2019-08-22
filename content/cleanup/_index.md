@@ -1,5 +1,5 @@
 ---
-title: "Cleanup"
+title: "클린 업"
 chapter: true
 weight: 70
 ---

@@ -18,6 +18,6 @@ aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-gro
 aws elbv2 delete-target-group --target-group-arn $(aws elbv2 describe-target-groups --names tic-tac-toe-client | jq -r '.TargetGroups[] | .TargetGroupArn')
 ```
 
-1. **EC2** 서비스 로 넘어갑니다.
+1. **EC2** 서비스로 넘어갑니다.
 1. 화면의 좌측 사이드 메뉴에서 **Load Balancers**를 선택하고 워크샵에서 생성한 ALB가 모두 삭제됐는지 확인합니다.
 1. 화면의 좌측 사이드 메뉴에서 **Target Groups**를 선택하고 워크샵에서 생성한 타겟그룹이 모두 삭제됐는지 확인합니다.

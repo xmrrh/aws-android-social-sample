@@ -8,30 +8,20 @@ weight: 13
 이 작업은 간단한 웹 호스팅으로 FARGATE타입으로 생성하겠습니다.
 
 * **launch type**: FARGATE
-
 * **Task Definition Name**: tic-tac-toe-client
-
 * **Task Role**: tic-tac-toe-task-role
-
 * **Task execution role**: tic-tac-toe-task-role
-
 * **Task CPU**: 0.25 vCPU
-
 * **Task memory**: 0.5GB
 
-
-* **Add container**를 선택합니다. 컨테이너 정보를 입력하는 모달창이 뜨는데 여기에 아래 내용을 입력합니다.
+**Add container**를 선택합니다.
 
 * **Container name**: tic-tac-toe-client
-
 * **Image**: tic-tac-toe-server 컨테이너 이미지 이름과 리비전을 넣습니다. 100280XXXXXX.dkr.ecr.us-west-2.amazonaws.com/tic-tac-toe-client:latest 의 형식입니다.
-
 * **Port mappings**: 80
-
 * **HELATHCHECK** 항목은 입력하지 않습니다.
-
 * **Log configuration**/**Auto-configure CloudWatch Logs**: 활성화
 
-다 적었으면 **Add**를 선택합니다. 이미 한번 적용했다면 버튼 이름은 **Update**로 변경됩니다.
+**Add**를 선택합니다. 이미 한번 적용했다면 버튼 이름은 **Update**로 변경됩니다.
 
 **Create** 를 선택해서 작업을 만듭니다.

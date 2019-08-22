@@ -1,5 +1,6 @@
 ---
 title: "나머지 리포지토리 만들기"
+chapter: false
 date: 2018-08-07T08:30:11-07:00
 weight: 11
 ---
@@ -39,6 +40,6 @@ c9 open ~/environment/tic-tac-toe-workshop/client/tic-tac-toe/build.sh
 tic-tac-toe-client 에서 얻은 푸시 명령어를 반영하고 저장후 파일을 닫습니다.
 
 
-간단한 반복 작업이니 천천히 확인하면서 하시면 어렵지 않습니다.
+간단한 반복 작업이니 천천히 확인하면서 하시면 어렵지 않습니다.<br>
 4개의 리포지토리를 다 만들고 나면 다음 화면과 같이 보입니다.
 ![Example Service](/images/tic-tac-toe/ecr-4.png)

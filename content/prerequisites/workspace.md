@@ -5,25 +5,19 @@ weight: 10
 ---
 
 {{% notice warning %}}
-The Cloud9 workspace should be built by an IAM user with Administrator privileges,
-not the root account user. Please ensure you are logged in as an IAM user, not the root
-account user.
+Cloud9 워크샵은 루트 유저가 아니라 관리자 권한이 있는 IAM 유저로 만들어야 합니다. 현재 로그인중인 계정이 루트 유저가 아니라 IAM 유저인지 확인해주세요.
 {{% /notice %}}
 
-<!---
 {{% notice info %}}
-This workshop was designed to run in the **Oregon (us-west-2)** region. **Please don't
-run in any other region.** Future versions of this workshop will expand region availability,
-and this message will be removed.
+이 워크샵은 **Oregon (us-west-2)** 리전에서 만들고, 테스트 했습니다.
 {{% /notice %}}
--->
 
 {{% notice tip %}}
 Ad blocker나 tracking blocker는 Cloud9 사용에 방해를 줄 수 있습니다. 그러므로 해당 기능을 끄거나, Cloud9 도메인에서 사용하지 않도록 해주세요.
 또한 Cloud9 은 쿠키를 필요로 합니다. 화이트리스팅은 다음 링크를 참고바랍니다. [specific domains]( https://docs.aws.amazon.com/cloud9/latest/user-guide/troubleshooting.html#troubleshooting-env-loading).
 {{% /notice %}}
 
-### Launch Cloud9 in your closest region:
+### Cloud9 생성하기
 {{< tabs name="Region" >}}
 {{{< tab name="Oregon" include="us-west-2.md" />}}
 {{< /tabs >}}

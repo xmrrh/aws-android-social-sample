@@ -10,4 +10,4 @@ aws servicediscovery delete-service --id $(aws servicediscovery list-services | 
 aws servicediscovery delete-namespace --id $(aws servicediscovery list-namespaces | jq -r '.Namespaces[0].Id')
 ```
 
-네임스페이스를 지우는데는 시간이 몇분정도 걸립니다. 5분정도 기다린 후 확인을 해주세요.
+네임스페이스를 지우는데는 시간이 몇분정도 걸립니다. 3분정도 기다린 후 확인을 해주세요.
