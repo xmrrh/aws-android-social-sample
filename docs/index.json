@@ -119,13 +119,6 @@
 	"content": " EC2 서비스로 넘어갑니다. 좌측 사이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker Target type: instance VPC: tic-tac-toe-vpc Port: 8888 Health check settings/Path: /api/health  나머지 항목은 기본값으로 둡니다.\n헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.\n Healthy threshold: 2 Interval: 10  Create를 선택하여 타겟그룹을 생성합니다.\n"
 },
 {
-	"uri": "/tic-tac-toe/configure_cloudmap/make_target_group/",
-	"title": "타겟 그룹 만들기",
-	"tags": [],
-	"description": "",
-	"content": " 매치메이커 타겟 그룹 만들기  EC2 서비스로 넘어갑니다. 좌측 서이드 메뉴에서 Target Groups를 선택하고 Create target group을 선택하고 아래와 같이 입력합니다.   Target group name: matchmaker Target type: IP VPC: tic-tac-toe-vpc Health check settings/Path: /api/health   헬스체크 시간을 단축하기 위해 Advanced health check settings의 파라메터를 아래와 같이 수정합니다.\n Healthy threshold: 3 Interval: 10   위와 같은 방법으로 2개의 타겟 그룹을 더 만듭니다. 달라지는것은 Target group name와 Health check settings/Path 입니다.\n대시보드 타겟 그룹 만들기  Target group name: dashboard Health check settings/Path: /  클라이언트 타겟 그룹 만들기  Target group name: tic-tc-toe-client Health check settings/Path: /   matchmaker 만 Port와 Target type이 다른것을 주의하세요.\n "
-},
-{
 	"uri": "/tic-tac-toe/build_cluster/edit_sg/",
 	"title": "보안그룹 수정",
 	"tags": [],
@@ -151,7 +144,7 @@
 	"title": "서비스 확인",
 	"tags": [],
 	"description": "",
-	"content": "아까 띄워둔 대시보드를 새로고침 합니다. 창을 닫았다면 dashboard-ALB의 주소를 다시 입력합니다.\n매치메이커 서버가 정상적으로 뜨고 잘 연결된다면 현재 유저수가 1로 잘 표시됩니다. (1 이상이면 정상입니다.)\n이제 모든 준비는 끝났습니다.\n게임서버를 준비시켜보겠습니다. "
+	"content": "아까 띄워둔 대시보드를 새로고침 합니다. 창을 닫았다면 dashboard-ALB의 주소를 다시 입력합니다.\n매치메이커 서버가 정상적으로 뜨고 잘 연결된다면 현재 유저수가 1로 잘 표시됩니다. (1 이상이면 정상입니다.)\n이제 기반 준비는 끝났습니다. "
 },
 {
 	"uri": "/cleanup/delete_alb/",
@@ -347,7 +340,7 @@
 	"title": "데디 서버 운영 테스트",
 	"tags": [],
 	"description": "",
-	"content": " 서비스 테스트 이제 모든 환경을 구축했습니다. 데디 서버를 준비시키고 돌아가는 상황을 모니터링 하겠습니다.\n"
+	"content": " 서비스 테스트 이제 모든 환경을 구축했습니다.\n데디 서버를 준비시키고 돌아가는 상황을 모니터링 하겠습니다.\n"
 },
 {
 	"uri": "/cleanup/",

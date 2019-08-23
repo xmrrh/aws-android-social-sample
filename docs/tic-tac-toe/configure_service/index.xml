@@ -56,8 +56,7 @@ Next step 을 선택합니다.
       <guid>/tic-tac-toe/configure_service/make_service_done/</guid>
       <description>아까 띄워둔 대시보드를 새로고침 합니다. 창을 닫았다면 dashboard-ALB의 주소를 다시 입력합니다.
 매치메이커 서버가 정상적으로 뜨고 잘 연결된다면 현재 유저수가 1로 잘 표시됩니다. (1 이상이면 정상입니다.)
-이제 모든 준비는 끝났습니다.
-게임서버를 준비시켜보겠습니다. </description>
+이제 기반 준비는 끝났습니다. </description>
     </item>
     
   </channel>
