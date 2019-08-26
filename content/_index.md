@@ -1,27 +1,17 @@
 ---
-title: "Games On AWS"
+title: "Android App On AWS"
 chapter: true
 weight: 1
 ---
 
-<div style="text-align: center"><h2>ECS로 하는 데디케이디드 서버 운영 HoL</h2></div>
-
-# 희망의 시간
-우리는 어디서나 즐길 수 있는 실시간 전략 PvP 게임인 "틱-택-토"를 만들었습니다.
-탁월한 게임성으로 이 게임은 다음번 국민게임이 될 것이라는 확신에 차 있습니다.
-사업팀의 포커스 그룹 테스트는 역대 최고 점수가 나왔고 마케팅팀의 시장 조사 결과도 장미빛 미래 입니다.
-
-사업팀의 예상 수치는 보수적으로 잡아도
-**금요일 저녁 동시접속자는 100만이 넘을 것이고, 이때 최소한 30만개 이상의 데디 서버가 만들어질 예정입니다.**
+<div style="text-align: center"><h2>Create serverless-based social Android apps using Amplify and AI services</h2></div>
 
 
-# 동이 트기 전이 가장 어두울때
-개발팀은 마냥 기뻐하기엔 걱정이 앞섭니다. 월요일 아침엔 1만개도 안될 데디 서버가 금요일 저녁엔 30만개가 될 것입니다.
-서버를 다 준비해놓고 운영하기엔 비용은 둘째치고 관리가 너무 힘듭니다.
-기획팀은 벌써부터 6개월치 기능에 대한 플랜을 세웠는데 슬쩍 보니 매주 패치가 될 같습니다.
-온 팀원이 잘 나눠서 밤새며 몸빵을 해도 한달을 버티기가 버거워 보입니다.
+
+AWS provides API services for AI features, including machine translations for various languages. In this lab, we will use AWS Amplify to create a social mobile app on Android with these services (Serverless). To do this, we leverage features such as user authentication (Cognito) and GraphQL (Appsync). It also leverages the ability to collect and analyze user events using Pinpoint.
 
 
-# 컨테이너로 제시하는 데디케이티드 서버 운영 방법
-이 랩을 통해 여러분은 Amazon ECS와 AWS CloudMap을 활용하여 사람의 관리 포인트를 최소한으로 줄이면서도
-안정적이고 유연한 운영환경을 만들어보게 됩니다.
+
+Amplify 와 AI 서비스를 활용한 서버리스 기반 소셜 안드로이드 앱 만들기 
+
+AWS에서는 다양한 언어에 대한 기계 번역(Translate) 등 AI 기능에 대한 API 서비스를 제공합니다. 본 실습에서는 이들 서비스(Serverless) 환경으로 AWS Amplify를 활용하여 소셜 모바일 앱을 안드로이드 기반으로 만들어 봅니다. 이를 위해 사용자 인증(Cognito), GraphQL(Appsync) 등의 기능을 함께 활용합니다. 또한 Pinpoint를 이용하여 사용자 이벤트를 수집하고 분석하는 기능을 활용합니다.

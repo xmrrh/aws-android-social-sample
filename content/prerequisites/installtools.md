@@ -1,31 +1,58 @@
 ---
-title: "필요한 툴 설치하기"
+title: "Install Android Tools"
 chapter: false
 weight: 22
 ---
 
-{{% notice info %}}
-앞으로 여러분이 Cloud9에서 실행해야 하는 명령어는 검은 박스에 있을것입니다. (검은 박스가 모두 명령어는 아닙니다!) 이것을 복사해서 Cloud9에 붙여넣을때 영억 선택 후 복사도 되지만 오른쪽 상단 "클립보드로 복사" 아이콘을 사용하면 더욱 쉽습니다.
-{{% /notice %}}
 
-#### 필요한 툴 종류
-실습에 사용한 툴과 버전은 다음과 같습니다. Cloud9은 Node.js, Typescript, docker가 이미 설치되어있으니 생략하지만
-랩탑에서 실습할때는 아래 툴을 설치해 주시기 바랍니다.
 
-Node.JS: 10.16.2<br>
-Typescript: 3.5.3<br>
-docker: 18.06.1-ce
+Requires Java SDK, Android SDK, and Android Studio (IDE).
+If you need to install it please install it through the link below. 
 
 
 
-#### JQ 설치
-아래 명령어를 Cloud9의 터미널에 입력합니다.
-```
-sudo yum -y install jq
-```
+#### Java SDK Install
 
-#### c9 설치
-아래 명령어를 Cloud9의 터미널에 입력합니다.
-```
-npm install -g c9 
-```
+If you do not have Java SDK 8.0 or later [Download](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+
+
+
+#### Android Studio Install
+
+If you do not have Android Studio 3.3 or later [Download](https://developer.android.com/studio/)
+
+
+
+#### Android SDK Install
+
+After installing Android Studio, install Android SDK through <b>Tools > SDK Manager</b> inside Android Studio.
+
+![Create User](/images/androidstudio-sdk.png)
+
+Make sure Android SDK Location is set correctly,  <b>Ok</b> after selecting <b>Android 9.0</b> in SDK platforms
+
+![Create User](/images/androidstudio-sdk-detail.png)
+
+
+
+#### Android AVD (Emulator) Install
+
+After installing Android Studio, install Android SDK through <b>Tools > AVD Manager</b> inside Android Studio.
+
+select <b>Create Virtual Device..</b>
+
+![Create User](/images/androidstudio-avd-1.png)
+
+select <b>Pixel 2</b> and <b> Next </b>
+
+![Create User](/images/androidstudio-avd-2.png)
+
+select <b>Pie</b> and <b> Next</b>
+
+![Create User](/images/androidstudio-avd-3.png)
+
+select AVD name and <b> Finish</b>
+
+![Create User](/images/androidstudio-avd-4.png)
+
+![Create User](/images/androidstudio-avd-5.png)
