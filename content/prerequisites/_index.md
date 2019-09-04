@@ -1,9 +1,8 @@
 ---
-title: "Prerequisites"
+title: "워크샵 시작하기"
 chapter: true
 weight: 10
 ---
 
-# PREREQUISITES FOR THE WORKSHOP
-
+# 워크샵 시작
 
