@@ -6,7 +6,7 @@ weight: 10
 
 Amazon Cognito를 사용하면 모바일 앱에 빠르고 손쉽게 사용자 가입, 로그인 및 액세스 제어 기능을 추가할 수 있습니다. 아래 명령어를 통해 손쉽게 생성하실 수 있습니다. 
 
-```
+```shell
 amplify add auth
 ```
 
@@ -18,7 +18,7 @@ amplify add auth
 
 완료되면 다음 명령어를 통해 클라우드 리소스를 업데이트 합니다. 
 
-```
+```shell
 amplify push
 ```
 
@@ -28,7 +28,7 @@ amplify push
 
 참고로 status 명령어를 통해 amplify project의 상태를 확인하실 수 있습니다. 
 
-```
+```shell
 amplify status
 ```
 

@@ -24,7 +24,7 @@ AWSMobileClient를 이용하면 애플리케이션에서 사용자의 "로그인
 
 AuthActivity.java 
 
-```
+```java
 package com.example.socialandroidapp;
 
 import android.content.Intent;
@@ -122,7 +122,7 @@ public class AuthActivity extends AppCompatActivity {
 
 AndroidManifest.xml 파일을 수정합니다. 기존의 MAIN action과 LAUNCHER category를 가지고 있던  MainActivity의 속성을 제거하시고  AuthActivity 에 제거된 속성을 부여합니다. 아래 코드를 참고하세요.
 
-```
+```xml
 <activity android:name=".AuthActivity">
     <intent-filter>
         <action android:name="android.intent.action.MAIN" />

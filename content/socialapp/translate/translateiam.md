@@ -6,7 +6,7 @@ weight: 15
 
 번역이 안되는 원인은 logcat에서 다음과 같은 에러, 즉  **AccessDenied**이 원인입니다.
 
-```
+```verilog
 2019-09-04 18:00:40.159 10974-11061/com.example.socialandroidapp E/dev-day-item: Error occurred in translating the text: User: arn:aws:sts::539063931014:assumed-role/aws-android-workshop-dev-20190903125208-authRole/CognitoIdentityCredentials is not authorized to perform: translate:TranslateText (Service: AmazonTranslate; Status Code: 400; Error Code: AccessDeniedException; Request ID: af77f01a-f368-4987-96f0-780c7c6ca26d)
 
 

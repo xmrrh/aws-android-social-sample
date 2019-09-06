@@ -9,7 +9,7 @@ weight: 11
 
 build.gradle (Module: app) 에 plugin을 적용시킵니다. 이 plugin에 의해 코드가 자동생성됩니다.
 
-```
+```java
 apply plugin: 'com.amazonaws.appsync' // REQUIRED
 ```
 
@@ -17,7 +17,7 @@ apply plugin: 'com.amazonaws.appsync' // REQUIRED
 
 또한 같은 파일에 -build.gradle (Module: app)-  에 아래와 같이 dependency를  추가 합니다. 
 
-```
+```java
 dependencies {
 ...
 // REQUIRED: Typical dependencies
@@ -32,7 +32,7 @@ implementation 'com.amazonaws:aws-android-sdk-s3:2.14.+'
 
 우선 build.gradle (Module: Project) 에 아래와 같이 dependency를 추가 합니다. 
 
-```
+```java
 classpath 'com.amazonaws:aws-android-sdk-appsync-gradle-plugin:2.9.+'
 ```
 
@@ -44,7 +44,7 @@ classpath 'com.amazonaws:aws-android-sdk-appsync-gradle-plugin:2.9.+'
 
 ClientFactory.java 
 
-```
+```java
 package com.example.socialandroidapp;
 
 import android.content.Context;
@@ -132,7 +132,7 @@ public class ClientFactory {
 
 WriteActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory 이용하여 AWSAppSyncClient를 생성합니다. 
 
-```
+```java
   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -147,7 +147,7 @@ WriteActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory �
 
 WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 저장소에 게시물이 저장될 수 있도록 **addComment** 함수를 추가합니다. **putYourBucketName 변수명을 다른 이름으로 수정합니다.**
 
-```
+```java
      //appsync upload
  private final String putYourBucketName = "xmrrh-east-1";
  private final String mimeType = "image/jpg";
@@ -181,7 +181,7 @@ WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 
 
 이 함수는 onCreate함수의 saveBtn에 onClick event시 호출될 수 있도록 합니다. 
 
-```
+```java
   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -9,7 +9,7 @@ weight: 20
 
 MainActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory 이용하여 AWSAppSyncClient를 생성합니다. 
 
-```
+```java
   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,7 +25,7 @@ MainActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory �
 
 상속된 onResume()에 아래와 같이 queryList()를 호출하도록 코드를 추가합니다.  
 
-```
+```java
     protected void onResume() {
         super.onResume();
         //appsync
@@ -35,7 +35,7 @@ MainActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory �
 
 queryList() 함수와 필요한 쿼리 결과를 얻어오는 콜백함수를 아래와 같이 추가합니다.
 
-```
+```java
     private PostAdapter mAdapter;
 
 
@@ -81,7 +81,7 @@ List는 RecyclerView를 통해 listup됩니다. RecyclerView에서 사용할 Pos
 
 PostAdapter.java 
 
-```
+```java
 package com.example.socialandroidapp;
 
 
@@ -201,7 +201,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
 
 RecyclerView에서 사용할 PostAdapter를 생성하여 연동합니다.
 
-```
+```java
 mAdapter = new PostAdapter(getApplicationContext());
 
 recyclerView = findViewById(R.id.itemlist);

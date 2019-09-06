@@ -63,7 +63,7 @@ input S3ObjectInput {
 
 amplify add api 가 완료되면 클라우드리소스 생성을 위해 push합니다.
 
-```
+```bash
 amplify push
 ```
 

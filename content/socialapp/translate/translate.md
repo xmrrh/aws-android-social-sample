@@ -7,7 +7,7 @@ weight: 13
 
 build.gradle (Module: app) 에 아래와 같이 dependency를  추가 합니다. 
 
-```
+```xml
 dependencies {
 ...
     implementation 'com.amazonaws:aws-android-sdk-translate:2.13.+'
@@ -17,7 +17,7 @@ dependencies {
 
 TRANSLATE 버튼은 각 게시물에 위치합니다. 버튼 클릭이벤트를 이용하여 번역을 하기 위해 PostAdapter의 bindData()에 버튼 클릭이벤트와 리스너를 등록합니다. 
 
-```
+```java
 void bindData(final ListPostsQuery.Item item) {
 						...
             translateBtn.setOnClickListener(new Button.OnClickListener() {
@@ -32,7 +32,7 @@ void bindData(final ListPostsQuery.Item item) {
 
 실제 번역을 담당하는 함수를 작성합니다. AmazonTranslateAsyncClient는 Cognito로부터 얻은AWSCredential을 이용하여 인증합니다. 
 
-```
+```java
  private void doTranslate(final TextView tv) {
         AmazonTranslateAsyncClient translateAsyncClient = new AmazonTranslateAsyncClient(ClientFactory.getAWSCredentials());
         TranslateTextRequest translateTextRequest = new TranslateTextRequest()

@@ -6,7 +6,7 @@ weight: 2
 
 다운받은 sample app의 root directory로 이동 후 Amplify 프로젝트를 초기화 합니다
 
-```
+```shell
 cd aws-android-workshop/
 amplify init
 ```
