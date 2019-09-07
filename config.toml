@@ -1,7 +1,7 @@
 languageCode = "kr-ko"
 ignoreFiles = [ "\\.files/README.md$",  ]
 defaultContentLanguage = "en"
-title = "ECS HoL"
+title = "AWS Android Social HoL"
 theme = "learn"
 uglyurls = false
 googleAnalytics = ""
@@ -21,9 +21,9 @@ disableAssetsBusting = false
 disableLanguageSwitchingButton = true
 disableShortcutsTitle=false
 disableInlineCopyToClipBoard = true
-ghrepo = "https://github.com/aws-samples/eks-workshop/"
+ghrepo = "https://github.com/xmrrh/aws-android-workshop"
 branch = "master"
-template_bucket = "eksworkshop.com"
+template_bucket = "awsandroidworkshop.com"
 pygmentsUseClasses = true
 pygmentsCodeFences = true
 pygmentsCodefencesGuessSyntax = true
@@ -46,3 +46,4 @@ pygmentsStyle = "tango"
 [outputs]
 home = [ "HTML", "JSON"]
 page = [ "HTML" ]
+
