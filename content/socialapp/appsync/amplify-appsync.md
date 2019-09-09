@@ -19,19 +19,6 @@ amplify add api
 스키마는 아래 값을 사용합니다. 
 
 ```bash
-type Mutation {
-        putPostWithPhoto(
-                id: ID!,
-                author: String!,
-                title: String,
-                content: String,
-                url: String,
-                ups: Int,
-                downs: Int,
-                photo: S3ObjectInput,
-                version: Int!
-        ): Post
-}
 
 type Post @model{
         id: ID!
@@ -81,15 +68,15 @@ amplify push
 
 
 
-이제 Mutation 에 새로 추가한 api를 dynamodb와 연계할 수 있는 Resolver를 생성 해보겠습니다. <b>AWS console > service > AppSync >Schema</b>에서 Resolvers중 **putPostWithPhoto** 를 찾아 **Attach**를  누릅니다. 
+이제 Mutation 에 새로 추가한 api를 dynamodb와 연계할 수 있는 Resolver를 변경 해보겠습니다. <b>AWS console > service > AppSync >Schema</b>에서 Resolvers중 **createPost()** 를 찾아 **Attach**를  누릅니다. 
 
-![Example Service](/images/console-api-cr.png)
+![Example Service](/images/createpost.png)
 
 
 
 Data source name에 **PostTable** 를 선택합니다. Configure the request mapping template은 **Put item with S3 ObjectPut** 를 선택하시고 **Save Resolver **을 눌러 저장합니다. 
 
-![Example Service](/images/console-cr-puts3.png)
+![Example Service](/images/console-cr-create.png)
 
 
 

@@ -145,7 +145,7 @@ WriteActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory �
 
 
 
-WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 저장소에 게시물이 저장될 수 있도록 **addComment** 함수를 추가합니다. **putYourBucketName 변수명을 다른 이름으로 수정합니다.**
+WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 저장소에 게시물이 저장될 수 있도록 **addComment** 함수를 추가합니다. **putYourBucketName 변수명을 다른 이름으로 수정합니다.** 
 
 ```java
      //appsync upload
@@ -164,7 +164,7 @@ WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 
                 .region(region)
                 .localUri(bitmapPath)
                 .mimeType(mimeType).build();
-        PutPostWithPhotoMutation addPostMutation = PutPostWithPhotoMutation.builder()
+        CreatePostInput createTodoInput = CreatePostInput.builder()
                 .title(title.getText().toString())
                 .author(ClientFactory.getUserID())
                 .url(bitmapPath)
@@ -175,8 +175,36 @@ WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 
                 .id(UUID.randomUUID().toString())
                 .build();
 
-        ClientFactory.getAppSyncClient().mutate(addPostMutation).enqueue(postsCallback);
-    }
+	      CreatePostMutation addPostMutation = CreatePostMutation.builder()
+                .input(createTodoInput).build();
+
+        ClientFactory.getAppSyncClient().mutate(addPostMutation).enqueue(postsCallback);    }
+
+    private GraphQLCall.Callback<CreatePostMutation.Data> postsCallback = new GraphQLCall.Callback<CreatePostMutation.Data>() {
+        @Override
+        public void onResponse(@Nonnull final Response<CreatePostMutation.Data> response) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    dismissWaitDialog();
+                    WriteActivity.this.finish();
+                }
+            });
+        }
+
+        @Override
+        public void onFailure(@Nonnull final ApolloException e) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    dismissWaitDialog();
+
+                    Log.e("", "Failed to perform AddPostMutation", e);
+                    WriteActivity.this.finish();
+                }
+            });
+        }
+    };
 ```
 
 이 함수는 onCreate함수의 saveBtn에 onClick event시 호출될 수 있도록 합니다. 
