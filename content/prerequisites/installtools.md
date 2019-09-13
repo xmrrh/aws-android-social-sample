@@ -28,7 +28,7 @@ Android Studio를 설치하신 후 실행합니다. <b>Tools > SDK Manager</b>�
 
 ![Create User](/images/androidstudio-sdk.png)
 
-Android SKD Location이 올바르게 설정되었는지 확인하세요. <b>Android 9.0</b>을 선택하신 후 <b>OK</b> 버튼을 누르세요.
+Android SDK Location이 올바르게 설정되었는지 확인하세요. <b>Android 9.0</b>을 선택하신 후 <b>OK</b> 버튼을 누르세요.
 
 ![Create User](/images/androidstudio-sdk-detail.png)
 

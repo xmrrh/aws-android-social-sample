@@ -16,5 +16,5 @@ weight: 10
 
 <br><br>
 
-(광고)  **React Native** 버젼 워크샵도 준비중입니다. 
+(To-Do)  **React Native** 버젼 워크샵도 준비중입니다. 
 
