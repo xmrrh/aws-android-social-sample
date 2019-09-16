@@ -14,6 +14,8 @@ amplify add auth
 
 진행 중 선택항목은 아래 그림을 참고하세요.
 
+**domain name 설정 시 aws, amazon, cognito 및 _를 포함한 이름은 사용하실 수 없습니다. 'android-workshop+랜덤문자' 형태로 이름을 입력해주셔야 합니다.**
+
 ![Example Service](/images/amplify-auth-config.png)
 
 
