@@ -10,27 +10,25 @@ weight: 11
 build.gradle (Module: app) 에 plugin을 적용시킵니다. 이 plugin에 의해 코드가 자동생성됩니다.
 
 ```java
-apply plugin: 'com.amazonaws.appsync' // REQUIRED
+apply plugin: 'com.amazonaws.appsync' 
 ```
 
 
 
-또한 같은 파일에 -build.gradle (Module: app)-  에 아래와 같이 dependency를  추가 합니다. 
+또한 같은 파일에 -build.gradle (Module: app)-  에 아래와 같이 dependencies에  4개의 implementation을 추가 합니다. 
 
 ```java
 dependencies {
 ...
-// REQUIRED: Typical dependencies
 implementation 'com.amazonaws:aws-android-sdk-appsync:2.9.+'
 implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
 implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
-
 implementation 'com.amazonaws:aws-android-sdk-s3:2.14.+'
 ...
 }
 ```
 
-우선 build.gradle (Module: Project) 에 아래와 같이 dependency를 추가 합니다. 
+build.gradle (Module: Project) 에 아래와 같이 dependencies에  classpath를 추가 합니다. 
 
 ```java
 classpath 'com.amazonaws:aws-android-sdk-appsync-gradle-plugin:2.9.+'
@@ -132,6 +130,8 @@ public class ClientFactory {
 
 WriteActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory 이용하여 AWSAppSyncClient를 생성합니다. 
 
+onCreate()함수에  아래와 같이 ClientFactory.appSyncInit(..) 를 추가하세요. 
+
 ```java
   @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,13 +145,13 @@ WriteActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory �
 
 
 
-WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 저장소에 게시물이 저장될 수 있도록 **addComment** 함수를 추가합니다. **putYourBucketName 변수명을 다른 이름으로 수정합니다.** 
+WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 저장소에 게시물이 저장될 수 있도록 **addComment** 함수를 추가합니다. **putYourBucketName 변수값을 <span style="color:red">여러분의 S3 버킷 이름</span>으로 교체 하세요. **
 
 ```java
      //appsync upload
- private final String putYourBucketName = "xmrrh-east-1";
+ private final String putYourBucketName = "putYourBucketName";
  private final String mimeType = "image/jpg";
- private final String region = "xmrrh-east-1";
+ private final String region = "us-east-1";
  private final String folderName = "public/";
  
  private void addComment() {
@@ -164,25 +164,24 @@ WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 
                 .region(region)
                 .localUri(bitmapPath)
                 .mimeType(mimeType).build();
-        CreatePostInput createTodoInput = CreatePostInput.builder()
+        PutPostWithPhotoMutation addPostMutation = PutPostWithPhotoMutation.builder()
                 .title(title.getText().toString())
                 .author(ClientFactory.getUserID())
                 .url(bitmapPath)
                 .content(contents.getText().toString())
-                .ups(0)
-                .downs(0)
+                .uptime(String.valueOf(System.currentTimeMillis()))
                 .photo(s3ObjectInput)
-                .id(UUID.randomUUID().toString())
+                .id("DEV-DAY")
                 .build();
 
-	      CreatePostMutation addPostMutation = CreatePostMutation.builder()
-                .input(createTodoInput).build();
 
-        ClientFactory.getAppSyncClient().mutate(addPostMutation).enqueue(postsCallback);    }
 
-    private GraphQLCall.Callback<CreatePostMutation.Data> postsCallback = new GraphQLCall.Callback<CreatePostMutation.Data>() {
+        ClientFactory.getAppSyncClient().mutate(addPostMutation).enqueue(postsCallback);
+    }
+
+    private GraphQLCall.Callback<PutPostWithPhotoMutation.Data> postsCallback = new GraphQLCall.Callback<PutPostWithPhotoMutation.Data>() {
         @Override
-        public void onResponse(@Nonnull final Response<CreatePostMutation.Data> response) {
+        public void onResponse(@Nonnull final Response<PutPostWithPhotoMutation.Data> response) {
             runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
@@ -208,6 +207,8 @@ WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 
 ```
 
 이 함수는 onCreate함수의 saveBtn에 onClick event시 호출될 수 있도록 합니다. 
+
+기존의 코드인 WriteActivity.this.finish() 는 지우시고, 그자리에 addComment()를 넣으세요.
 
 ```java
   @Override

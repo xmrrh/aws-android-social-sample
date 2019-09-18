@@ -7,7 +7,9 @@ weight: 20
 
 이제 메인 화면에서 사용자가 게시한 화면을 list up 해보도록 하겠습니다. 
 
-MainActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory 이용하여 AWSAppSyncClient를 생성합니다. 
+MainActivity.java 의 onCreate 함수에서 위에서 ClientFactory 이용하여 AWSAppSyncClient를 생성합니다. 
+
+아래와 같이 ClientFactory.appSyncInit(...)를 onCreate()함수내에 복사합니다. 
 
 ```java
   @Override
@@ -23,7 +25,7 @@ MainActivity.java 의 onCreate 함수에서 위에서 생성한 ClientFactory �
 
 
 
-상속된 onResume()에 아래와 같이 queryList()를 호출하도록 코드를 추가합니다.  
+onResume()에 아래와 같이 queryList()를 호출하도록 코드를 추가합니다.  
 
 ```java
     protected void onResume() {
@@ -38,16 +40,16 @@ queryList() 함수와 필요한 쿼리 결과를 얻어오는 콜백함수를 �
 ```java
     private PostAdapter mAdapter;
 
-
-//appsync
-    public void queryList() {
-        ClientFactory.getAppSyncClient().query(ListPostsQuery.builder().build())
+public void queryList() {
+        ClientFactory.getAppSyncClient().query(ListPostsQuery.builder()
+                .id("DEV-DAY")
+                .sortDirection(ModelSortDirection.DESC)
+                .build())
                 .responseFetcher(AppSyncResponseFetchers.CACHE_AND_NETWORK)
                 .enqueue(queryCallback);
     }
-//appsync
     private ArrayList<ListPostsQuery.Item> mItems;
-//appsync
+
     private GraphQLCall.Callback<ListPostsQuery.Data> queryCallback = new GraphQLCall.Callback<ListPostsQuery.Data>() {
 
         @Override
@@ -68,7 +70,7 @@ queryList() 함수와 필요한 쿼리 결과를 얻어오는 콜백함수를 �
 
         @Override
         public void onFailure(@Nonnull ApolloException e) {
-
+						e.printStackTrace();
         }
     };
 ```
@@ -199,15 +201,20 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
 
 ```
 
-RecyclerView에서 사용할 PostAdapter를 생성하여 연동합니다.
+RecyclerView에서 사용할 PostAdapter를 생성하여 연동합니다. 
+
+MainActivity.java의 onCreate()함수 아랫부분에 아래와 같이 작성해주세요
 
 ```java
-mAdapter = new PostAdapter(getApplicationContext());
+protected void onCreate(Bundle savedInstanceState) {
+  ...
+    mAdapter = new PostAdapter(getApplicationContext());
 
-recyclerView = findViewById(R.id.itemlist);
-recyclerView.setLayoutManager(new LinearLayoutManager(this));
-recyclerView.setHasFixedSize(true);
-recyclerView.setAdapter(mAdapter);
+    recyclerView = findViewById(R.id.itemlist);
+    recyclerView.setLayoutManager(new LinearLayoutManager(this));
+    recyclerView.setHasFixedSize(true);
+    recyclerView.setAdapter(mAdapter);
+}
 ```
 
 이제 앱을  실행하면 게시물작성하기에서 만들었던 첫번째 게시물을 확인하실 수 있습니다. 
