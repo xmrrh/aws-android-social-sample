@@ -21,7 +21,7 @@ os type은 **Android**
 
 res directory는 default를 사용하기 위해 **Enter**를 입력합니다. 
 
-AWS Profile은 이미 생성하신 프로파일을 선택합니다. **us-east-1-profile**
+AWS Profile을 사용하겠다고 선택(<b>Y</b>) 하시고, 이미 생성하신 프로파일을 선택합니다. **us-east-1-profile**
 
 아래와 그림을 참고하셔서 입력하십시요.  
 
@@ -47,7 +47,7 @@ Amplify init이 수행 완료 되면 인증된 사용자와 비인증사용자�
 
 command는 다음을 같이 사용하실 수 있습니다.  
 
-- `amplify <category> add`
-- `amplify <category> remove`
-- `amplify <category> push`
+- `amplify add <category>`
+- `amplify remove <category>`
+- `amplify push <category>`
 

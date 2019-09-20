@@ -22,7 +22,7 @@ https://console.firebase.google.com/ 페이지로 이동합니다.
 
 ![Example Service](/images/firebase-create-1.png)
 
-본 워크샵은 FCM을 push message 용도로만 사용할 예정이기 때문에 **Not right now** 를 선택하고 다음단계로 이동합니다. 
+본 워크샵은 FCM을 push message 용도로만 사용할 예정이기 때문에 **Emable Google Analytics for this project** 를 disable하고 다음단계로 이동합니다. 
 
 ![Example Service](/images/firebase-create-2.png)
 
@@ -30,7 +30,7 @@ project가 생성되면 아래와 같은 화면이 보이게 됩니다. 왼쪽 �
 
 ![Example Service](/images/firebase-create-3.png)
 
-**General** 탭에 아래부분에 ** Your apps** 가 있습니다. 안드로이드 모양의 아이콘을 선택합니다. 
+**General** 탭에 아래부분에 **Your apps** 가 있습니다. 안드로이드 모양의 아이콘을 선택합니다. 
 
 ![Example Service](/images/firebase-addproject-1.png)
 

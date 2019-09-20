@@ -16,6 +16,26 @@ amplify add auth
 
 **domain name 설정 시 aws, amazon, cognito 및 _를 포함한 이름은 사용하실 수 없습니다. 'android-workshop+랜덤문자' 형태로 이름을 입력해주셔야 합니다.**
 
+redirect URI는 아래와 같이 입력하십시요. 
+
+**redirect signin URI :**
+
+```shell
+socialdemoapp://callback/
+```
+
+**redirect signout URI :**
+
+```shell
+socialdemoapp://signout/
+```
+
+
+
+**social providers**  에서  facebook 선택시 **Space bar** 를 이용하셔서 체크하셔야 합니다. 
+
+
+
 ![Example Service](/images/amplify-auth-config.png)
 
 

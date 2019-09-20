@@ -128,15 +128,9 @@ amplify add codegen --apiId xxx
 
 
 
-api는 <b>AWS console > service > AppSync >Settings</b>에서 확인가능합니다. 
+api는 <b>AWS console > service > AppSync </b>에서 Api명을 선택시 확인가능합니다. 
 
 ![Example Service](/images/console-codeapi.png)
-
-```bash
-amplify codegen
-```
-
-
 
 진행 중 나오는 질문은 모두 default로 처리하십시요
 

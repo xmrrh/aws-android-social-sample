@@ -7,7 +7,7 @@ weight: 20
 
 이제 안드로이드 프로젝트에 Push Notification 을 받기 위해 안드로이드 프로젝트와 연동해보도록 하겠습니다.  
 
-우선 build.gradle (Module: Project) 에 아래와 같이 dependency를 추가 합니다. 
+우선 build.gradle (Module: Project) 에 아래와 같이 dependencies를 추가 합니다. 
 
 ```java
 dependencies {
@@ -58,6 +58,23 @@ AndroidManifest.xml로 이동하여 Push Listener Service를 정의합니다.
         </service>
 </application>
 ```
+
+Push 메시지를 누르면 App을 open 시키기 위해 아래와 같이 Receiver를 AndroidManifest.xml에 추가합니다. 
+
+```xml
+<application>
+        ...
+        <receiver android:name="com.amazonaws.mobileconnectors.pinpoint.targeting.notification.PinpointNotificationReceiver" android:exported="false" >
+        <intent-filter>
+            <action android:name="com.amazonaws.intent.fcm.NOTIFICATION_OPEN" />
+        </intent-filter>
+    </receiver>
+</application>
+```
+
+
+
+
 
 MainActivity로 이동하여 Amazon Pinpoint client 생성을 위한 코드를 작성합니다. 
 

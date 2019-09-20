@@ -40,15 +40,15 @@ Android Studio를 설치하신 후 실행합니다. <b>Tools > AVD Manager</b>�
 
 ![Create User](/images/androidstudio-avd-1.png)
 
-select <b>Pixel 2</b> and <b> Next </b> 
+<b>Pixel 2</b> 를 선택하시고  <b> Next </b> 를 누르세요.  
 
 ![Create User](/images/androidstudio-avd-2.png)
 
-select <b>Pie</b> and <b> Next</b>
+ <b>Pie</b> 를 선택하시고  <b> Next </b> 를 누르세요. 
 
 ![Create User](/images/androidstudio-avd-3.png)
 
-select AVD name and <b> Finish</b>
+AVD name 을 넣으시고 <b> Finish</b> 를 누르세요.
 
 ![Create User](/images/androidstudio-avd-4.png)
 

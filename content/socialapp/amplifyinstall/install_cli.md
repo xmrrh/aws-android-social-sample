@@ -4,11 +4,25 @@ chapter: false
 weight: 1
 ---
 
-Amplify를 사용하기 위해 Amplify CLI를 설치합니다. 
+AWS Amplify를 사용하면 AWS 기반의 확장 가능한 모바일 및 웹 앱을 손쉽게 생성, 구성 및 구현할 수 있습니다. Amplify는 모바일 애플리케이션을 위한 백엔드를 프로비저닝하고 관리합니다. 사용자가 인증, 분석, 오프라인 데이터 동기화 등 필요한 기능을 선택하기만 하면 Amplify가 각 기능을 제공하는 AWS 서비스를 자동으로 프로비저닝하고 관리합니다.
+
+
+
+Amplify CLI 설치를 위해서 npm을 이용합니다. npm이 설치 되어 있지 않다면 
+
+https://nodejs.org/en/download/ 를 통해 설치합니다. 
+
+
+
+ Amplify CLI를 설치합니다. 
 
 ```bash
 npm install -g @aws-amplify/cli
-or 
+```
+
+만약 인스톨이 되지 않으면 아래와 같이 진행해보세요
+
+```bash
 sudo npm install -g --unsafe-perm --verbose @aws-amplify/cli
 ```
 

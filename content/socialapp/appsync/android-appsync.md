@@ -7,7 +7,7 @@ weight: 11
 
 이제 안드로이드 프로젝트에 게시물 작성 하기 액티비티와 연동해보도록 하겠습니다.  
 
-build.gradle (Module: app) 에 plugin을 적용시킵니다. 이 plugin에 의해 코드가 자동생성됩니다.
+build.gradle (Module: app) 에 plugin을 적용시킵니다. build.gradle (Module: app) 상단에 아래와 같이 복사해서 붙여 넣습니다. 이 plugin에 의해 코드가 자동생성됩니다.
 
 ```java
 apply plugin: 'com.amazonaws.appsync' 
@@ -145,7 +145,7 @@ onCreate()함수에  아래와 같이 ClientFactory.appSyncInit(..) 를 추가�
 
 
 
-WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 저장소에 게시물이 저장될 수 있도록 **addComment** 함수를 추가합니다. **putYourBucketName 변수값을 <span style="color:red">여러분의 S3 버킷 이름</span>으로 교체 하세요. **
+WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 저장소에 게시물이 저장될 수 있도록 **addComment** 함수를 추가합니다. 아래 소스를 복사해서 넣으신 후 <b>putYourBucketName 변수값을 <span style="color:red">여러분의 S3 버킷 이름</span>으로 교체 하세요</b>
 
 ```java
      //appsync upload

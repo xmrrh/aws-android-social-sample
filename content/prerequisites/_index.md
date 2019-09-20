@@ -16,5 +16,3 @@ weight: 10
 
 <br><br>
 
-(To-Do)  **React Native** 버젼 워크샵도 준비중입니다. 
-
