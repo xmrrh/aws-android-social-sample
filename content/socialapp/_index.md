@@ -8,5 +8,5 @@ weight: 23
 
 본 워크샵에서 사용되는 Architect는 다음과 같습니다. 
 
-////그림필요
+![Example Service](/images/architecture.png)
 

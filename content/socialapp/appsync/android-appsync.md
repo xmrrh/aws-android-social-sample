@@ -7,6 +7,14 @@ weight: 11
 
 이제 안드로이드 프로젝트에 게시물 작성 하기 액티비티와 연동해보도록 하겠습니다.  
 
+build.gradle (Module: Project) 에 아래와 같이 dependencies에  classpath를 추가 합니다. 
+
+```java
+classpath 'com.amazonaws:aws-android-sdk-appsync-gradle-plugin:2.9.+'
+```
+
+
+
 build.gradle (Module: app) 에 plugin을 적용시킵니다. build.gradle (Module: app) 상단에 아래와 같이 복사해서 붙여 넣습니다. 이 plugin에 의해 코드가 자동생성됩니다.
 
 ```java
@@ -27,14 +35,6 @@ implementation 'com.amazonaws:aws-android-sdk-s3:2.14.+'
 ...
 }
 ```
-
-build.gradle (Module: Project) 에 아래와 같이 dependencies에  classpath를 추가 합니다. 
-
-```java
-classpath 'com.amazonaws:aws-android-sdk-appsync-gradle-plugin:2.9.+'
-```
-
-
 
 
 
