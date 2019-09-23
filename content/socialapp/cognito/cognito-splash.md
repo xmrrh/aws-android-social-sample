@@ -8,7 +8,9 @@ weight: 11
 ![Example Service](/images/app-splash.png)
 
 
-시작화면에서는 Cognito의 로그인 상태를 확인하는 코드가 추가가 됩니다. 로그인 정보가 있는 경우 앱 메인 화면으로 이동하게 됩니다. 로그인 정보가 없는 경우는 로그인 메인 화면으로 이동하게 됩니다. 
+시작화면에서는 Cognito의 로그인 상태를 확인하는 코드가 추가가 됩니다. 기존 로그인 정보가 없는 경우는 로그인 메인 화면으로 이동하고, 로그인 정보가 있는 경우는 앱 메인 화면으로 이동합니다.
+
+아래 코드 부분을 복사하여 **_initCognito** 메소드를 완성해 봅니다.
 
 
 ```java
@@ -17,16 +19,8 @@ weight: 11
 public class SplashActivity extends AppCompatActivity {
     ...
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
-
-        context = this;
-        _initCognito();
-    }
-
     private void _initCognito() {
+        // Add code here
         AWSMobileClient.getInstance().initialize(getApplicationContext(), new Callback<UserStateDetails>() {
             @Override
             public void onResult(UserStateDetails userStateDetails) {

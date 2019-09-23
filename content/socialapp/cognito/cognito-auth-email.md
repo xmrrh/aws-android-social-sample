@@ -16,7 +16,7 @@ weight: 13
 
 1. 이메일, 비밀번호를 입력하여 Signup을 진행합니다.
 ![Example Service](/images/app-signup.png)
-Signup과 관련된 코드는 다음과 같습니다. 입력한 이메일과 비밀번호로 Signup이 완료된 경우 SignUpConfirmFragment로 화면을 전환합니다.
+아래 코드를 복사하여 회원 가입을 위한 **signUp** 메소드를 완성합니다. signUp 메소드에서는 입력받은 이메일과 비밀번호로 Cognito user pool에 새로운 사용자를 추가하고, 사용자 정보가 정상 등록된 경우에는 사용자 이메일 인증을 위한 SignUpConfirmFragment로 화면을 전환합니다.
 ```java
 // SignUpActivity.java
 public class SignUpActivity extends FragmentActivity
@@ -25,15 +25,12 @@ public class SignUpActivity extends FragmentActivity
     
     ...
 
-    private String userName, password;
-    private Context context;
-
-    ...
-
     @Override
     public void signUp(String email, String password) {
         userName = email;
         this.password = password;
+
+        // Add code here
         final Map<String, String> attributes = new HashMap<>();
         attributes.put("email", email);
         AWSMobileClient.getInstance().signUp(userName, password, attributes, null, new Callback<SignUpResult>() {
@@ -71,7 +68,7 @@ public class SignUpActivity extends FragmentActivity
 
 3. 인증코드 입력화면에서 이메일로 전달 받은 인증코드를 입력합니다.
 ![Example Service](/images/app-email-verification.png)
-인증 코드 확인과 관련된 코드는 다음과 같습니다. 
+아래 코드를 복사하여 회원 가입을 위한 **confirmSignUp** 메소드를 완성합니다. confirmSignUp 메소드에서는 사용자명(이메일)과 인증코드를 이용해 이메일 인증 과정이 이뤄집니다. 
 ```java
 // SignUpActivity.java
 public class SignUpActivity extends FragmentActivity
@@ -82,6 +79,7 @@ public class SignUpActivity extends FragmentActivity
 
     @Override
     public void confirmSignUp(String code) {
+        // Add code here
         AWSMobileClient.getInstance().confirmSignUp(userName, code, new Callback<SignUpResult>() {
             @Override
             public void onResult(final SignUpResult signUpResult) {
@@ -115,7 +113,7 @@ public class SignUpActivity extends FragmentActivity
 
 ```
 
-4. 이메일과 인증코드를 기반으로 이메일 인증이 완료된 경우, Activity에 유지된 이메일과 비밀번호를 기반으로 로그인을 진행합니다. 정상적으로 로그인된 경우 앱 메인화면으로 이동하게 됩니다.
+4. 이메일과 인증코드를 기반으로 이메일 인증이 완료된 경우, Activity에 유지된 이메일과 비밀번호를 기반으로 로그인을 진행합니다. 정상적으로 로그인된 경우 앱 메인화면으로 이동하게 됩니다. <br>아래 코드를 복사하여 회원 가입을 위한 **_signIn** 메소드를 완성합니다.
 ```java
 // SignUpActivity.java
 public class SignUpActivity extends FragmentActivity
@@ -124,11 +122,8 @@ public class SignUpActivity extends FragmentActivity
 
     ...
 
-    private String userName, password;
-    
-    ...
-
     private void _signIn(String username, String password) {
+        // Add code here
         AWSMobileClient.getInstance().signIn(username, password, null, new Callback<SignInResult>() {
             @Override
             public void onResult(final SignInResult signInResult) {

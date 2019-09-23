@@ -8,9 +8,9 @@ Facebook을 통한 로그인을 지원하기 위해 Facebook 개발자 사이트
 
 실습에서는 Amazon Cognito가 제공하는 Hosted UI 방식을 이용하여 OAuth2.0 연동을 구성하겠습니다. 이 방식을 이용할 경우 별도의 Facebook SDK 설치 없이 간단한 설정만으로 소셜 인증 기능을 구현하실 수 있습니다.
 
-1. Facebook에 [개발자 계정을 생성](https://developers.facebook.com/docs/facebook-login)합니다.
+1. Facebook에 [개발자 계정을 생성](https://www.facebook.com/login/?next=https%3A%2F%2Fdevelopers.facebook.com%2F)합니다.
 2. 자신의 Facebook 계정으로 페이스북에 [로그인](https://developers.facebook.com/) 한다.
-3. My App 메뉴에서 Add New App을 선택한다.
+3. My App 메뉴에서 Create App을 선택한다.
 ![Facebook](/images/facebook-create-app.png)
 
 4. Facebook app 이름(AWSAndroidWorkshop)을 입력하고 Create App ID를 선택한다.

@@ -9,7 +9,7 @@ weight: 14
 이메일 기반 로그인을 위한 안드로이드 UI는 다음과 같이 구성되어 있습니다. 
 ![Example Service](/images/app-login.png)
 
-로그인과 관련된 코드는 다음과 같습니다. 
+아래 코드를 복사하여 회원 가입을 위한 **_signIn** 메소드를 완성합니다.
 ```java
 // LoginActivity.java
 public class LoginActivity extends AppCompatActivity implements Validator.ValidationListener {
