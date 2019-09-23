@@ -9,3 +9,11 @@ weight: 22
 git clone https://github.com/xmrrh/aws-android-workshop.git
 ```
 
+만약 git이 설치되지 않았다면 아래 페이지에 들어가셔서 소스를 **download zip**하신후 압축을 해제하시면 됩니다. 
+
+https://github.com/xmrrh/aws-android-workshop
+
+
+
+![Create User](/images/downloadsrc.png)
+

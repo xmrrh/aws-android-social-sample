@@ -19,7 +19,10 @@ TRANSLATE 버튼은 각 게시물에 위치합니다. 버튼 클릭이벤트를 
 
 ```java
 void bindData(final ListPostsQuery.Item item) {
-						...
+
+            titleTxt.setText(item.title());
+  ...
+  //add 
             translateBtn.setOnClickListener(new Button.OnClickListener() {
                 public void onClick(View v) {
                     doTranslate(contentsTxt);

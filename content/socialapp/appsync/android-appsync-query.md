@@ -99,7 +99,6 @@ import android.widget.TextView;
 import com.amazonaws.ClientConfiguration;
 import com.amazonaws.Protocol;
 import com.amazonaws.amplify.generated.graphql.ListPostsQuery;
-import com.amazonaws.handlers.AsyncHandler;
 import com.amazonaws.services.s3.AmazonS3Client;
 import com.squareup.picasso.Picasso;
 
@@ -107,6 +106,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 
 public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
@@ -164,7 +166,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
         mData = items;
     }
 
-   
+
 
     public class Holder extends RecyclerView.ViewHolder {
         private TextView writerTxt, contentsTxt, titleTxt;
@@ -188,14 +190,10 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
             contentsTxt.setText(item.content());
             titleTxt.setText(item.title());
 
-            
+
         }
     }
 }
-
-
-
-
 
 ```
 

@@ -152,7 +152,7 @@ PushListenerService.java 를 생성하여 Push메시지를 받을 수 있는 서
 package com.example.socialandroidapp;
 import android.content.Intent;
  import android.os.Bundle;
- import android.support.v4.content.LocalBroadcastManager;
+ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
  import android.util.Log;
 
  import com.amazonaws.mobileconnectors.pinpoint.targeting.notification.NotificationClient;
