@@ -22,7 +22,7 @@ Android Studio 3.3 이상 설치되어있지 않다면  [Download](https://devel
 
 설치과정중 다음과 같이 **Android SDK**를 함께 인스톨 하세요. 
 
-![Create User](/images/androidstudio-avd-1.png)
+![Create User](/images/sdkinstall.png)
 
 
 
