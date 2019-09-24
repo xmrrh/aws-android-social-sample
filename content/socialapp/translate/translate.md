@@ -33,7 +33,7 @@ void bindData(final ListPostsQuery.Item item) {
 
 ```
 
-실제 번역을 담당하는 함수를 작성합니다. AmazonTranslateAsyncClient는 Cognito로부터 얻은AWSCredential을 이용하여 인증합니다. 
+실제 번역을 담당하는 함수를 **bindData() 함수** 밑에 작성합니다. AmazonTranslateAsyncClient는 Cognito로부터 얻은AWSCredential을 이용하여 인증합니다. 
 
 ```java
  private void doTranslate(final TextView tv) {

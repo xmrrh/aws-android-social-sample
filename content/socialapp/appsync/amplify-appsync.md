@@ -98,7 +98,7 @@ Data source name에 **PostTable** 를 선택합니다. Configure the request map
 
 Configure the response mapping template은 기존의 코드를 삭제하시고 아래와 같이 작성합니다. 
 
-그리고  **Save Resolver **을 눌러 저장합니다. 
+그리고  **Save Resolver**을 눌러 저장합니다. 
 
 ```bash
 $util.toJson($util.dynamodb.fromS3ObjectJson($context.source.file))

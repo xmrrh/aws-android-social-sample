@@ -16,21 +16,15 @@ Java SDK8.0 이상 설치 되어있지 않다면 [Download](https://www.oracle.c
 
 
 
-#### Android Studio Install
+#### Android Studio 및 SDK Install
 
 Android Studio 3.3 이상 설치되어있지 않다면  [Download](https://developer.android.com/studio/)
 
+설치과정중 다음과 같이 **Android SDK**를 함께 인스톨 하세요. 
+
+![Create User](/images/androidstudio-avd-1.png)
 
 
-#### Android SDK Install
-
-Android Studio를 설치하신 후 실행합니다. <b>Tools > SDK Manager</b>를 선택하세요)
-
-![Create User](/images/androidstudio-sdk.png)
-
-Android SDK Location이 올바르게 설정되었는지 확인하세요. <b>Android 9.0</b>을 선택하신 후 <b>OK</b> 버튼을 누르세요.
-
-![Create User](/images/androidstudio-sdk-detail.png)
 
 
 
@@ -44,9 +38,9 @@ Android Studio를 설치하신 후 실행합니다. <b>Tools > AVD Manager</b>�
 
 ![Create User](/images/androidstudio-avd-2.png)
 
- <b>Pie</b> 를 선택하시고  <b> Next </b> 를 누르세요. 
+<b>Q</b> 를 선택하시고  <b> Next </b> 를 누르세요. 
 
-![Create User](/images/androidstudio-avd-3.png)
+![Create User](/images/emul-q.png)
 
 AVD name 을 넣으시고 <b> Finish</b> 를 누르세요.
 
