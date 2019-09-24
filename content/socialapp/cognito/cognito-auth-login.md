@@ -6,10 +6,7 @@ weight: 14
 
 이번 실습에서는 이메일 기반 로그인 기능을 구현해 보겠습니다. 
 
-이메일 기반 로그인을 위한 안드로이드 UI는 다음과 같이 구성되어 있습니다. 
-![Example Service](/images/app-login.png)
-
-아래 코드를 복사하여 회원 가입을 위한 **_signIn** 메소드를 완성합니다.
+아래 코드를 복사하여 이메일 기반 로그인을 수행하는 **_signIn** 메소드를 완성합니다.
 ```java
 // LoginActivity.java
 public class LoginActivity extends AppCompatActivity implements Validator.ValidationListener {
@@ -57,4 +54,17 @@ public class LoginActivity extends AppCompatActivity implements Validator.Valida
 
 ```
 
-정상적으로 로그인이 완료된 경우 앱 메인화면으로 이동하게 됩니다.
+이제 작성한 코드를 실행해 보도록 하겠습니다.
+
+안드로이드 스튜디오 프로젝트 상단에 **실행버튼**을 눌러 에뮬레이터로 어플리케이션을 실행합니다.
+![c9after](/images/run.png)
+
+아래와 같은 화면이 나오면 **이메일로 로그인** 텍스트를 눌러서 이메일 기반 로그인 메뉴로 이동합니다.
+![Example Service](/images/app-authmain.png)
+
+
+이전 단계에서 가입한 사용자 정보를 활용하여 로그인을 진행해 봅니다. 
+![Example Service](/images/app-login.png)
+
+정상적으로 로그인이 완료된 경우 아래와 같은 앱 메인화면으로 이동하게 됩니다.
+![Example Service](/images/app-main-empty.png)
