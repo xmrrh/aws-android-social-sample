@@ -16,6 +16,14 @@ amplify add api
 
 ![Example Service](/images/addapi.png)
 
+
+
+과정 중 스키마를 입력하는 부분이 나옵니다. amplify init 시 설정하신 **에디터**가 스키마를 입력하는 단계에서 자동으로 뜹니다. 
+
+**윈도우** 사용자에 경우 선택하신 에디터가 없을 경우가 많습니다. 해당하는 에디터가 없을 경우 스키마 입력 창이 뜨지 않고  amplify add api가 종료되는데, 이 경우 콘솔에 보이는 path로 직접 이동하셔서 직접 아래 스키마를 넣어주세요. 
+
+path : aws-android-workshop\amplify\backend/api/awsandroidworkshop/schema.graphql
+
 스키마는 아래 값을 사용합니다. 
 
 아래 @model 을 사용하시면 DynamoDB table, AppSync DataSource, IAM role, AppSync Resolvers등을 생성해줍니다. @key에 의해 DynamoDB의 파티션키와 정렬키를 생성합니다. 즉, DEV-DAY로 생성된 Post중 upload time으로 정렬을 하는데 사용할 예정입니다.  
@@ -118,23 +126,6 @@ Amplify codegen을 통해 를 이용하여 생성된 코드를 안드로이드 �
 ```bash
 amplify codegen
 ```
-
-만약 "Codegen support only one GraphQL API per project" 에러가 나올경우 아래 처럼 remove하시고 다시 추가하십시요
-
-```bash
-amplify codegen remove
-amplify add codegen --apiId xxx
-```
-
-
-
-api는 <b>AWS console > service > AppSync </b>에서 Api명을 선택시 확인가능합니다. 
-
-![Example Service](/images/console-codeapi.png)
-
-진행 중 나오는 질문은 모두 default로 처리하십시요
-
-![Example Service](/images/codeapi.png)
 
 
 
