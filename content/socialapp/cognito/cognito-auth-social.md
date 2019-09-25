@@ -66,6 +66,7 @@ public class AuthMainActivity extends AppCompatActivity {
 public class AuthMainActivity extends AppCompatActivity {
     
     ...
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -75,11 +76,10 @@ public class AuthMainActivity extends AppCompatActivity {
         if (activityIntent.getData() != null &&
                 "socialdemoapp".equals(activityIntent.getData().getScheme())) {
             if (AWSMobileClient.getInstance().handleAuthResponse(activityIntent))
-                CommonAction.openMain(context);
-            else
-                CommonAction.openAuthMain(context);
+                CommonAction.checkSession(this, true);
         }
     }
+
     ...
 
 }
