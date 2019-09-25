@@ -40,7 +40,7 @@ amplify configure는 다음의 명령 순서에 따라 진행합니다.
 
 본 워크샵은  us-east-1 에서 진행됩니다. Default Region을 **us-east-1** 을 넣으세요. 
 
-User name에는 새롭게 생성하실 IAM 사용자를 입력합니다. (만약 Access Key와 Secret Access Key 를 알고 있는 기존의 사용자가 있으면 이용하셔도 됩니다)
+User name에는 새롭게 생성하실 IAM 사용자를 입력합니다.
 
 ![Create User](/images/amplify-configure-1.png)
 

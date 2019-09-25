@@ -23,6 +23,10 @@ apply plugin: 'com.amazonaws.appsync'
 
 
 
+참고로 apply plugin: 'com.amazonaws.appsync'를 추가할 때 싱크 문제 때문에 com.amazonaws.appsync not found 문제가 뜰 수 있습니다. classpath 'com.amazonaws:aws-android-sdk-appsync-gradle-plugin:2.9.+'를 추가 후에 싱크를 한번 해 주고 나서 apply plugin 을 해주면 정상적으로 수행 됩니다.
+
+
+
 또한 같은 파일에 -build.gradle (Module: app)-  에 아래와 같이 dependencies에  4개의 implementation을 추가 합니다. 
 
 ```java
@@ -205,6 +209,18 @@ WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 
         }
     };
 ```
+
+필요한 class들을 import 해줍니다. 
+
+```java
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+import type.S3ObjectInput;
+import com.amazonaws.amplify.generated.graphql.PutPostWithPhotoMutation;
+```
+
+
 
 이 함수는 onCreate함수의 saveBtn에 onClick event시 호출될 수 있도록 합니다. 
 

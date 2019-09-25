@@ -121,7 +121,7 @@ $util.toJson($util.dynamodb.fromS3ObjectJson($context.source.file))
 
 ![Example Service](/images/put_2.png)
 
-안드로이드 스튜디오에서 res/raw/awsconfiguration.json.file 파일이 생성된 것을 확인하실 수 있습니다. 
+안드로이드 스튜디오에서 res/raw/awsconfiguration.json 파일이 생성된 것을 확인하실 수 있습니다. 
 
 ![Example Service](/images/json-appsync.png)
 
