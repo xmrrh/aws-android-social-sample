@@ -20,9 +20,9 @@ amplify add api
 
 과정 중 스키마를 입력하는 부분이 나옵니다. amplify init 시 설정하신 **에디터**가 스키마를 입력하는 단계에서 자동으로 뜹니다. 
 
-**윈도우** 사용자에 경우 선택하신 에디터가 없을 경우가 많습니다. 해당하는 에디터가 없을 경우 스키마 입력 창이 뜨지 않고  amplify add api가 종료되는데, 이 경우 콘솔에 보이는 path로 직접 이동하셔서 직접 아래 스키마를 넣어주세요. 
+**윈도우** 사용자에 경우 선택하신 에디터가 없을 경우가 많습니다. 해당하는 에디터가 없을 경우 스키마 입력 창이 뜨지 않고  amplify add api가 종료되는데, 이 경우 콘솔창 메시지에서 보이는 path로 직접 이동하셔서 직접 아래 스키마를 넣어주세요. 
 
-path : aws-android-workshop\amplify\backend/api/awsandroidworkshop/schema.graphql
+Example :  amplify\backend/api/awsandroidworkshop/schema.graphql
 
 스키마는 아래 값을 사용합니다. 
 
