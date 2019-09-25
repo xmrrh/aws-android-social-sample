@@ -7,6 +7,7 @@ weight: 4
 아래 명령어를 이용해  리소스를 한번에 삭제합니다.
 ```
 amplify delete
+amplify push
 ```
 
 
