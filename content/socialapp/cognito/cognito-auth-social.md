@@ -101,7 +101,7 @@ public class AuthMainActivity extends AppCompatActivity {
 ![Example Service](/images/app-select.png)
 
 Cognito Hosted UI를 통해 서버간 소셜 인증이 정상적으로 이루어진 경우, 다음과 같이 Cognito User Pool에 사용자의 정보가 저장되게 됩니다.
-저장된 사용자 정보 확인은 AWS Console > Cognito > General Settings > Users and groups에 Users 탭의 내용을 통해 확인하실 수 있습니다.
+저장된 사용자 정보 확인은 AWS Console > Cognito > General Settings > Users and groups에 Users 탭의 내용을 통해 확인하실 수 있습니다. (콘솔에서 사용자 정보를 하는데는 경우에 따라 1분 정도 시간이 소용되는 경우도 있습니다)
 ![Example Service](/images/app-facebook-login-result.png)
 
 실습을 마무리 한 경우, 다음 실습을 위해 로그아웃을 진행합니다.
