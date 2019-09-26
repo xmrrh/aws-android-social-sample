@@ -16,8 +16,7 @@ weight: 32
 
 ![Create User](/images/ins1.png)
 
-
-⦁	예제에서는 ID admin, PASSWORD에 test입력 -> 버튼 1클릭->버튼2클릭-> POLLYDEMO선택 ->Polly화면에서 test입력후 Read 버튼 선택 -> 뒤로가기 후 종료되는 시나리오로 구성 해 보았습니다.
+⦁	예제에서는 로그인 -> 글쓰기 후 종료되는 시나리오로 구성 해 보았습니다.
 
 ![Create User](/images/ins2.png)
 
@@ -27,8 +26,6 @@ weight: 32
 ⦁	Espresso Test 로컬 AVD로 실행해보기
 ⦁	우선 로컬에서 Espresso를 통한 순차테스트를 진행해 보겠습니다. 상단 아이콘에서 Edit Confgurations를 선택합니다.
 
-![Create User](/images/ins3.png)
-
 ⦁	Run/Debug Configuraions 팝업에서 Android Instrumented Tests를 선택해서 추가합니다.
 ⦁	해당 아이템에서 Name을 지정하고, General 탭의 Module에서 app을 선택합니다. Test항목에서 All in Package를 선택합니다.
 
@@ -36,10 +33,23 @@ weight: 32
 
 ⦁	package에서 해당 앱 패키지를 선택합니다.
 
-![Create User](/images/ins5.png)
-
 ⦁	Prefer Android Virtual Device 항목에서 이전에 생성해둔 AVD를 선택합니다. 그런다음 OK를 누르면 테스트 환경 설정이 완료됩니다.
++ 추가로 Dependency의 해결을 위해 app의 build.gradle 명세에 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner" 부분을 주석처리하고 testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"를 추가해줍니다.
++ 테스트시 카메라를 액세스 하므로 카메라에 대한 유저 권한을 획득하여 줍니다. manifests명세에 </manifest> 블럭 위에 아래코드를 추가해 줍니다.
+~~~
+    <uses-permission android:name="android.permission.CAMERA" />
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+~~~
++ 테스트용 앱을 빌드하면 기본적으로 실제 디바이스에서 실행이 안될 수 있습니다. 이를 해제하기 위해 아래의 파라미터를 gradle.properties에 추가해주시면 됩니다.
+~~~
+android.injected.testOnly=false
+~~~
 
 ![Create User](/images/ins6.png)
 
@@ -75,7 +85,6 @@ weight: 32
 ⦁	이제 Espresso로 생성된 instrumentation test를 업로드 해야 합니다. 일반적은 테스트 패키지의 경로는 프로젝트명/ /app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk에 빌드되어 있습니다. 혹은 해당위치가 없거나 잘 모르시겠다면 이전 단계 로컬 테스트에서 출력되는 내용에 해당 경로에 대한 내용이 있으니 참고하시면 됩니다.
 * 하단의 Advanced Configuration (optional)은 테스트에 대한 비디오 기록 및 App Performance 데이터에 대한 모니터링 여부를 위한 것입니다. Default로 두시면 됩니다.
 
-![Create User](/images/ins13.png)
 ![Create User](/images/ins14.png)
 
 ⦁	업로드가 완료되면 Test instrumentation에 대한 정보가 표출됩니다. 기본 패키지에 대한 도메인 정보와, Runner에 대한 정보가 표시됩니다. 여기서는 espresso가 junit기반이므로 AndroidJUnitRunner로 표시됩니다. 하단의 Test filter에 대한 enviroment설정은 그대로 두고 Next step으로 진행합니다.
