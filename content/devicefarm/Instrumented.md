@@ -34,8 +34,13 @@ weight: 32
 ⦁	package에서 해당 앱 패키지를 선택합니다.
 
 ⦁	Prefer Android Virtual Device 항목에서 이전에 생성해둔 AVD를 선택합니다. 그런다음 OK를 누르면 테스트 환경 설정이 완료됩니다.
-+ 추가로 Dependency의 해결을 위해 app의 build.gradle 명세에 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner" 부분을 주석처리하고 testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"를 추가해줍니다.
-+ 테스트시 카메라를 액세스 하므로 카메라에 대한 유저 권한을 획득하여 줍니다. manifests명세에 </manifest> 블럭 위에 아래코드를 추가해 줍니다.
+
+
+
+⦁	추가로 Dependency의 해결을 위해 app의 build.gradle 명세에 testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner" 부분을 주석처리하고 testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"를 추가해줍니다.
+
+⦁	테스트시 카메라를 액세스 하므로 카메라에 대한 유저 권한을 획득하여 줍니다. manifests명세에 </manifest> 블럭 위에 아래코드를 추가해 줍니다.
+
 ~~~
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -46,7 +51,8 @@ weight: 32
         android:name="android.hardware.camera.autofocus"
         android:required="false" />
 ~~~
-+ 테스트용 앱을 빌드하면 기본적으로 실제 디바이스에서 실행이 안될 수 있습니다. 이를 해제하기 위해 아래의 파라미터를 gradle.properties에 추가해주시면 됩니다.
+⦁	테스트용 앱을 빌드하면 기본적으로 실제 디바이스에서 실행이 안될 수 있습니다. 이를 해제하기 위해 아래의 파라미터를 gradle.properties에 추가해주시면 됩니다.
+
 ~~~
 android.injected.testOnly=false
 ~~~
