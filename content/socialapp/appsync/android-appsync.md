@@ -210,15 +210,48 @@ WriteActivity.java에서 **DONE** 버튼으로 게시물을 업로드 할경우 
     };
 ```
 
-필요한 class들을 import 해줍니다. 
+
+
+필요한 class를 import 합니다. 
 
 ```java
+import com.amazonaws.amplify.generated.graphql.PutPostWithPhotoMutation;
 import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import type.S3ObjectInput;
-import com.amazonaws.amplify.generated.graphql.PutPostWithPhotoMutation;
 ```
+
+
+
+기존의 코드인 WriteActivity.this.finish() 는 지우시고, 그자리에 addComment()를 넣으세요.
+
+```java
+  @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.write);
+        //appsync
+        ClientFactory.appSyncInit(getApplicationContext());        
+        ...
+        saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (bitmapPath == null) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.warning_picture), Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //WriteActivity.this.finish();
+                addComment();
+
+            }
+        });
+        ...
+  }
+```
+
+
 
 
 
@@ -264,6 +297,10 @@ import com.amazonaws.amplify.generated.graphql.PutPostWithPhotoMutation;
 ![c9after](/images/emptylist.png)
 
 글쓰기 버튼을 눌러 게시작성 화면으로 이동하신후 아래처럼 작성 및 사진을 업로드하고, **done** 버튼을 누르세요. 
+
+<b>이때 에뮬레이터를 처음 설치하셨다면 선택할수있는 사진이 없습니다.  카메라 어플로 이동하신 후 더미 사진을 한잔 찍고 나면 사진을 선택하실 수 있습니다.</b>
+
+
 
 잠시후 빈 리스트화면으로 이동됩니다.  
 
