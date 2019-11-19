@@ -125,6 +125,22 @@ private static PinpointManager pinpointManager;
 }
 ```
 
+필요한 class를 import합니다. 만약 더 필요한  class가 있다면 이전과 동일하게 Option & Enter or Alt & Enter 키 조합으로 class를 import합니다. 
+```java
+ import com.amazonaws.mobileconnectors.pinpoint.PinpointConfiguration;
+ import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
+ import android.content.Context;
+ import com.amazonaws.mobile.config.AWSConfiguration;
+ import com.amazonaws.mobile.client.UserStateDetails;
+ import com.amazonaws.mobile.client.Callback;
+ import com.amazonaws.mobile.client.AWSMobileClient;
+ import com.google.android.gms.tasks.OnCompleteListener;
+ import com.google.android.gms.tasks.Task;
+ import com.google.firebase.iid.FirebaseInstanceId;
+ import com.google.firebase.iid.InstanceIdResult;
+
+```
+
 
 
 MainActivity의 onCreate함수에서 방금생성한 getPinpointManager함수를 통해 초기화 합니다.  

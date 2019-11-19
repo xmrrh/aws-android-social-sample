@@ -220,10 +220,13 @@ import com.apollographql.apollo.GraphQLCall;
 import com.apollographql.apollo.api.Response;
 import com.apollographql.apollo.exception.ApolloException;
 import type.S3ObjectInput;
+import javax.annotation.Nonnull;
+import android.util.Log;
+
 ```
 
 
-
+This function can be called on saveBtn's onClick event.
 Delete the existing code, WriteActivity.this.finish (), and add addComment () instead.
 
 ```java
@@ -250,39 +253,6 @@ Delete the existing code, WriteActivity.this.finish (), and add addComment () in
         ...
   }
 ```
-
-
-
-
-
-This function can be called on saveBtn's onClick event.
-
-
-```java
-  @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.write);
-        //appsync
-        ClientFactory.appSyncInit(getApplicationContext());        
-        ...
-        saveBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (bitmapPath == null) {
-                    Toast.makeText(getApplicationContext(), getString(R.string.warning_picture), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                //WriteActivity.this.finish();
-                addComment();
-
-            }
-        });
-        ...
-  }
-```
-
 
 
 Press **Run button** at the top of your Android Studio project to run the application with the emulator you have already created.
