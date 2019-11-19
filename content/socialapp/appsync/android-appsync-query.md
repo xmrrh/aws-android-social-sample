@@ -76,8 +76,8 @@ public void queryList() {
 ```
 Import the necessary classes. In Android Studio, syntax that requires import displays an error in red. Move the cursor to the location, press the [MAC] option key and the Enter key ([Window] Alt key and Enter key) at the same time and select the import class. The required class is automatically imported.
 
-<img src="/images/optionenter.png" width="30%" hight="30%">
-<img src="/images/importclass.png" width="30%" hight="30%">
+<img src="/images/optionenter.png" width="80%" hight="80%">
+<img src="/images/importclass.png" width="80%" hight="80%">
 
 
 Posts are listup via RecyclerView. Create a PostAdapter class for use with the RecyclerView.
