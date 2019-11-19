@@ -1,51 +1,52 @@
 ---
-title: "Amplify 초기화"
+title: "Amplify Initialization"
 chapter: false
 weight: 2
 ---
 
-다운받은 sample app의 root directory로 이동 후 Amplify 프로젝트를 초기화 합니다
+Move to the root directory of the downloaded sample app and initialize the Amplify project.
 
 ```shell
 cd aws-android-workshop/
 amplify init
 ```
 
-프로젝트 이름은 default를 사용하기 위해 **Enter** 를 입력합니다. 
+Enter **Enter** for the project name to use default
 
-environment는 **dev**,
+The environment is **dev**,
 
-editor는 편하신 것을 선택합니다. 여기서는 **vim** 을 사용하도록 하겠습니다. 
+The editor chooses a convenient one. ( For example,  **vim** ).
 
-os type은 **Android**
+The OS type is **Android**
 
-res directory는 default를 사용하기 위해 **Enter**를 입력합니다. 
+For res directory, type **Enter** to use default.
 
-AWS Profile을 사용하겠다고 선택(<b>Y</b>) 하시고, 이미 생성하신 프로파일을 선택합니다. **us-east-1-profile**
+Choose to use AWS Profile (<b> Y </b>) and select the profile you have already created. **us-east-1-profile**
 
-아래와 그림을 참고하셔서 입력하십시요.  
+Please refer to the picture below and enter. 
 
 ![Example Service](/images/amplifyinit.png)
 
 
 
-Amplify init이 수행 완료 되면 인증된 사용자와 비인증사용자를 위한 IAM role이 자동생성됩니다. 아래와 같이 2개의 IAM role이 생성된 것을 확인할 수 있습니다. 
+When the Amplify init is done, IAM roles are automatically created for authenticated and unauthenticated users. You can see two IAM roles created as below.
 
-<b>AWS console > service > IAM > Role > 검색창에 aws-android-workshop-dev </b>
+<b>AWS console > service > IAM > Roles > </b> <br>
+Type "Aws-android-workshop-dev" in the search box
 
-![Example Service](/images/iamauthrole.png)
+![Example Service](/images/iamauthrole_eng.png)
 
 
 
-또한 안드로이드 스튜디오에서 res/raw/awsconfiguration.json.file 파일이 생성된 것을 확인하실 수 있습니다. 
+You can also see that res/raw/awsconfiguration.json file is created in Android Studio.
 
 ![Example Service](/images/jsonfile.png)
 
 
 
-이제 Amplify CLI command를 통해 다양한 AWS Service를 생성 하실 수 있습니다. 
+You can now create various AWS services using the Amplify CLI command.
 
-command는 다음을 같이 사용하실 수 있습니다.  
+command can be used with:
 
 - `amplify add <category>`
 - `amplify remove <category>`

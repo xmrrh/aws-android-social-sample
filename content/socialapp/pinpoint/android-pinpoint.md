@@ -1,13 +1,13 @@
 ---
-title: "Push Notification을 위한 안드로이드 코드 작성하기  "
+title: "Writing Android Code for Push Notifications  "
 chapter: false
 date: 2018-08-07T08:30:11-07:00
 weight: 20
 ---
 
-이제 안드로이드 프로젝트에 Push Notification 을 받기 위해 안드로이드 프로젝트와 연동해보도록 하겠습니다.  
+Now let's work with the Android project to receive Push Notifications.
 
-우선 build.gradle (Module: Project) 에 아래와 같이 dependencies를 추가 합니다. 
+First add dependencies to build.gradle (Module: Project) as shown below.
 
 ```java
 dependencies {
@@ -19,7 +19,7 @@ dependencies {
 
 
 
-build.gradle (Module: app) 에 plugin을 적용시킵니다. 
+Apply the plugin to build.gradle (Module: app)
 
 ```java
 apply plugin: 'com.google.gms.google-services'
@@ -27,7 +27,7 @@ apply plugin: 'com.google.gms.google-services'
 
 
 
-또한 같은 파일에 -build.gradle (Module: app)-  에 아래와 같이 dependency를  추가 합니다. 
+Also add the following dependency to -build.gradle (Module: app)-in the same file.
 
 ```java
 dependencies {
@@ -45,7 +45,7 @@ dependencies {
 
 
 
-AndroidManifest.xml로 이동하여 Push Listener Service를 정의합니다. 
+Go to AndroidManifest.xml and define Push Listener Service.
 
 ```xml
 <application>
@@ -59,7 +59,7 @@ AndroidManifest.xml로 이동하여 Push Listener Service를 정의합니다.
 </application>
 ```
 
-Push 메시지를 누르면 App을 open 시키기 위해 아래와 같이 Receiver를 AndroidManifest.xml에 추가합니다. 
+Press Push notification to open the app. To do this, add Receiver to AndroidManifest.xml. 
 
 ```xml
 <application>
@@ -76,7 +76,7 @@ Push 메시지를 누르면 App을 open 시키기 위해 아래와 같이 Receiv
 
 
 
-MainActivity로 이동하여 Amazon Pinpoint client 생성을 위한 코드를 작성합니다. 
+Go to MainActivity and write code to create an Amazon Pinpoint client.
 
 ```java
 public class MainActivity extends AppCompatActivity {
@@ -127,7 +127,7 @@ private static PinpointManager pinpointManager;
 
 
 
-MainActivity의 onCreate함수에서 방금생성한 getPinpointManager함수를 통해 초기화 합니다.  
+Initialize it using the getPinpointManager function you just created in the onCreate function of MainActivity.
 
 MainActivity.java 
 
@@ -146,7 +146,7 @@ MainActivity.java
 
 
 
-PushListenerService.java 를 생성하여 Push메시지를 받을 수 있는 서비스를 생성합니다. 
+Create a PushListenerService.java.  This service receives and processes Push messages.
 
 ```java
 package com.example.socialandroidapp;
@@ -231,6 +231,7 @@ import android.content.Intent;
  }
 ```
 
-이제 코드는 모두 완성이 되었습니다. 안드로이드 스튜디오 프로젝트 상단에 **실행버튼** 을 눌러 이미 생성하신 에뮬레이터로 실행시키세요. 실행 후 MainActivity화면까지 이동합니다. 
+The code is now complete. Press **Run button** at the top of your Android Studio project to run it with the emulator you've already created. After execution, move to MainActivity screen.
+
 ![c9after](/images/run.png)
 

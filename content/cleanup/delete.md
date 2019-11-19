@@ -1,10 +1,11 @@
 ---
-title: "리소스 삭제"
+title: "Delete resource"
 chapter: false
 weight: 4
 ---
 
-아래 명령어를 이용해  리소스를 한번에 삭제합니다.
+Use the following command to delete resources at once.
+
 ```
 amplify delete
 amplify push
@@ -12,13 +13,13 @@ amplify push
 
 
 
-사진이 업로드된 S3의 버킷을 삭제합니다. 
+Delete the bucket in S3 where the photo was uploaded. 
 
 ![Create User](/images/deletes3.png)
 
 
 
-Pinpoint프로젝트를 삭제합니다. 
+Delete the Pinpoint project.
 
 **pinpoint>project>settings>General settings>Delete project**
 

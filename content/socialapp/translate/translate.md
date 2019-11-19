@@ -1,11 +1,11 @@
 ---
-title: "Translate서비스 연동하기"
+title: "Integrating Translate Service"
 chapter: false
 weight: 13
 
 ---
 
-build.gradle (Module: app) 에 아래와 같이 dependency를  추가 합니다. 
+Add dependency to build.gradle (Module: app) as shown below.
 
 ```xml
 dependencies {
@@ -15,7 +15,7 @@ dependencies {
 }
 ```
 
-TRANSLATE 버튼은 각 게시물에 위치합니다. 버튼 클릭이벤트를 이용하여 번역을 하기 위해 PostAdapter의 bindData()에 버튼 클릭이벤트와 리스너를 등록합니다. 
+The TRANSLATE button is located on each post. Registers a button click event and listener in bindData () of PostAdapter for translation when the TRANSLATE button is pressed.
 
 ```java
 void bindData(final ListPostsQuery.Item item) {
@@ -33,7 +33,7 @@ void bindData(final ListPostsQuery.Item item) {
 
 ```
 
-실제 번역을 담당하는 함수를 **bindData() 함수** 밑에 작성합니다. AmazonTranslateAsyncClient는 Cognito로부터 얻은AWSCredential을 이용하여 인증합니다. 
+Write the function responsible for the actual translation under the **bindData () function**. AmazonTranslateAsyncClient authenticates using AWSCredential from Cognito.
 
 ```java
  private void doTranslate(final TextView tv) {
@@ -58,20 +58,21 @@ void bindData(final ListPostsQuery.Item item) {
     }
 ```
 
-권한탭에 **정책 연결**을 누르세요
+Press **Attach Policies** on the Permissions tab.
 
-안드로이드 스튜디오 프로젝트 상단에 **실행버튼** 을 눌러 이미 생성하신 에뮬레이터로 어플리케이션을 실행합니다.
+Press **Run** at the top of your Android Studio project to run the application with the emulator you have already created.
+
 ![c9after](/images/run.png)
 
-메인화면에서 **SETTINGS** 버튼을 통해 화면에 진입합니다. 
+Access the screen via the **SETTINGS** button on the main screen.
 
 <img src="/images/main-list.png" width="30%" hight="30%">
 
-Preferred language setting의 list box에서 번역하고자 하는 언어를 선택합니다. (Ex,korean) 
+Select the language you want to translate from the list box in Preferred language setting. (Ex, korean)
 
 <img src="/images/language.png" width="30%" hight="30%">
 
-**save** 하고 메인화면으로 돌아옵니다. **Translate**버튼을 눌러 번역이 되는지 확인합니다. 번역이 안되는 것이 맞습니다. 
+**save** and return to the main screen. Press the **Translate** button to see if the translation is available. It is correct that no translation.
 
 <img src="/images/main-list.png" width="30%" hight="30%">
 

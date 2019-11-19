@@ -1,15 +1,15 @@
 ---
-title: "게시물 리스트업하기 "
+title: "List up posts "
 chapter: false
 date: 2018-08-07T08:30:11-07:00
 weight: 20
 ---
 
-이제 메인 화면에서 사용자가 게시한 화면을 list up 해보도록 하겠습니다. 
+Now we will list up the posts posted by the user on the main screen.
 
-MainActivity.java 의 onCreate 함수에서 위에서 ClientFactory 이용하여 AWSAppSyncClient를 생성합니다. 
+In the onCreate function of MainActivity.java, create an AWSAppSyncClient using the ClientFactory.
 
-아래와 같이 ClientFactory.appSyncInit(...)를 onCreate()함수내에 복사합니다. 
+Copy ClientFactory.appSyncInit (...) into onCreate () function as below.
 
 ```java
   @Override
@@ -25,7 +25,7 @@ MainActivity.java 의 onCreate 함수에서 위에서 ClientFactory 이용하여
 
 
 
-onResume()에 아래와 같이 queryList()를 호출하도록 코드를 추가합니다.  
+Add code to onResume () to call queryList () as shown below.
 
 ```java
     protected void onResume() {
@@ -35,7 +35,7 @@ onResume()에 아래와 같이 queryList()를 호출하도록 코드를 추가�
     }
 ```
 
-queryList() 함수와 필요한 쿼리 결과를 얻어오는 콜백함수를 아래와 같이 추가합니다.
+Add a queryList () function and a callback function to get the required query result as shown below.
 
 ```java
     private PostAdapter mAdapter;
@@ -79,7 +79,7 @@ public void queryList() {
 
 
 
-List는 RecyclerView를 통해 listup됩니다. RecyclerView에서 사용할 PostAdapter class를 생성합니다.  
+Posts are listup via RecyclerView. Create a PostAdapter class for use with the RecyclerView.
 
 PostAdapter.java 
 
@@ -197,9 +197,9 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
 
 ```
 
-RecyclerView에서 사용할 PostAdapter를 생성하여 연동합니다. 
+Create and link PostAdapter for RecyclerView.
 
-MainActivity.java의 onCreate()함수 아랫부분에 아래와 같이 작성해주세요
+Write the following at the bottom of onCreate () function of MainActivity.java
 
 ```java
 protected void onCreate(Bundle savedInstanceState) {
@@ -213,6 +213,6 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-이제 앱을  실행하면 게시물작성하기에서 만들었던 첫번째 게시물을 확인하실 수 있습니다. 
+Now when you run the app, you'll see the first post you made in Posting.
 
 <img src="/images/main-list.png" width="30%" hight="30%">

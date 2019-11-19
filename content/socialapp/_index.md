@@ -1,12 +1,12 @@
 ---
-title: "서비스 구성"
+title: "Create an application"
 chapter: true
 weight: 23
 ---
 
-# 서비스 구성
+# Create an application
 
-본 워크샵에서 사용되는 Architect는 다음과 같습니다. 
+The architects used in this workshop are as follows. 
 
 ![Example Service](/images/architecture.png)
 

@@ -1,10 +1,10 @@
 ---
-title: "Push 메시지 보내기"
+title: "Send Push message"
 chapter: true
 weight: 70
 ---
 
-# Push 메시지 보내기
+#Send Push message
 
-Amazon Ponpoint를 활용하여 App이 설치된 사용자에게 PUSH notification을 보내는 방법을 실습해보겠습니다. 
+Let's practice using Amazon Ponpoint to send PUSH notifications to users who have your app installed. 
 

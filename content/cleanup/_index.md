@@ -1,10 +1,10 @@
 ---
-title: "클린 업"
+title: "Clean up"
 chapter: true
 weight: 70
 ---
 
-# 클린업
+# Clean up
 
-이번 워크샵에서 사용한 리소스를 삭제합니다.
+Delete the resources used in this workshop.
 

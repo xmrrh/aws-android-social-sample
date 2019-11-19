@@ -1,18 +1,18 @@
 ---
-title: "워크샵 시작하기"
+title: "Start workshop"
 chapter: true
 weight: 10
 ---
 
-# 워크샵 시작
+# Start workshop
 
-본 워크샵은 AWS 계정을 가지고 계신 분을 대상으로 진행합니다. 
+This workshop requires an AWS account.
 
 
 
-샘플코드는 안드로이드 - **JAVA** 기반으로 제작되었습니다. 
+The sample code is based on Android-**JAVA**.
 
-코틀린(Kotlin) 사용자를 위한 샘플 코드는 별로로 제공되지 않습니다. 
+No sample code is provided for Kotlin users.
 
 
 

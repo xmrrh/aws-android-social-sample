@@ -1,36 +1,36 @@
 ---
-title: "저장소 생성 및 API 생성"
+title: "Create Repository and Create API"
 date: 2018-08-07T08:30:11-07:00
 weight: 10
 ---
 
 
 
-Amplify를 이용하여 api를 추가합니다.  
+Add api using Amplify.  
 
 ```bash
 amplify add api 
 ```
 
-입력값은 아래 그림을 참고하여 넣습니다. API인가를 위해 **Amazon Cognito User Pool**을 선택합니다. Amazon Cognito에 가입하고 로그인한 사용자의 경우 AWS 리소스접근에 대한 인가를 부여합니다. Api 접근시에도 인가가 필요한데, 이 인가 방법으로 cognito를 사용한다는 의미입니다.  
+Input the value by referring to the picture below. Choose **Amazon Cognito User Pool** for the API. For users who signed up and signed in to Amazon Cognito, grant permission for accessing AWS resources. Authorization is also required for the API approach, which means using cognito as the authorization method.
 
 ![Example Service](/images/addapi.png)
 
 
 
-과정 중 스키마를 입력하는 부분이 나옵니다. amplify init 시 설정하신 **에디터**가 스키마를 입력하는 단계에서 자동으로 뜹니다. 
+You will be prompted to enter the schema in progress. The **editor** you set during amplify init will automatically appear during the schema entry process.
 
-**윈도우** 사용자에 경우 선택하신 에디터가 없을 경우가 많습니다. 해당하는 에디터가 없을 경우 스키마 입력 창이 뜨지 않고  amplify add api가 종료되는데, 이 경우 콘솔창 메시지에서 보이는 path로 직접 이동하셔서 해당 파일을 에디터로 열어주세요.
+**Windows** users often do not have an editor of their choice. If there is no editor, amplify add api is terminated without the schema input window. In this case, go to the path shown in the console message and open the file with the editor.
 
 Example :  amplify\backend/api/awsandroidworkshop/schema.graphql
 
 
 
-스키마를 입력하는 에디터에는 **ToDo** 스키마가 미리 들어가 있습니다. 이는 샘플스키마로 모두 **삭제**하신후 아래 스키마로 바꿔주세요.
+The editor that enters the schema comes pre-filled with the **ToDo** schema. This is a sample schema. **Delete** all of them and replace with the schema below.
 
-스키마는 아래 값을 사용합니다. 
+The schema uses the following values: 
 
-아래 @model 을 사용하시면 DynamoDB table, AppSync DataSource, IAM role, AppSync Resolvers등을 생성해줍니다. @key에 의해 DynamoDB의 파티션키와 정렬키를 생성합니다. 즉, DEV-DAY로 생성된 Post중 upload time으로 정렬을 하는데 사용할 예정입니다.  
+Use @model to automatically create DynamoDB tables, AppSync DataSources, IAM roles, AppSync Resolvers, and more. Generate a partition and sort key for DynamoDB by @key. In other words, we will sort Post with ID ("DEV-DAY") by upload time.
 
 ```bash
 
@@ -70,37 +70,37 @@ type Mutation {
   }
 ```
 
-amplify add api 가 완료되면 클라우드리소스 생성을 위해 push합니다.
+When 'amplify add api' is completed, push to create cloud resource.
 
 ```bash
 amplify push
 ```
 
-필요한 입력값은 default 선택 후 **Enter** 하십시요
+Select the default value and press **Enter**.
 
 ![Example Service](/images/apipush.png)
 
-<b>AWS console > service > AppSync  </b>에 들어가보시면 다음과 같이 api가 생성된 것을 확인하실 수 있습니다. 
+If you go to <b> AWS console> service> AppSync </b>, you can see that api is created as follows.
 
 ![Example Service](/images/console-api.png)
 
-또한 <b>AWS console > service > AppSync >Data Sources</b> 에 들어가보시면 Dynamodb가 생성되고 Data Source로 연동된 모습을 확인하실 수 있습니다. 
+Also, if you go to <b> AWS console> service> AppSync> Data Sources </b>, you can see that Dynamodb is created and linked with Data Source.
 
 ![Example Service](/images/console-api-ds.png)
 
 
 
-이제 Mutation 에 새로 추가한 api를 dynamodb와 연계할 수 있는 Resolver를 변경 해보겠습니다. <b>AWS console > service > AppSync >Schema</b>에서 Resolvers중 **putPostWithPhoto(..)** 를 찾아 **Attach**를  누릅니다. 
+Now let's change the Resolver so that we can associate the newly added api with dynamodb. In <b> AWS console> service> AppSync> Schema </b>, find **putPostWithPhoto (..)** in Resolvers and click **Attach**.
 
 ![Example Service](/images/console-api-cr.png)
 
 
 
-Data source name에 **PostTable** 를 선택합니다. Configure the request mapping template은 **Put item with S3 ObjectPut** 를 선택하세요.  
+Select **PostTable** for Data source name. Select **Put item with S3 ObjectPut** for Configure the request mapping template.
 
 ![Example Service](/images/put_1.png)
 
-불러 온 템플릿의 key 부분을 아래와 같이 수정합니다. 소스로 부터 전달받은 id를 사용하겠다는 의미입니다. 
+Modify the key part of the loaded template as shown below. It means to use id received from source.
 
 ```bash
 "key" : {
@@ -108,9 +108,9 @@ Data source name에 **PostTable** 를 선택합니다. Configure the request map
     },
 ```
 
-Configure the response mapping template은 기존의 코드를 삭제하시고 아래와 같이 작성합니다. 
+Delete the existing code from 'Configure the response mapping template' and write as follows.
 
-그리고  **Save Resolver**을 눌러 저장합니다. 
+Then press **Save Resolver** to save.
 
 ```bash
 $util.toJson($util.dynamodb.fromS3ObjectJson($context.source.file))
@@ -121,11 +121,11 @@ $util.toJson($util.dynamodb.fromS3ObjectJson($context.source.file))
 
 ![Example Service](/images/put_2.png)
 
-안드로이드 스튜디오에서 res/raw/awsconfiguration.json 파일이 생성된 것을 확인하실 수 있습니다. 
+You can see that res /raw/awsconfiguration.json file is created in Android Studio.
 
 ![Example Service](/images/json-appsync.png)
 
-Amplify codegen을 통해 를 이용하여 생성된 코드를 안드로이드 프로젝트 폴더에 다운로드 합니다.   
+Download the generated code using Amplify codegen to your Android project folder.
 
 ```bash
 amplify codegen
@@ -133,14 +133,14 @@ amplify codegen
 
 
 
-실제 저장되는 저장공간인 S3에 버킷을 생성합니다. 
+Create a bucket in S3, which is the actual storage space.
 
-**AWS console > service > S3** 로 이동합니다. 
+Go to **AWS console> service> S3**.
 
-파란색 버튼 <b> 버킷만들기</b> 를 선택합니다. 
+Select the blue button <b> Create Bucket </b>.
 
-![Example Service](/images/bucket1.png)
+![Example Service](/images/bucket1_eng.png)
 
-버킷이름을 넣고 생성을 누르세요. 이때 버킷이름은 global하게 unique해야합니다. 
+Enter a bucket name and press **Create**. The bucket name must be globally unique.
 
-![Example Service](/images/bucket2.png)
+![Example Service](/images/bucket2_eng.png)

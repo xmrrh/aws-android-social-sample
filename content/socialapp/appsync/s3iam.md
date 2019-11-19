@@ -1,10 +1,10 @@
 ---
-title: "IAM 권한 주기"
+title: "IAM Role"
 chapter: false
 weight: 13
 ---
 
-Write 화면에서 작성된 게시물은 <b>AWS console > service > Dynamodb  </b> 에 생성된 table에 추가가 되어 있지 않습니다.  아래 로그로 인해 업로드 되지 않았는데요, 바로 S3에 대한 **AccessDenied**이 원인입니다.
+Posts made on the Write screen are not added to the table created in <b> AWS console> service> Dynamodb </b>. The log below was not uploaded due to **AccessDenied** for S3.
 
 ```verilog
 2019-09-04 11:13:55.305 8048-8081/com.example.socialandroidapp D/EGL_emulation: eglMakeCurrent: 0xe1005300: ver 3 0 (tinfo 0xe10036b0)
@@ -17,30 +17,30 @@ Write 화면에서 작성된 게시물은 <b>AWS console > service > Dynamodb  
 
 ```
 
-Amplify init으로 만들어진 IAM role이 있었습니다. 이 role에 S3 권한을 주어 해결할 수 있습니다. 
+There was an IAM role created with the Amplify init. This role can be solved by giving S3 permission.
 
-<b>AWS console > service > IAM > Role > 검색창에 aws-android-workshop-dev </b>를 눌러 **auth role**을 선택합니다. 
+<b> AWS console> service> IAM> Role> aws-android-workshop-dev </b> in the search box and select **auth role**.
 
-![Example Service](/images/iamauthrole.png)
+![Example Service](/images/iamauthrole_eng.png)
 
-권한탭에 **정책 연결**을 누르세요
+Press **Attach Policies** on the Permissions tab
 
-![Example Service](/images/permission1.png)
+![Example Service](/images/permission1_eng.png)
 
-필터 부분에 **S3**를 입력합니다. 검색된 내용중 **AmazonS3FullAccess**를 선택하신후 **정책 연결** 버튼을 누릅니다.
+Enter **S3** in the filter policies. Select **AmazonS3FullAccess** from the search results and click **Attach Policy**.
 
-![Example Service](/images/permission2.png)
+![Example Service](/images/permission2_eng.png)
 
-최종모습은 다음과 같습니다. 
+The final figure is as follows.
 
-![Example Service](/images/permission3.png)
+![Example Service](/images/permission3_eng.png)
 
-이제 다시 어플리케이션으로 돌아가서 **로그아웃 을 하신후 다시 로그인을 하신 후**, 글을 작성해 보시기 바랍니다.  
+Now go back to the application **logout and then log in again**, write a post.
 
-작성 후 다이나모 디비에 들어가 보시면 새로운 item이 추가 된것을 확인 하실 수 있습니다. 
+After posting, you can see the new item has been added to DynamoDB.
 
-![Example Service](/images/dynamodb.png)
+![Example Service](/images/dynamodb_eng.png)
 
-S3에도 마찬가지로 사진이 업로드 된것을 확인 하실 수 있습니다.  
+You can see the photo uploaded on S3 as well.
 
-![Example Service](/images/s3-upload.png)
+![Example Service](/images/s3-upload_eng.png)
