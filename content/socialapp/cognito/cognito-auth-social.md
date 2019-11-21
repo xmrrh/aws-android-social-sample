@@ -1,15 +1,14 @@
 ---
-title: "소셜 로그인 기능 구현하기"
+title: "Implementing social login"
 date: 2018-08-07T08:30:11-07:00
 weight: 12
 ---
 
-이번 실습에는 Cognito의 Hosted UI 기능을 사용해 페이스북 기반 소셜 로그인 기능을 구현해 보겠습니다. 
+In this tutorial, we will implement Facebook-based social login using Cognito's Hosted UI feature.
 
-Hosted UI를 이용하면 OAuth2 인증이 Server to Server로 에 진행되기 때문에 페이스북에서 제공하는 별도의 모바일 SDK를 설치하실 필요는 없습니다. 현재 Hosted UI를 이용해 인증 가능한 Identity Provider는 Facebook, Google, Amazon입니다.
+With Hosted UI feature, OAuth2 authentication is done between servers, so we do not need to install a mobile SDK provided by Facebook. Currently, supporting Identity Providers are Facebook, Google, and Amazon.
 
-
-아래 코드를 복사하여 Facebook 로그인을 위한 Hosted UI기능 추가를 위한 **_openFacebookLogin** 메소드를 완성해 봅니다.
+Copy the code below to complete the **_ openFacebookLogin** method for adding Hosted UI functionality for Facebook login.
 ```java
 // AuthMainActivity.java
 
@@ -45,7 +44,8 @@ public class AuthMainActivity extends AppCompatActivity {
 }
 ```
 
-다음으로, 소셜 인증 완료 후 호출된 callback 정보(**socialdemoapp://callback/**)을 감지하여 해당 이벤트를 처리하는 코드를 추가합니다. 실습에서는 해당 scheme 호출 시 앱 메인으로 이동하는 기능을 구현합니다.
+Next, add code to detect the callback(**socialdemoapp://callback/**) called after social authentication completes and handle the event. In the lab, the page will be move to main menu when the **scheme** is called.
+implement the function to move to the main activity when the **scheme** is called.
 ```xml
 <!-- AndroidManifest.xml -->
         <activity android:name=".AuthMainActivity"
@@ -85,25 +85,25 @@ public class AuthMainActivity extends AppCompatActivity {
 }
 ```
 
-안드로이드 스튜디오 프로젝트 상단에 **실행버튼** 을 눌러 이미 생성하신 에뮬레이터로 어플리케이션을 실행합니다.
+Press **Run** button at the top of your Android Studio IDE to run the application with the emulator you have already created.
 ![c9after](/images/run.png)
 
-아래와 같은 화면이 나오면 **페이스북으로 시작** 버튼을 눌러서 페이스북 로그인을 진행해 봅니다.
+When the following screen appears, press the **Start with Facebook** button to proceed with Facebook login.
 ![Example Service](/images/app-authmain.png)
 
-에뮬레이터에서 최초 실행할 경우 아래와 같은 페이스북 로그인 화면이 나오는 경우, 반드시 **이전 실습에서 만든 페이스북 개발자 계정** 정보를 입력합니다. **페이스북 앱이 개발모드로 설정되어 있어 다른 계정을 사용한 경우 '앱 설정 안 됨'이라는 오류 메시지가 나오고 로그인에 실패하게 됩니다.**
+When you first run it in the emulator, if you see the following Facebook login screen, be sure to enter the ** Facebook developer account ** information you created in the previous tutorial.
+**Since the Facebook app is in development mode, using a different account for login will cause the login to fail.**
 ![Example Service](/images/facebook-oauth2.png)
 
-로그인이 정상적으로 이루어진 경우 아래와 같은 앱 메인화면으로 이동하게 됩니다.
+If login is successful, the screen will be moved to the main page as shown below.
 ![Example Service](/images/app-main-init.png)
 
-Cognito Hosted UI를 통해 서버간 소셜 인증이 정상적으로 이루어진 경우, 다음과 같이 Cognito User Pool에 사용자의 정보가 저장되게 됩니다.
-저장된 사용자 정보 확인은 AWS Console > Cognito > General Settings > Users and groups에 Users 탭의 내용을 통해 확인하실 수 있습니다. (콘솔에서 사용자 정보를 하는데는 경우에 따라 1분 정도 시간이 소용되는 경우도 있습니다)
+If social authentication between servers is successful through the Cognito Hosted UI, the user's information will be registered in the Cognito User Pool. The newly registered user information will be provided in the **AWS Console> Cognito> General Settings> Users and groups**. In some cases, around 1 minute may be required to see the update in the web console.
 ![Example Service](/images/app-facebook-login-result.png)
 
-실습을 마무리 한 경우, 다음 실습을 위해 로그아웃을 진행합니다.
+After completing the lab, log out for the next tutorial.
 
-1. 앱 메인 화면의 SETTINGS 버튼을 선택
+1. Select the **SETTINGS** button on the app main screen
 ![Example Service](/images/app-main-empty.png)
-2. 앱 설정 화면의 LOGOUT 버튼을 선택
+2. Select the **LOGOUT** button on the app settings screen
 ![Example Service](/images/app-settings.png)

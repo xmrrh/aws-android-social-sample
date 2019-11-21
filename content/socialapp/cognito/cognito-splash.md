@@ -1,13 +1,12 @@
 ---
-title: "앱 시작 화면 만들기"
+title: "Creating a splash screen"
 date: 2018-08-07T08:30:11-07:00
 weight: 11
 ---
 
-이번 실습에서는 앱의 시작화면을 구성해 봅니다. 시작화면에서는 Cognito의 로그인 상태를 확인하는 코드가 추가가 됩니다. 기존 로그인 정보가 없는 경우는 로그인 메인 화면으로 이동하고, 로그인 정보가 있는 경우는 앱 메인 화면으로 이동합니다.
+In this tutorial, we will configure a splash page of the app. In the splash page, code is added to check the login status of Cognito. If there is no existing login information, move to the login main page, and if there is login information, move to the app main page.
 
-아래 코드 부분을 복사하여 **_initCognito** 메소드를 완성해 봅니다.
-
+Copy the code snippet below to complete the **_ initCognito** method.
 
 ```java
 // SplashActivity.java
@@ -56,12 +55,11 @@ public class SplashActivity extends AppCompatActivity {
     ...
 }
 ```
-
-안드로이드 스튜디오 프로젝트 상단에 **실행버튼** 을 눌러 이미 생성하신 에뮬레이터로 어플리케이션을 실행합니다.
+Press **Run** button at the top of your Android Studio IDE to run the application with the emulator you have already created.
 ![c9after](/images/run.png)
 
-앱이 정상 실행되면 로그인 여부를 확인하는 로직이 포함된 시작화면이 표시됩니다.
+If the app runs properly, you will see a splash screen. And login status checking logic runs in the background.
 ![Example Service](/images/app-splash.png)
 
-로그인 상태 확인이 정상적으로 완료된 경우에는 아래와 같은 인증 메인화면으로 이동하게 됩니다.
+If there is no login state, the page automatically will be moved to the login main page.
 ![Example Service](/images/app-authmain.png)

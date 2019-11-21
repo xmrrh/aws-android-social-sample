@@ -1,17 +1,17 @@
 ---
-title: "이메일 기반 회원 가입 기능 구현하기"
+title: "Implementing e-mail based signup"
 date: 2018-08-07T08:30:11-07:00
 weight: 13
 ---
 
-이번 실습에서는 이메일 기반 회원 가입 기능을 구현해 보겠습니다. 
+In this tutorial, we will implement email-based signup.
 
-실습 시작 전, AWS Conginto 관리 콘솔에 접근해 이메일이 로그인 방법으로 지정되어 있는지 확인해보도록 하겠습니다. AWS 관리 콘솔의 Attributes 항목의 내용이 아래 그림과 같이 설정되어 있는지 확인합니다. 
+Before starting the lab, we will access the AWS Conginto management console to verify that email is selected as the login method. Verify that the contents of the Attributes item in the AWS Management Console are set up as shown below.
 ![Example Service](/images/auth-cognito-email-setting.png)
 
-이제 단계별로 이메일 기반 회원 가입을 위한 코드를 완성해 보겠습니다.
+Now let's step through the code for email-based signup.
 
-1. 입력받은 이메일, 비밀번호를 이용해 회원 가입을 진행. <br>아래 코드를 복사하여 회원 가입을 위한 **signUp** 메소드를 완성합니다. signUp 메소드에서는 입력받은 이메일과 비밀번호로 Cognito user pool에 새로운 사용자를 추가합니다. 사용자 정보가 정상 등록된 경우에는 사용자 이메일 인증을 위한 SignUpConfirmFragment로 화면을 전환합니다.
+1. Sign up using the email and password. <br>Copy the code below to complete the **signUp** method for signing up. The signUp method adds a new user to the Cognito user pool with the email and password entered. If the user information is registered properly, the screen switches to SignUpConfirmFragment for user email authentication.
 ```java
 // SignUpActivity.java
 public class SignUpActivity extends FragmentActivity
@@ -58,7 +58,7 @@ public class SignUpActivity extends FragmentActivity
 }
 ```
 
-2. 이메일 인증. <br>1 단계에서 회원가입에 성공한 경우 이메일로 인증 코드가 발송됩니다. 아래 코드를 복사하여 이메일과 인증코드를 입력받아 회원 가입 단계를 마무리하는 **confirmSignUp** 메소드를 완성합니다.
+2. Email verification. <br>If you successfully signed up in Step 1, you will receive a verification code by email. Copy the code below to complete the **confirmSignUp** method, which completes the signup phase by entering the verification code received from the email.
 ```java
 // SignUpActivity.java
 public class SignUpActivity extends FragmentActivity
@@ -103,7 +103,7 @@ public class SignUpActivity extends FragmentActivity
 
 ```
 
-3. 자동 로그인. <br>이메일 인증이 완료된 경우, 가입 단계에서 사용한 이메일과 비밀번호를 이용하여 자동 로그인 기능을 수행하는 **_signIn** 함수를 완성합니다. 
+3. Auto-Login. <br>Once email verification is complete, complete the **_ signIn** function, which performs an automatic login using the email and password we used during the sign up phase.
 ```java
 // SignUpActivity.java
 public class SignUpActivity extends FragmentActivity
@@ -154,33 +154,33 @@ public class SignUpActivity extends FragmentActivity
 
 ```
 
-이제 작성한 코드를 실행해 보도록 하겠습니다.
+Now let's run the code.
 
-안드로이드 스튜디오 프로젝트 상단에 **실행버튼**을 눌러 에뮬레이터로 어플리케이션을 실행합니다.
+Press **Run** button at the top of your Android Studio IDE to run the application with the emulator you have already created.
 ![c9after](/images/run.png)
 
-아래와 같은 화면이 나오면 **회원가입** 텍스트를 눌러서 이메일 기반 회원 가입 메뉴로 이동합니다.
+When the following screen appears, click the **Sign up** text to go to the email-based sign up menu.
 ![Example Service](/images/app-authmain.png)
 
-아래와 같은 화면이 나오면 이메일과 비밀번호를 입력하여 회원 가입을 진행합니다. 이메일 인증 과정이 필수로 적용되어 있기 때문에 수신 가능한 이메일 계정을 사용해주시기 바랍니다.
+When the following screen appears, enter your email and password to register. Please use a valid email account because an email verification process is required.
 ![Example Service](/images/app-signup.png)
 
-이메일 수신함을 확인하여 Cognito 서비스에서 발송된 인증 코드를 확인합니다.
+Check your email inbox to see the verification code sent by the Cognito service.
 ![Example Service](/images/auth-email-verfication.png)
 
-인증코드 입력화면에서 이메일로 전달 받은 인증코드를 입력합니다.
+In the verification code input screen, enter the verification code delivered by email.
 ![Example Service](/images/app-email-verification.png)
 
-회원가입이 정상적으로 이루어진 경우 아래와 같은 앱 메인화면으로 이동하게 됩니다.
+If registration is successful, the page will be moved to the main screen of the app.
 ![Example Service](/images/app-main-empty.png)
 
-가입된 사용자 정보는 AWS 관리 콘솔의 Cognito 메뉴를 통해 확인 가능합니다.
+Registered user information can be found through the Cognito menu in the AWS Management Console.
 ![Example Service](/images/auth-cognito-email-user.png)
 
 
-실습을 마무리 한 경우, 다음 실습을 위해 로그아웃을 진행합니다.
+After completing the lab, log out for the next tutorial.
 
-1. 앱 메인 화면의 SETTINGS 버튼을 선택
+1. Select the **SETTINGS** button on the app main screen
 ![Example Service](/images/app-main-empty.png)
-2. 앱 설정 화면의 LOGOUT 버튼을 선택
+2. Select the **LOGOUT** button on the app settings screen
 ![Example Service](/images/app-settings.png)
