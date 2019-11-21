@@ -124,7 +124,22 @@ private static PinpointManager pinpointManager;
   ...
 }
 ```
+Import the required class. If you need more classes, import the classes using the Option & Enter or Alt & Enter key combinations as before.
 
+```java
+ import com.amazonaws.mobileconnectors.pinpoint.PinpointConfiguration;
+ import com.amazonaws.mobileconnectors.pinpoint.PinpointManager;
+ import android.content.Context;
+ import com.amazonaws.mobile.config.AWSConfiguration;
+ import com.amazonaws.mobile.client.UserStateDetails;
+ import com.amazonaws.mobile.client.Callback;
+ import com.amazonaws.mobile.client.AWSMobileClient;
+ import com.google.android.gms.tasks.OnCompleteListener;
+ import com.google.android.gms.tasks.Task;
+ import com.google.firebase.iid.FirebaseInstanceId;
+ import com.google.firebase.iid.InstanceIdResult;
+
+```
 
 
 Initialize it using the getPinpointManager function you just created in the onCreate function of MainActivity.

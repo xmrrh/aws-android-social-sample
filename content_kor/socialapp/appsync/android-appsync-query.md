@@ -37,6 +37,7 @@ onResume()에 아래와 같이 queryList()를 호출하도록 코드를 추가�
 
 queryList() 함수와 필요한 쿼리 결과를 얻어오는 콜백함수를 아래와 같이 추가합니다.
 
+
 ```java
     private PostAdapter mAdapter;
 
@@ -74,9 +75,10 @@ public void queryList() {
         }
     };
 ```
+필요한 class들을 import합니다. Android Studio에서 import가 필요한 구문에는 붉은 색으로 에러를 표시합니다. 해당 위치에 커서를 옮기시고, [MAC] option 키와 Enter키 ( [Window] Alt 키와 Enter 키) 를 동시에 누른 후 import class 를 선택하시면 자동으로 필요한 class가 import됩니다. 
 
-
-
+<img src="/images/optionenter.png" width="80%" hight="80%">
+<img src="/images/importclass.png" width="80%" hight="80%">
 
 
 List는 RecyclerView를 통해 listup됩니다. RecyclerView에서 사용할 PostAdapter class를 생성합니다.  
