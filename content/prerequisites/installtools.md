@@ -1,14 +1,14 @@
 ---
 title: "Install Android Tools"
 chapter: false
-weight: 22
+weight: 21
 ---
 
 
 
-Java SDK, Android SDK, and Android Studio are required. If you need to install them, please install each one through the link below.
+**Java SDK, Android SDK, and Android Studio are required.** If you need to install them, please install each one through the link below.
 
-** Note that Android SDK and AVD versions are not important. **
+**Note that Android SDK and AVD versions are not important.**
 
 #### Java SDK Install
 

@@ -4,13 +4,13 @@ chapter: false
 weight: 32
 ---
 
-Start **Android Studio**.
+Run the **Android Studio**.
 
-Select **Open an existing Android Studio project**.
+Selete **Open an existing Android Studio project**.
 
 ![c9after](/images/openproject.png)
 
-Select the downloaded source directory.
+Choose the downloaded source directory.
 
 When the project is created, it should look like the following. Make sure there are no issues with your build
 ![c9after](/images/openprojectandbuild.png)

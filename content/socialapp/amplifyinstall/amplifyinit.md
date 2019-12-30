@@ -10,16 +10,15 @@ Move to the root directory of the downloaded sample app and initialize the Ampli
 cd aws-android-workshop/
 amplify init
 ```
+Press **Enter** to accept the default project name
 
-Enter **Enter** for the project name to use default
+For the name of the environment you can either choose the name of the operating system you are working on or the environments such as dev, local or production. Enter **dev** for the environment name.
 
-The environment is **dev**,
+Select a convenient one for the default editor. ( For example,  **vim** ).
 
-The editor chooses a convenient one. ( For example,  **vim** ).
+Choose **Android** when prompted
 
-The OS type is **Android**
-
-For res directory, type **Enter** to use default.
+**Accept** the default values for res directory.
 
 Choose to use AWS Profile (<b> Y </b>) and select the profile you have already created. **us-east-1-profile**
 

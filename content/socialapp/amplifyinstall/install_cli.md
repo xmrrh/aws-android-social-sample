@@ -6,8 +6,7 @@ weight: 1
 
 AWS Amplify makes it easy to create, configure, and implement scalable mobile and web apps based on AWS.  AWS Amplify provisions and manages backends for mobile applications.
 
-Simply select the features you need, such as authentication, analytics, and offline data synchronization, and Amplify automatically provisions and manages the AWS services that provide each. Simply select the features you need, such as authentication, analytics, and offline data synchronization, and Amplify automatically provisions and manages the AWS services that provide each.
-
+Simply select the features you need, such as authentication, analytics, and offline data synchronization, and Amplify automatically provisions and manages the AWS services that provide each. 
 
 Use npm to install the Amplify CLI. If npm is not installed
 
@@ -36,18 +35,16 @@ Configure Amplify.
 amplify configure 
 ```
 
-The way to configure amplify is
-
-First the aws console login screen leads to the browser. **Log in** and type **Enter**.
+This command will ask you to login to AWS console account with your login credentials by opening a new browser window. Once logged in, go back to terminal window and press **enter** to continue, again.
 
 This workshop region is us-east-1. Enter **us-east-1** as the Default Region.
 
-In User name, enter the IAM user you want to create.
+In User name, enter the IAM user you want to create. 
 
 
 ![Create User](/images/amplify-configure-1.png)
 
-Go to the Add user screen of the aws console through the logged in browser.
+On entering the username, press **enter** and it will open AWS console again in a browser window for you to add a user.
 
 ![Example Service](/images/adduser-1.png)
 
