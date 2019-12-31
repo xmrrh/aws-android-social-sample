@@ -4,7 +4,7 @@ chapter: false
 weight: 13
 ---
 
-Posts made on the Write screen are not added to the table created in <b> AWS console> service> Dynamodb </b>. The log below was not uploaded due to **AccessDenied** for S3.
+Posts made on the Write screen are not added to the table created in <b> AWS console> service> Dynamodb </b>. The Error log like below. It means upload fail due to **AccessDenied** for S3.
 
 ```verilog
 2019-09-04 11:13:55.305 8048-8081/com.example.socialandroidapp D/EGL_emulation: eglMakeCurrent: 0xe1005300: ver 3 0 (tinfo 0xe10036b0)

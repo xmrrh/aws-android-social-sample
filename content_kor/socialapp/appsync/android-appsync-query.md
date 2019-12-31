@@ -75,7 +75,21 @@ public void queryList() {
         }
     };
 ```
-필요한 class들을 import합니다. Android Studio에서 import가 필요한 구문에는 붉은 색으로 에러를 표시합니다. 해당 위치에 커서를 옮기시고, [MAC] option 키와 Enter키 ( [Window] Alt 키와 Enter 키) 를 동시에 누른 후 import class 를 선택하시면 자동으로 필요한 class가 import됩니다. 
+필요한 class들을 import합니다. 
+
+```java
+import com.amazonaws.amplify.generated.graphql.ListPostsQuery;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+import java.util.ArrayList;
+import javax.annotation.Nonnull;
+import type.ModelSortDirection;
+
+```
+
+Android Studio에서 import가 필요한 구문에는 붉은 색으로 에러를 표시합니다. 해당 위치에 커서를 옮기시고, [MAC] option 키와 Enter키 ( [Window] Alt 키와 Enter 키) 를 동시에 누른 후 import class 를 선택하시면 자동으로 필요한 class가 import됩니다. 
 
 <img src="/images/optionenter.png" width="80%" hight="80%">
 <img src="/images/importclass.png" width="80%" hight="80%">
@@ -204,6 +218,8 @@ RecyclerView에서 사용할 PostAdapter를 생성하여 연동합니다.
 MainActivity.java의 onCreate()함수 아랫부분에 아래와 같이 작성해주세요
 
 ```java
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 protected void onCreate(Bundle savedInstanceState) {
   ...
     mAdapter = new PostAdapter(getApplicationContext());

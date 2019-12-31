@@ -57,8 +57,14 @@ Write the function responsible for the actual translation under the **bindData (
 
     }
 ```
+Import the required class.
 
-Press **Attach Policies** on the Permissions tab.
+```java
+import com.amazonaws.services.translate.AmazonTranslateAsyncClient;
+import com.amazonaws.services.translate.model.TranslateTextRequest;
+import com.amazonaws.services.translate.model.TranslateTextResult;
+import com.amazonaws.handlers.AsyncHandler;
+```
 
 Press **Run** at the top of your Android Studio project to run the application with the emulator you have already created.
 

@@ -58,8 +58,14 @@ void bindData(final ListPostsQuery.Item item) {
     }
 ```
 
-권한탭에 **정책 연결**을 누르세요
+Import the required class.
 
+```java
+import com.amazonaws.services.translate.AmazonTranslateAsyncClient;
+import com.amazonaws.services.translate.model.TranslateTextRequest;
+import com.amazonaws.services.translate.model.TranslateTextResult;
+import com.amazonaws.handlers.AsyncHandler;
+```
 안드로이드 스튜디오 프로젝트 상단에 **실행버튼** 을 눌러 이미 생성하신 에뮬레이터로 어플리케이션을 실행합니다.
 ![c9after](/images/run.png)
 

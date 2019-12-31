@@ -6,7 +6,7 @@ weight: 10
 
 
 
-Add api using Amplify.  
+From the workshop directory, run **amplify add api** using Amplify.  
 
 ```bash
 amplify add api 
@@ -20,17 +20,17 @@ Input the value by referring to the picture below. Choose **Amazon Cognito User 
 
 You will be prompted to enter the schema in progress. The **editor** you set during amplify init will automatically appear during the schema entry process.
 
-**Windows** users often do not have an editor of their choice. If there is no editor, amplify add api is terminated without the schema input window. In this case, go to the path shown in the console message and open the file with the editor.
+If you didn't choose the editor duing 'amplify init', amplify add api prompt is terminated without the schema input window. In this case, go to the path shown in the console message and open the file with your editor.
 
-Example :  amplify\backend/api/awsandroidworkshop/schema.graphql
+Example :  amplify/backend/api/awsandroidworkshop/schema.graphql
 
 
 
-The editor that enters the schema comes pre-filled with the **ToDo** schema. This is a sample schema. **Delete** all of them and replace with the schema below.
+Your editor will be pre-filled with the **ToDo** schema. This is a sample schema. **Delete** all of them and replace with the schema below.
 
 The schema uses the following values: 
 
-Use @model to automatically create DynamoDB tables, AppSync DataSources, IAM roles, AppSync Resolvers, and more. Generate a partition and sort key for DynamoDB by @key. In other words, we will sort Post with ID ("DEV-DAY") by upload time.
+Use @model to automatically create DynamoDB tables, AppSync DataSources, IAM roles, AppSync Resolvers, and more. Generate a partition and sort key for DynamoDB by @key. We will sort Post by upload time.
 
 ```bash
 
@@ -70,7 +70,7 @@ type Mutation {
   }
 ```
 
-When 'amplify add api' is completed, push to create cloud resource.
+When 'amplify add api' is completed, push to create a cloud resource.
 
 ```bash
 amplify push

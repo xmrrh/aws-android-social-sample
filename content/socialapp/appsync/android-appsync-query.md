@@ -5,7 +5,7 @@ date: 2018-08-07T08:30:11-07:00
 weight: 20
 ---
 
-Now we will list up the posts posted by the user on the main screen.
+Now we will list up posts posted by the user on the main screen.
 
 In the onCreate function of MainActivity.java, create an AWSAppSyncClient using the ClientFactory.
 
@@ -74,7 +74,21 @@ public void queryList() {
         }
     };
 ```
-Import the necessary classes. In Android Studio, syntax that requires import displays an error in red. Move the cursor to the location, press the [MAC] option key and the Enter key ([Window] Alt key and Enter key) at the same time and select the import class. The required class is automatically imported.
+
+Import the required class.
+
+```java
+import com.amazonaws.amplify.generated.graphql.ListPostsQuery;
+import com.amazonaws.mobileconnectors.appsync.fetcher.AppSyncResponseFetchers;
+import com.apollographql.apollo.GraphQLCall;
+import com.apollographql.apollo.api.Response;
+import com.apollographql.apollo.exception.ApolloException;
+import java.util.ArrayList;
+import javax.annotation.Nonnull;
+import type.ModelSortDirection;
+
+```
+Note : In Android Studio, syntax that requires import displays an error in red. Move the cursor to the location, press the [MAC] option key and the Enter key ([Window] Alt key and Enter key) at the same time and select the import class. The required class is automatically imported.
 
 <img src="/images/optionenter.png" width="80%" hight="80%">
 <img src="/images/importclass.png" width="80%" hight="80%">
@@ -203,6 +217,8 @@ Create and link PostAdapter for RecyclerView.
 Write the following at the bottom of onCreate () function of MainActivity.java
 
 ```java
+import androidx.recyclerview.widget.LinearLayoutManager;
+
 protected void onCreate(Bundle savedInstanceState) {
   ...
     mAdapter = new PostAdapter(getApplicationContext());
