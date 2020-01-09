@@ -59,7 +59,6 @@ Now let's run the code.
 Press **Run** button at the top of your Android Studio IDE to run the application with the emulator you have already created.
 ![c9after](/images/run.png)
 
-아래와 같은 화면이 나오면 **이메일로 로그인** 텍스트를 눌러서 이메일 기반 로그인 메뉴로 이동합니다.
 When the following screen appears, click the **Email login** text to go to the email-based login menu.
 ![Example Service](/images/app-authmain.png)
 

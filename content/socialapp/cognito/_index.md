@@ -6,4 +6,4 @@ weight: 3
 
 # Authenticating users with Cognito
 
-In this Chapter, we will implement a user authentication service with Amazon Cognito. The lab consists of social authentication via Facebook and authentication via e-mail.
+In this chapter, we will implement a user authentication service with Amazon Cognito. The lab consists of social authentication via e-mail.

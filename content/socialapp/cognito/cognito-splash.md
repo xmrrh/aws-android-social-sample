@@ -4,7 +4,7 @@ date: 2018-08-07T08:30:11-07:00
 weight: 11
 ---
 
-In this tutorial, we will configure a splash page of the app. In the splash page, code is added to check the login status of Cognito. If there is no existing login information, move to the login main page, and if there is login information, move to the app main page.
+In this tutorial, we will configure a splash page of the app. On the splash page, code is added to check the login status. If there is no existing login information, the page will be moved to the **LOGIN MAIN** page, and if there is login information, the page will be moved to the **APP MAIN** page.
 
 Copy the code snippet below to complete the **_ initCognito** method.
 
@@ -58,8 +58,8 @@ public class SplashActivity extends AppCompatActivity {
 Press **Run** button at the top of your Android Studio IDE to run the application with the emulator you have already created.
 ![c9after](/images/run.png)
 
-If the app runs properly, you will see a splash screen. And login status checking logic runs in the background.
+If the app runs properly, you will see a splash screen. And login status checking logic will be run in the background.
 ![Example Service](/images/app-splash.png)
 
-If there is no login state, the page automatically will be moved to the login main page.
+If there is no login state, the page automatically will be moved to the **LOGIN MAIN** page.
 ![Example Service](/images/app-authmain.png)

@@ -4,10 +4,10 @@ date: 2018-08-07T08:30:11-07:00
 weight: 13
 ---
 
-In this tutorial, we will implement email-based signup.
+In this tutorial, we will implement email-based signup with client APIs provided by AWSMobileClient.
 
-Before starting the lab, we will access the AWS Conginto management console to verify that email is selected as the login method. Verify that the contents of the Attributes item in the AWS Management Console are set up as shown below.
-![Example Service](/images/auth-cognito-email-setting.png)
+Before starting the lab, we need to access the AWS Conginto management console to verify that email is selected as the login method. Verify that the contents of the Attributes item in the AWS Management Console are set up as shown below.
+![Example Service](/images/amplify-auth-congito-attr.png)
 
 Now let's step through the code for email-based signup.
 
@@ -171,8 +171,8 @@ Check your email inbox to see the verification code sent by the Cognito service.
 In the verification code input screen, enter the verification code delivered by email.
 ![Example Service](/images/app-email-verification.png)
 
-If registration is successful, the page will be moved to the main screen of the app.
-![Example Service](/images/app-main-empty.png)
+If registration is successful, the page will be moved to the main screen of the app. On the first run, if a permission check dialog box appears, click ** ALLOW **.
+![Example Service](/images/app-main-init.png)
 
 Registered user information can be found through the Cognito menu in the AWS Management Console.
 ![Example Service](/images/auth-cognito-email-user.png)
