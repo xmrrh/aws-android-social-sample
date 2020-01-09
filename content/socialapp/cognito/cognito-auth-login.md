@@ -60,7 +60,7 @@ Press **Run** button at the top of your Android Studio IDE to run the applicatio
 ![c9after](/images/run.png)
 
 When the following screen appears, click the **Email login** text to go to the email-based login menu.
-![Example Service](/images/app-authmain.png)
+![Example Service](/images/amplify-auth-login-main.png)
 
 Log in with the user information used in the previous tutorial.
 ![Example Service](/images/app-login.png)

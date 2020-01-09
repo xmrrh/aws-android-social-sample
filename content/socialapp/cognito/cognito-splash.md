@@ -59,7 +59,7 @@ Press **Run** button at the top of your Android Studio IDE to run the applicatio
 ![c9after](/images/run.png)
 
 If the app runs properly, you will see a splash screen. And login status checking logic will be run in the background.
-![Example Service](/images/app-splash.png)
+![Example Service](/images/amplify-auth-splash.png)
 
 If there is no login state, the page automatically will be moved to the **LOGIN MAIN** page.
-![Example Service](/images/app-authmain.png)
+![Example Service](/images/amplify-auth-login-main.png)

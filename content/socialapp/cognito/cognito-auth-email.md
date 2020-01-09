@@ -159,8 +159,8 @@ Now let's run the code.
 Press **Run** button at the top of your Android Studio IDE to run the application with the emulator you have already created.
 ![c9after](/images/run.png)
 
-When the following screen appears, click the **Sign up** text to go to the email-based sign up menu.
-![Example Service](/images/app-authmain.png)
+When the following screen appears, click the **Sign up** text to move to the email-based sign up menu.
+![Example Service](/images/amplify-auth-login-main.png)
 
 When the following screen appears, enter your email and password to register. Please use a valid email account because an email verification process is required.
 ![Example Service](/images/app-signup.png)
