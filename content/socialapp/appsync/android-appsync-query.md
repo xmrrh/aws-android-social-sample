@@ -7,7 +7,7 @@ weight: 20
 
 Now we will list up posts posted by the user on the main screen.
 
-In the onCreate function of MainActivity.java, create an AWSAppSyncClient using the ClientFactory.
+In the onCreate function of **MainActivity.java**, create an AWSAppSyncClient using the ClientFactory.
 
 Copy ClientFactory.appSyncInit (...) into onCreate () function as below.
 
@@ -214,7 +214,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.Holder> {
 
 Create and link PostAdapter for RecyclerView.
 
-Write the following at the bottom of onCreate () function of MainActivity.java
+Write the following at the bottom of onCreate () function of **MainActivity.java**.
 
 ```java
 import androidx.recyclerview.widget.LinearLayoutManager;

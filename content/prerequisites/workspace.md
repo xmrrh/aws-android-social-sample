@@ -19,7 +19,7 @@ Press **Run button** at the top of your Android Studio project to run it with th
 ![c9after](/images/run.png)
 
 It looks like this: 
-![c9after](/images/emul.png)
+![c9after](/images/amplify-auth-splash.png)
 
 You are now ready for the lab. Now let's complete the features one by one using AWS services.
 

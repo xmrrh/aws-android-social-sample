@@ -6,7 +6,7 @@ weight: 13
 ---
 
 Add dependency to build.gradle (Module: app) as shown below.
-
+And press **sync**.
 ```xml
 dependencies {
 ...
@@ -15,7 +15,7 @@ dependencies {
 }
 ```
 
-The TRANSLATE button is located on each post. Registers a button click event and listener in bindData () of PostAdapter for translation when the TRANSLATE button is pressed.
+The TRANSLATE button is located on each post. Registers a button click event and listener in bindData () of **PostAdapter.java** for translation when the TRANSLATE button is pressed.
 
 ```java
 void bindData(final ListPostsQuery.Item item) {

@@ -133,7 +133,7 @@ public class ClientFactory {
 
 ```
 
-Create an AWSAppSyncClient using the ClientFactory created above in the onCreate function of WriteActivity.java. 
+Create an AWSAppSyncClient using the ClientFactory created above in the onCreate function of **WriteActivity.java**. 
 
 Add ClientFactory.appSyncInit (..) to onCreate () as shown below.
 
@@ -150,7 +150,7 @@ Add ClientFactory.appSyncInit (..) to onCreate () as shown below.
 
 
 
-Add the **addComment** function to WriteActivity.java. Pressing the **DONE** button calls the addComment function, which uploads the post to the repository. Copy and paste the source and replace the <b> putYourBucketName variable with <span style = "color: red"> your S3 bucket name </span> </b>
+Add the **addComment** function to **WriteActivity.java**. Pressing the **DONE** button calls the addComment function, which uploads the post to the repository. Copy and paste the source and replace the <b> putYourBucketName variable with <span style = "color: red"> your S3 bucket name </span> </b>
 
 ```java
      //appsync upload
@@ -262,7 +262,7 @@ Press **Run button** at the top of your Android Studio project to run the applic
 
 The executed screen is as follows.
 
-![c9after](/images/signin_eng.png)
+![c9after](/images/amplify-auth-login-main.png)
 
 When you log in, you will see an empty list screen as shown below.
 
