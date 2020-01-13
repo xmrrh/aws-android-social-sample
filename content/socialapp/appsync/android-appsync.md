@@ -228,16 +228,18 @@ import android.util.Log;
 
 
 This function can be called on saveBtn's onClick event.
-Delete the existing code, WriteActivity.this.finish (), and add addComment () instead.
+Add saveBtn.setOnClickListener like below. 
 
 ```java
   @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.write);
-        //appsync
-        ClientFactory.appSyncInit(getApplicationContext());        
+    
         ...
+        uploadBtn.setOnClickListener(new View.OnClickListener() {
+        ...
+        });
+        
+        //add
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,13 +247,10 @@ Delete the existing code, WriteActivity.this.finish (), and add addComment () in
                     Toast.makeText(getApplicationContext(), getString(R.string.warning_picture), Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                //WriteActivity.this.finish();
                 addComment();
 
             }
         });
-        ...
   }
 ```
 

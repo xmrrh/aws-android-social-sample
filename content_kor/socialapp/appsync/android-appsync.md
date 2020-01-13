@@ -227,16 +227,18 @@ import android.util.Log;
 
 이 함수는 onCreate함수의 saveBtn에 onClick event시 호출될 수 있도록 합니다. 
 
-기존의 코드인 WriteActivity.this.finish() 는 지우시고, 그자리에 addComment()를 넣으세요.
+saveBtn.setOnClickListener를 **onCreate()** 맨 아래에  추가합니다. 
 
 ```java
   @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.write);
-        //appsync
-        ClientFactory.appSyncInit(getApplicationContext());        
+    
         ...
+        uploadBtn.setOnClickListener(new View.OnClickListener() {
+        ...
+        });
+        
+         //add
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,13 +246,11 @@ import android.util.Log;
                     Toast.makeText(getApplicationContext(), getString(R.string.warning_picture), Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                //WriteActivity.this.finish();
                 addComment();
 
             }
         });
-        ...
+        
   }
 ```
 
